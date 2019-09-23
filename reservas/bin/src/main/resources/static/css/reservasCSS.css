@@ -67,18 +67,42 @@ legend {
 /**
 * CSS PARA INICIO Y PERFIL REALIZADO POR JOSE MANUEL TERRERO
 */
-.listaAulas{
-    list-style: none;
+ul li{
+ list-style: none;
 }
-
 a:visited, a:active, a:link, a:hover{
-    text-decoration: none;
+ text-decoration: none;
 }
-
 .lista{
-    margin: 0 auto;
+ margin: 0 auto;
 }
-
-button{
-    width: 100%;
+.perfil{
+ border: 2px solid black;
+ width: 80%;
+ margin: 2%;
+ margin-left: 10%;
+}
+.contenido{
+ height: 490px;
+}
+.columna{
+ margin-left: 5%;
+ width: 45%;
+ float: left;
+}
+.inside{
+ margin: 3px;
+}
+#nombre, #username, #fecha, #telefono, #apellidos, #password, #correo, #centro, #edit {
+    margin: 3px;
+    border: 2px solid black;
+}
+input:focus{
+ outline: 0px;
+}
+#edit, #borrarReserva{
+ width: 100%;
+}
+#volver{
+ width: 5%;
 }

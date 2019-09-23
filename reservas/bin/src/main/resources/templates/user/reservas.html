@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="pagEstaticas/head :: headFragment (titulo='Reservar')">>
+    <body>
+        <nav th:replace="user/navegadorUsuario :: navegadorUsuario"></nav>
+        <div class="container-fluid mt-4">
+            <div class="col-12">
+                <h1 class="display-3"></h1>
+
+            </div>
+            <aside class="col-md-6 col-12 col-lg-4 float-left">
+               
+                <div class="col-12">
+                    <form class="border border-0 " th:action="@{/user/reservar/semana}" th:object="${formbeanFecha}" method="post">
+                        <div class="col-12 form-group float-left p-0">
+                            <input type='text' placeholder="Selecciona una fecha" class="col-11 datepicker float-left" id="cal" th:field="*{fecha}" data-date-format="dd/mm/yyyy"/>
+                            
+                            
+                        </div>
+                        
+                        <input type="submit" value="Buscar" class="btn btn-danger">
+                    </form>
+                </div>
+                
+            </aside>
+            <section class="col-md-6 col-12 col-lg-8 float-left">
+                <div th:if="${semana!= null}" class="col-12 m-0 p-0 b-0">
+                    <table class="table table-bordered m-0">
+                        <thead>
+                            <tr class="bg-dark text-white">
+                                <th></th>
+                                <th>LUNES</th>
+                                <th>MARTES</th>
+                                <th>MIÉRCOLES</th>
+                                <th>JUEVES</th>
+                                <th>VIERNES</th>
+                                <th>SÁBADO</th>
+                                <th>DOMINGO</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th class="bg-warning">HORAS</th>
+                                <th:block th:each="f : ${semana}">
+                                <th th:text="${#temporals.format(f, 'dd/MM/yyyy')}">xx/xx/xxxx</th>
+                            </th:block>
+                        </tr>
+                        <tr th:each="h : ${horas}" >
+                            <td th:text="${h.descripcion}" class="bg-dark text-white"></td>
+                            
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+    
+</body>
+</html>
