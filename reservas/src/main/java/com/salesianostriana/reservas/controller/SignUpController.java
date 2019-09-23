@@ -14,17 +14,31 @@ import com.salesianostriana.reservas.service.UsuarioServicio;
 public class SignUpController {
 	@Autowired
 	UsuarioServicio s;
+	
+	private boolean errorEmailSignUp = true;
+	
 	@GetMapping("/signup")
-    public String getRegistro(Model model) {
-        model.addAttribute("usuario", new Usuario());
-        return "pagEstaticas/Sign Up";
-    }
-    
-    @PostMapping("/signup/submit")
-    public String procesarRegistro(@ModelAttribute("usuario") Usuario a) {
-        BCryptPasswordEncoder p = new BCryptPasswordEncoder();
-        a.setPassword(p.encode(a.getPassword()));
-        s.save(a);
-        return "redirect:/";
-    }
+	public String getRegistro(Model model) {
+		model.addAttribute("usuario", new Usuario());
+		if (errorEmailSignUp) {
+            model.addAttribute("errorEmail", errorEmailSignUp);
+            errorEmailSignUp=false;
+        }
+		return "pagEstaticas/Sign Up";
+	}
+	
+	@PostMapping("/signup/submit")
+	public String procesarRegistro(@ModelAttribute("usuario") Usuario a) {
+		
+		 if (s.comprobarEmail(a.getEmail())) {
+	            errorEmailSignUp = true;
+	            return "redirect:/signup";
+	        } else {
+	            errorEmailSignUp = false;
+	            BCryptPasswordEncoder encriptar=new BCryptPasswordEncoder();
+	            a.setPassword(encriptar.encode(a.getPassword()));
+	            s.save(a);
+	            return "redirect:/";
+	        }
+	}
 }
