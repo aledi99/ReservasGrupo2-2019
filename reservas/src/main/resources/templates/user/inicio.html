@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="pagEstaticas/head :: headFragment (titulo='Inicio')">
+<body>
+   <nav th:replace="user/navegadorUsuario :: navegadorUsuario"></nav>
+
+    <h1 class="display-3 text-center mt-4">Listas de Aulas</h1>
+    <div class="lista w-50 text-center">
+        <ul class="">
+            <li class="listaAulas" th:each="aula : ${listAulas}">
+            	<a href="#" th:text="${aula.nombre}">1º Dam</a>
+            </li>
+
+        </ul>
+    </div>
+
+</body>
+
+</html>

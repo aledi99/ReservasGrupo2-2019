@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+
+</head>
+<body>
+	<!--nav-->
+	<nav th:fragment="navegadorUsuario" class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="../user/inicio.html" th:href="@{/user/inicio}"> <img
+			class="img-fluid" src="../Logo-horizontal-segundo-nivel.png"
+			th:src="@{/img/Logo-horizontal-segundo-nivel.png}" th:alt="|Salesianos Triana- Inicio|" alt="Salesianos Triana - Inicio">
+			<h5 class="d-inline">Salesianos Triana</h5>
+		</a>
+		<button class="navbar-toggler d-lg-none" type="button"
+			data-toggle="collapse" data-target="#collapsibleNavId"
+			aria-controls="collapsibleNavId" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="collapsibleNavId">
+			<div class="row w-100">
+				<!--AQUÍ HACER CLASS= COL- -->
+					<form class="border border-0" th:action="@{/logout}" method="POST" id="logoutForm">
+						<a href="#" onclick="enviar('logoutForm')" class="float-right">
+							<button type="button" class="btn btn-danger btn ml-2 ">Desconectar</button>
+						</a>
+					</form>
+					
+					<a href="../user/perfil.html" th:href="@{/user/perfil}" class="float-right">
+						<button type="button" class="btn">
+							<span> Perfil </span>
+						</button>
+					</a>
+					<a href="../user/inicio.html" th:href="@{/user/inicio}" class="float-right">
+						<button type="button" class="btn">
+							<span> Inicio </span>
+						</button>
+					</a>
+			</div>
+		</div>
+
+	</nav>
+	<!--Fin del nav-->
+</body>
+</html>

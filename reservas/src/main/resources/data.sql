@@ -1,0 +1,2 @@
+insert into USUARIO (id, email, password, nombre, apellidos, admin, gestionado) values (NEXTVAL('hibernate_sequence'), 'usuario@usuario.com', '1234', 'Miguel', 'Campos Rivera', false, true);
+insert into USUARIO (id, email, password, nombre, apellidos, admin, gestionado) values (NEXTVAL('hibernate_sequence'), 'admin@admin.com', 'admin', 'Luis Miguel', 'López Magaña', true, true);

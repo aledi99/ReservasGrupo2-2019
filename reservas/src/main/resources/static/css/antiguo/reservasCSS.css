@@ -1,0 +1,143 @@
+/**
+* CSS PARA LOG IN Y SIGN UP REALIZADO POR ALEJANDRO DÍAZ
+*/
+.pepe {
+    background-color: #dc001b;
+}
+
+.img-fluid {
+    background-color: rgb(255, 255, 255);
+    border-style: outset;
+    width: 20%;
+}
+
+.form-group {
+    display: -webkit-inline-box;
+    float: right;
+}
+
+.pais {
+    width: 13%;
+}
+
+.ordenar {
+    padding-left: 20px;
+}
+
+select, option {
+background-color: transparent;
+}
+
+.card-header {
+    text-align: center;
+}
+
+.card {
+    margin-top: 10%;
+}
+legend {
+    text-align: center;
+    
+}
+
+.img-fluid {
+    background-color: white;
+    width: 20%;
+    border-style: outset;
+}
+
+.pais {
+    display: -webkit-inline-box;
+    float: right;
+    width: 13%;
+}
+
+
+.pepe{
+    background-color: #dc001b;
+}
+
+.final {
+    float: right;
+    margin-top: 23%;
+}
+
+.input-group-addon {
+    background-color: red;
+}
+
+.col-sm-3 {
+    margin-left: 70px;
+}
+
+.check {
+    margin-left: 10px;
+}
+
+
+
+.form-horizontal {
+    background-color: #f8f9fa36;
+    border-radius: 20px;
+    width: 80%;
+    margin: 0 auto;
+    border-style: solid;
+    border-color: #f8f9fa36;
+    color: black;
+    margin-top: 5%;
+}
+/**
+* CSS PARA INICIO Y PERFIL REALIZADO POR JOSE MANUEL TERRERO
+*/
+ul li{
+    list-style: none;
+}
+
+a:visited, a:active, a:link, a:hover{
+    text-decoration: none;
+}
+
+.lista{
+    margin: 0 auto;
+}
+
+form{
+    border: 2px solid black;
+    width: 80%;
+    margin: 2%;
+    margin-left: 10%;
+}
+
+fieldset{
+    height: 490px;
+}
+
+.columna{
+    margin-left: 5%;
+    width: 45%; 
+    float: left;
+}
+
+.form-group{
+    width:80%;
+}
+
+label, input{
+    margin: 3px;
+}
+
+input{
+    border: 2px solid black;
+}
+
+input:focus{
+    outline: 0px;
+}
+
+button{
+    width: 100%;
+}
+
+#volver{
+    width: 5%;
+}

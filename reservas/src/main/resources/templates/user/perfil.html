@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="pagEstaticas/head :: headFragment (titulo='Perfil')">
+
+<body>
+     <nav th:replace="user/navegadorUsuario :: navegadorUsuario"></nav>
+
+    <div class="container">
+        <form class="" method="POST">
+            <fieldset>
+
+                <!-- Form Name -->
+                <legend class="text-center">Datos Personales</legend>
+                <div class="columna">
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class=" control-label" for="nombre">Nombre
+                            <span class="text-danger">*</span>
+                        </label>
+                        <div class="">
+                            <input id="nombre" name="nombre" type="text" placeholder="Ej: Pepe" class="form-control input-md" required>
+                        </div>
+                    </div>
+
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class=" control-label" for="username">Nombre Usuario
+                            <span class="text-danger">*</span>
+                        </label>
+                        <div class="">
+                            <input id="username" name="username" type="text" placeholder="Ej: pepePerez123" class="form-control input-md" required>
+                        </div>
+                    </div>
+
+                    <!-- Fecha input-->
+                    <div class="form-group">
+                        <label class=" control-label" for="fecha">Fecha de Nacimiento
+                            <span class="text-danger">*</span>
+                        </label>
+                        <div class="">
+                            <input id="fecha" name="fecha" type="date" class="form-control input-md" required>
+                        </div>
+                    </div>
+
+                    <!-- Number input-->
+                    <div class="form-group">
+                        <label class=" control-label" for="telefono">Teléfono
+                            <span class="text-danger">*</span>
+                        </label>
+                        <div class="">
+                            <input id="telefono" name="telefono" type="number" placeholder="123456789" class="form-control input-md" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="columna">
+                    <!-- Text input-->
+                    <div class="form-group confCorreo">
+                        <label class=" control-label" for="apellidos">Apellidos
+                            <span class="text-danger">*</span>
+                        </label>
+                        <div class="">
+                            <input id="apellidos" name="apellidos" type="text" placeholder="Perez" class="form-control input-md" required>
+                        </div>
+                    </div>
+
+                    <!-- Password input-->
+                    <div class="form-group">
+                        <label class=" control-label" for="password">Contraseña
+                            <span class="text-danger">*</span>
+                        </label>
+                        <div class="">
+                            <input id="password" name="password" type="password" placeholder="Ej: usuario1234" class="form-control input-md" required>
+                        </div>
+                    </div>
+
+                    <!-- Email input-->
+                    <div class="form-group confContrasenya">
+                        <label class=" control-label" for="correo">Correo
+                            <span class="text-danger">*</span>
+                        </label>
+                        <div class="">
+                            <input id="correo" name="correo" type="email" placeholder="Ej: a@a.com" class="form-control input-md" required>
+                        </div>
+                    </div>
+
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class=" control-label" for="centro">Centro
+                            <span class="text-danger">*</span>
+                        </label>
+                        <div class="">
+                            <input id="centro" name="centro" type="text" class="input-md">Salesianos Triana
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Button -->
+                <div class="form-group ml-5">
+                    <label class=" control-label" for="edit"></label>
+                    <div class="ml-5">
+                        <button id="edit" name="edit" class="btn btn-primary">Editar usuario
+                        </button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+
+        <h1 class="text-center display-5">Historial de Reservas</h1>
+
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Reserva</h5>
+                <ul>
+                    <li>
+                        <p class="card-text">Profesor:
+                            <span>Miguel</span>
+                        </p>
+                    </li>
+                    <li>
+                        <p class="card-text">Aula:
+                            <span>1º DAM</span>
+                        </p>
+                    </li>
+                    <li>
+                        <p class="card-text">Fecha/hora:
+                            <span>fecha</span>
+                        </p>
+                    </li>
+                </ul>
+                <button type="button" class="btn btn-outline-danger" id="borrarReserva" name="borrarReserva">Borrar Reserva</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
