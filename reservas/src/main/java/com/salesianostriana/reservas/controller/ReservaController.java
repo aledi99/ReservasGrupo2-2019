@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.salesianostriana.reservas.formbean.FormbeanFecha;
+import com.salesianostriana.reservas.model.Aula;
 import com.salesianostriana.reservas.model.Horas;
 import com.salesianostriana.reservas.service.AulaServicio;
 import com.salesianostriana.reservas.service.ReservaServicio;
@@ -37,11 +38,12 @@ public class ReservaController {
 	@GetMapping("/user/reservar/{id}")
 	public String mostrarReservar(@PathVariable("id") long id,Model model, Principal p) {
 		LocalDate fecha=LocalDate.now();
-		model.addAttribute("aula",as.findById(id));
+		Aula aula=as.findById(id);
+		model.addAttribute("aula",aula);
 		model.addAttribute("formbeanFecha",new FormbeanFecha());
 		model.addAttribute("usuario",us.buscarUsuarioLogged(p));
 		model.addAttribute("horas",Horas.values());
-		model.addAttribute("reservas", rs.listarReservasSemana(rs.CalcularSemanasMes(fecha)));
+		model.addAttribute("reservas", rs.listarReservasSemana(rs.CalcularSemanasMes(fecha),aula));
 		model.addAttribute("semana",rs.CalcularSemanasMes(fecha));
 		return "user/reservas";
 	}
@@ -54,10 +56,11 @@ public class ReservaController {
 	@PostMapping("/user/reservar/{id}/submit")
 	public String mostrarReservarSemana(@PathVariable("id") long id,
 			@ModelAttribute("formbeanFecha") FormbeanFecha ff, Model model, Principal p) {
-		model.addAttribute("aula",as.findById(id));
+		Aula aula=as.findById(id);
 		LocalDate fecha=rs.ConversorTextoFecha(ff.getFecha());
+		model.addAttribute("aula",aula);	
 		model.addAttribute("horas",Horas.values());
-		model.addAttribute("reservas", rs.listarReservasSemana(rs.CalcularSemanasMes(fecha)));
+		model.addAttribute("reservas", rs.listarReservasSemana(rs.CalcularSemanasMes(fecha),aula));
 		model.addAttribute("semana",rs.CalcularSemanasMes(fecha));
 		model.addAttribute("usuario",us.buscarUsuarioLogged(p));
 		

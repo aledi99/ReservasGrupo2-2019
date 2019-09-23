@@ -47,6 +47,10 @@
                         </tr>
                         <tr th:each="h : ${horas}" >
                             <td th:text="${h.descripcion}" class="bg-dark text-white"></td>
+                            <th:block th:each="r : ${reservas}">
+                               <td th:if="${r==null}" class=" bg-secondary"></td>
+                                <td th:if="${r!=null&&r.hora.descripcion=='08:00'}"class=" bg-primary">hola</td>
+                            </th:block>
                             
                         </tr>
                         

@@ -3,10 +3,12 @@ package com.salesianostriana.reservas.service;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.salesianostriana.reservas.model.Aula;
 import com.salesianostriana.reservas.model.Horas;
 import com.salesianostriana.reservas.model.Reserva;
 import com.salesianostriana.reservas.repository.ReservaRepository;
@@ -143,20 +145,24 @@ public class ReservaServicio extends ServicioBase<Reserva, Long, ReservaReposito
 		return fechaSemana;
 	}
 	
-	public List<Reserva> listarReservasSemana(List<LocalDate>fechaSemana) {
+	public List<Reserva> listarReservasSemana(List<LocalDate>fechaSemana,Aula aula) {
 		List<Reserva> reservas=new ArrayList<Reserva>();
 		
-		for(LocalDate i:fechaSemana) {
+		for(Horas i: Horas.values()) {
 			if(i!=null) {
-				for(Horas j: Horas.values()) {
-					if(repositorio.findByFechaAndHora(i, j)!=null) {
-						reservas.add(repositorio.findByFechaAndHora(i, j));
+				for(LocalDate j:fechaSemana) {
+					if(repositorio.findByFechaAndHoraAndAula(j, i,aula)!=null) {
+						reservas.add(repositorio.findByFechaAndHoraAndAula(j, i,aula));
 					}else {
 						reservas.add(null);
 					}
 				}
 			}
 			
+		}
+	
+		for(Reserva r:reservas) {
+			System.out.println(r);
 		}
 		return reservas;
 		
