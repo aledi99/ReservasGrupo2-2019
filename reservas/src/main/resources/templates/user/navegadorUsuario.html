@@ -6,11 +6,11 @@
 </head>
 <body>
 	<!--nav-->
-	<nav th:fragment="navegadorUsuario" class="navbar navbar-expand-lg navbar-light bg-light">
+	<nav th:fragment="navegadorUsuario" class="navbar navbar-expand-lg navbar-light pepe">
 		<a class="navbar-brand" href="../user/inicio.html" th:href="@{/user/inicio}"> <img
-			class="img-fluid" src="../Logo-horizontal-segundo-nivel.png"
+			class="img-fluid w-25 bg-white" src="../Logo-horizontal-segundo-nivel.png"
 			th:src="@{/img/Logo-horizontal-segundo-nivel.png}" th:alt="|Salesianos Triana- Inicio|" alt="Salesianos Triana - Inicio">
-			<h5 class="d-inline" th:text="${usuario.nombre}">Salesianos Triana</h5>
+			<h5 class="d-inline text-white ml-3" th:text="|${usuario.nombre} ${usuario.apellidos}|">Salesianos Triana</h5>
 		</a>
 		<button class="navbar-toggler d-lg-none" type="button"
 			data-toggle="collapse" data-target="#collapsibleNavId"
@@ -21,23 +21,25 @@
 
 		<div class="collapse navbar-collapse" id="collapsibleNavId">
 			<div class="row w-100">
-				<!--AQUÍ HACER CLASS= COL- -->
-					<form class="border border-0" th:action="@{/logout}" method="POST" id="logoutForm">
-						<a href="#" onclick="enviar('logoutForm')" class="float-right">
-							<button type="button" class="btn btn-danger btn ml-2 ">Desconectar</button>
-						</a>
-					</form>
-					
-					<a href="../user/perfil.html" th:href="@{/user/perfil}" class="float-right">
-						<button type="button" class="btn">
-							<span> Perfil </span>
-						</button>
-					</a>
-					<a href="../user/inicio.html" th:href="@{/user/inicio}" class="float-right">
-						<button type="button" class="btn">
+				<div class="col-4">
+					<a href="../user/inicio.html" th:href="@{/user/inicio}" class="float-right mx-2">
+						<button type="button" class="btn bg-light btn-outline-danger  px-4 py-2">
 							<span> Inicio </span>
 						</button>
 					</a>
+				</div>
+					<a href="../user/perfil.html" th:href="@{/user/perfil}" class="float-right mx-2 ">
+						<button type="button" class="btn btn bg-light btn-outline-danger  px-4 py-2">
+							<span> Perfil </span>
+						</button>
+					</a>
+				<div class="col-4">
+					<form class="border border-0" th:action="@{/logout}" method="POST" id="logoutForm">
+						<a href="#" onclick="enviar('logoutForm')" class="float-right" mx-2>
+							<button type="button" class="btn bg-dark btn-outline-secondary btn  p-2 text-white">Desconectar</button>
+						</a>
+					</form>
+				</div>
 			</div>
 		</div>
 

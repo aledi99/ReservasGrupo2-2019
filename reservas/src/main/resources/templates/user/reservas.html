@@ -5,20 +5,19 @@
         <nav th:replace="user/navegadorUsuario :: navegadorUsuario"></nav>
         <div class="container-fluid mt-4">
             <div class="col-12">
-                <h1 class="display-3"></h1>
+                <h1 class="display-3 text-center mb-3" th:text="${aula.nombre}"></h1>
 
             </div>
             <aside class="col-md-6 col-12 col-lg-4 float-left">
-               
+                
                 <div class="col-12">
-                    <form class="border border-0 " th:action="@{/user/reservar/semana}" th:object="${formbeanFecha}" method="post">
+                    <h4>Escoja una fecha del calendario</h4>
+                    <form class="border border-0 " th:action="@{/user/reservar/{id}/submit (id=${aula.id})}" th:object="${formbeanFecha}" method="post">
                         <div class="col-12 form-group float-left p-0">
                             <input type='text' placeholder="Selecciona una fecha" class="col-11 datepicker float-left" id="cal" th:field="*{fecha}" data-date-format="dd/mm/yyyy"/>
-                            
-                            
+                      
+                          <input type="submit" value="Buscar" class="btn btn-danger">
                         </div>
-                        
-                        <input type="submit" value="Buscar" class="btn btn-danger">
                     </form>
                 </div>
                 
