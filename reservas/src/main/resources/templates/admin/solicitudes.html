@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- Font Awesome -->
+<link crossorigin="anonymous"
+	href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+	integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+	rel="stylesheet">
+</head>
+<body>
+
+	<section>
+		<div th:if="${!usuarios.isEmpty()}">
+			<table class="table">
+				<thead class="thead-dark">
+					<tr>
+						<th scope="col">Email</th>
+						<th scope="col">Nombre</th>
+						<th scope="col">Apellidos</th>
+						<th scope="col"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="usuario : ${usuarios}">
+						<td th:text="${usuario.email}">EMAIL</td>
+						<td th:text="${usuario.nombre}">NOMBRE</td>
+						<td th:text="${usuario.apellidos}">APELLIDOS</td>
+						<td><a href="#"
+							th:href="@{/admin/eliminarSolicitud/{id}(id=${usuario.id})}"><i
+								class="fas fa-trash"></i></a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div th:if="${usuarios.isEmpty()}">
+			<p>No existen solicitudes pendientes</p>
+		</div>
+
+	</section>
+
+</body>
+</html>

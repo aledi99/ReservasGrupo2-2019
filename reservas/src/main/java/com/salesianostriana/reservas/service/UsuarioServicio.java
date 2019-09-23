@@ -1,6 +1,7 @@
 package com.salesianostriana.reservas.service;
 
 import java.security.Principal;
+import java.util.List;
 
 import org.springframework.stereotype.Service;
 
@@ -22,14 +23,22 @@ public class UsuarioServicio extends ServicioBase<Usuario, Long, UsuarioReposito
 		}
 
 	}
-	
+
 	public Usuario buscarUsuarioLogged(Principal p) {
-        Usuario usuario;
-        if(p!=null) {
-            usuario=this.buscarPorEmail(p.getName());
-            return usuario;
-        }else {
-            return null;
-        }
-    }
+		Usuario usuario;
+		if (p != null) {
+			usuario = this.buscarPorEmail(p.getName());
+			return usuario;
+		} else {
+			return null;
+		}
+	}
+
+	public List<Usuario> buscarPorGestionadoTrueAndAdminFalse() {
+		return repositorio.findAllByGestionadoTrueAndAdminFalse();
+	}
+
+	public List<Usuario> buscarPorGestionadoFalse() {
+		return repositorio.findAllByGestionadoFalse();
+	}
 }
