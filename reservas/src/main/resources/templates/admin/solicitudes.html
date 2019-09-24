@@ -27,9 +27,17 @@
 						<td th:text="${usuario.email}">EMAIL</td>
 						<td th:text="${usuario.nombre}">NOMBRE</td>
 						<td th:text="${usuario.apellidos}">APELLIDOS</td>
-						<td><a href="#"
-							th:href="@{/admin/eliminarSolicitud/{id}(id=${usuario.id})}"><i
-								class="fas fa-trash"></i></a></td>
+						<td>
+						<a href="#" th:href="@{/admin/eliminarSolicitud/{id}(id=${usuario.id})}">
+						<i class="fas fa-trash"></i></a>
+						<form th:action="@{/admin/validar/{id}(id=${usuario.id})}"
+						th:object="${usuario}" method="post">
+						<button type="submit">
+						<i class="fas fa-check"></i>
+						</button>
+						</form>
+						
+						</td>
 					</tr>
 				</tbody>
 			</table>
