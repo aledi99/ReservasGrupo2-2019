@@ -16,7 +16,7 @@
 		</select>
 	</div>
 
-	<form class="form-horizontal formularioD col-md-3" name="form1" method="POST"
+	<form class="form-horizontal formularioD col-md-5" name="form1" method="POST"
 		onsubmit="return comprobarPassword() && comprobarCorreo() && valida()"
 		action="#" th:action="@{/signup/submit}" th:object="${usuario}"
 		role="form">
@@ -115,11 +115,8 @@
 						contraseñas deben de coincidir</span>
 				</div>
 			</div>
-
-
-			<!-- Button -->
-			<div class="form-group final">
-				<!-- Multiple Checkboxes (inline) -->
+			
+			<!-- Multiple Checkboxes (inline) -->
 				<div class="form-group acepto">
 					<div class="">
 						<label class="checkbox-inline" for="checkboxes-0"> <h7
@@ -129,9 +126,14 @@
 						</label>
 					</div>
 				</div>
+
+
+			<!-- Button -->
+			<div class="form-group final">
+				
 				<div class="col-md-4">
 					<button id="singlebutton" name="singlebutton" type="submit"
-						value="submit" class="btn btn-primary">
+						value="submit" class="btn btn-dark">
 						<span th:text="#{confirmar}">Confirmar</span>
 					</button>
 				</div>
