@@ -145,7 +145,7 @@ public class ReservaServicio extends ServicioBase<Reserva, Long, ReservaReposito
 		return fechaSemana;
 	}
 	
-	public List<Reserva> listarReservasSemana(List<LocalDate>fechaSemana,Aula aula) {
+	/*public List<Reserva> listarReservasSemana(List<LocalDate>fechaSemana,Aula aula) {
 		List<Reserva> reservas=new ArrayList<Reserva>();
 		
 		for(Horas i: Horas.values()) {
@@ -168,6 +168,19 @@ public class ReservaServicio extends ServicioBase<Reserva, Long, ReservaReposito
 		
 		
 		
+	
+	}*/
+	public List<Reserva> listarReservasCalendario(Horas h,List<LocalDate>fechaSemana,Aula aula) {
+		List<Reserva> reservas=new ArrayList<Reserva>();
+		for(LocalDate f: fechaSemana) {
+			if(repositorio.findByFechaAndHoraAndAula(f, h,aula)!=null) {
+				reservas.add(repositorio.findByFechaAndHoraAndAula(f, h,aula));
+			}else {
+				reservas.add(null);
+			}
+			
+		}
+		return reservas;
 	
 	}
 	
