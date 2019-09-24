@@ -2,83 +2,101 @@
 * CSS PARA LOG IN Y SIGN UP REALIZADO POR ALEJANDRO DÃ�AZ
 */
 .pepe {
- background-color: #dc001b
- ;
+	background-color: #dc001b;
 }
-.img-fluid {}
+
 .pais {
- width: 13%;
- display: -webkit-inline-box;
- float: right;
+	width: 13%;
+	display: -webkit-inline-box;
+	float: right;
 }
+
 .ordenar {
- padding-left: 20px;
- }
- select, option {
-    background-color: transparent;
+	padding-left: 20px;
 }
+
+select, option {
+	background-color: transparent;
+}
+
 .titulo {
- text-align: center;
+	text-align: center;
 }
+
 .login {
- margin-top: 10%;
+	margin-top: 10%;
 }
+
 legend {
- text-align: center;}.imagen {
-     background-color: white;
-     width: 20%;
-     border-style: outset;
- }
- .pais {
-     display: -webkit-inline-box;
-     float: right;
-     width: 13%;
- }
- .pepe{
-     background-color: #dc001b;
- }
- .final {
-     float: right;
-     margin-top: 23%;
-     margin-right: 20%;
- }
- .arroba {
-     background-color: red;
- }
- .hhh {
-     margin-left: 4%;
- }
- .acepto {
-    font-size: 80%;
+	text-align: center;
 }
+
+.imagen {
+	background-color: white;
+	width: 20%;
+	border-style: outset;
+}
+
+.pais {
+	display: -webkit-inline-box;
+	float: right;
+	width: 13%;
+}
+
+.pepe {
+	background-color: #dc001b;
+}
+
+.final {
+	float: right;
+	margin-top: 23%;
+	margin-right: 20%;
+}
+
+.grande {
+	margin: 0 auto;
+}
+
+.arroba {
+	background-color: red;
+}
+
+.hhh {
+	margin-left: 4%;
+}
+
+.acepto {
+	font-size: 80%;
+}
+
 .check {
- margin-left: 10px;
+	margin-left: 10px;
 }
+
+.form-group {
+	
+}
+
 .formularioD {
- background-color: #f8f9fa36;
- border-radius: 20px;
- width: 80%;
- margin: 0 auto;
- border-style: solid;
- border-color: #f8f9fa36;
- color: black;
- margin-top: 5%;
+	background-color: #f8f9fa36;
+	border-radius: 20px;
+	margin: 0 auto;
+	border-style: solid;
+	border-color: #f8f9fa36;
+	color: black;
+	margin-top: 5%;
 }
 /**
 * CSS PARA INICIO Y PERFIL REALIZADO POR JOSE MANUEL TERRERO
 */
-.listaAulas{
-    list-style: none;
+.listaAulas {
+	list-style: none;
 }
 
-a:visited, a:active, a:link, a:hover{
-    text-decoration: none;
+a:visited, a:active, a:link, a:hover {
+	text-decoration: none;
 }
 
-.lista{
-    margin: 0 auto;
-}
-
-button{
-    width: 100%;
+.lista {
+	margin: 0 auto;
 }

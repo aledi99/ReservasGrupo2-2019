@@ -73,7 +73,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.permitAll()
 				.and()
 			.exceptionHandling()
-				.accessDeniedPage("/");
+				.accessDeniedPage("/")
+				.and()
+				.rememberMe().key("uniqueAndSecret")
+				.tokenValiditySeconds(86400);
 		
 		// Añadimos esto para poder seguir accediendo a la consola de H2
 		// con Spring Security habilitado.
