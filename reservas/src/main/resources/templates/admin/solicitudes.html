@@ -1,19 +1,31 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<!-- Font Awesome -->
-<link crossorigin="anonymous"
-	href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
-	integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
-	rel="stylesheet">
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="pagEstaticas/head :: headFragment (titulo='Reservar')">
 </head>
 <body>
 
-	<section>
+	<nav th:replace="admin/navAdmin :: navAdmin"></nav>
+	<aside class="float-left col-lg-2 p-0 subNav">
+		<div class="container-fluid col-lg-12 h-100 col-12 p-0 float-left">
+			<nav class="nav nav-stacked text-center subNav">
+				<a class="nav-link col-lg-12 col-md-4 col-4 p-4 rounded-0" href="#"
+					th:href="@{/admin/espacios}">Espacios</a> <a
+					class="nav-link col-lg-12 col-md-4 col-4 boton p-4 rounded-0"
+					href="#" th:href="@{/admin/festivos}">Festivos</a> <a
+					class="nav-link col-lg-12 col-md-4 col-4 p-4 rounded-0" href="#"
+					th:href="@{/admin/reservas}">Reservas</a> <a
+					class="nav-link col-lg-12 col-md-4 col-4 p-4 rounded-0" href="#"
+					th:href="@{/admin/solicitudes}">Solicitudes</a> <a
+					class="nav-link col-lg-12 col-md-4 col-4 p-4 rounded-0" href="#"
+					th:href="@{/admin/usuarios}">Usuarios</a>
+
+			</nav>
+		</div>
+	</aside>
+	<section class="float-left col-lg-8 p-0 mt-3 ml-3">
 		<div th:if="${!usuarios.isEmpty()}">
-			<table class="table">
+			<table class="table mx-auto">
 				<thead class="thead-dark">
 					<tr>
 						<th scope="col">Email</th>
@@ -27,17 +39,16 @@
 						<td th:text="${usuario.email}">EMAIL</td>
 						<td th:text="${usuario.nombre}">NOMBRE</td>
 						<td th:text="${usuario.apellidos}">APELLIDOS</td>
-						<td>
-						<a href="#" th:href="@{/admin/eliminarSolicitud/{id}(id=${usuario.id})}">
-						<i class="fas fa-trash"></i></a>
-						<form th:action="@{/admin/validar/{id}(id=${usuario.id})}"
-						th:object="${usuario}" method="post">
-						<button type="submit">
-						<i class="fas fa-check"></i>
-						</button>
-						</form>
-						
-						</td>
+						<td><a href="#"
+							th:href="@{/admin/eliminarSolicitud/{id}(id=${usuario.id})}">
+								<i class="fas fa-trash"></i>
+						</a>
+							<form th:action="@{/admin/validar/{id}(id=${usuario.id})}"
+								th:object="${usuario}" method="post">
+								<button type="submit">
+									<i class="fas fa-check"></i>
+								</button>
+							</form></td>
 					</tr>
 				</tbody>
 			</table>
