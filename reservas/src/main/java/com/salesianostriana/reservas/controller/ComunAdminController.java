@@ -9,17 +9,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ComunAdminController {
 
 	/**
-	 * OJO A LA ANOTACIÓN DE CLASE "@RequestMapping("/admin")". Todos los @GetMapping 
+	 * OJO A LA ANOTACIÓN DE CLASE "@RequestMapping("/admin")". Todos
+	 * los @GetMapping
 	 * 
-	 * que se incluyan en esta clase irán precedidos de "/admin". Es decir, 
+	 * que se incluyan en esta clase irán precedidos de "/admin". Es decir,
 	 * 
-	 * si creas un método anotado con "@GetMapping("/aulas")" la URL para llegar 
+	 * si creas un método anotado con "@GetMapping("/aulas")" la URL para llegar
 	 * 
 	 * a la plantilla que devuelva NO será "localhost:9000/aulas", sino que será
 	 * 
 	 * "localhost:9000/admin/aulas".
 	 */
-	
+
 	@GetMapping("/inicio")
 	public String portada() {
 		return "admin/pantalla1";

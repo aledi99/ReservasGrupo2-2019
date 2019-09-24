@@ -2,60 +2,65 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
 <head th:replace="pagEstaticas/head :: headFragment (titulo='Perfil')">
-
 <body>
-     <nav th:replace="user/navegadorUsuario :: navegadorUsuario"></nav>
+	<nav th:replace="user/navegadorUsuario :: navegadorUsuario"></nav>
 
-    <div class="container">
-        <h1 class="text-center display-5">Datos Personales</h1>
-		<div class="col col-lg-12 col-md-12">
-			<div class="row col-lg-6 col-md-6 lista">
-				<ul>
-					<li>Nombre: <span>Luismi</span></li>
-					<li>Email: <span>luismi.lopez@salesianos.edu</span></li>
-					<li>Apellidos: <span>Lopez</span></li>
-<!--  					<input th:if="${listUsuario.id != 0}" th:text="*{id}" type="hidden">		-->
-				</ul>
-				<!-- Button -->
-				<div class="form-group ml-5">
-					<label class=" control-label" for="edit"></label>
-					<div class="ml-5">
-						<button id="edit" name="edit" class="w-75 btn btn-primary">Editar
-							usuario</button>
-						<button id="editPass" name="editPass"
-							class="mt-2 w-75 btn btn-primary">Editar contraseña</button>
-					</div>
-				</div>
+	<div class="container mt-4">
+		<h1 class="text-center display-5">Datos Personales</h1>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm font-weight-bold">Nombre</div>
+				<div class="col-sm font-weight-bold">Apellidos</div>
+				<div class="col-sm font-weight-bold">Email</div>
 			</div>
-
+			<div class="row">
+				<div class="col-sm">Luismi</div>
+				<div class="col-sm">Lopez</div>
+				<div class="col-sm">luismi.lopez@salesianos.edu</div>
+			</div>
+		</div>
+		<!-- Button -->
+		<div class="form-group ml-5">
+			<label class=" control-label" for="edit"></label>
+			<div class="text-center mt-5">
+				<button id="edit" name="edit" class="w-50 btn btn-primary">Editar
+					usuario</button>
+				<button id="editPass" name="editPass"
+					class="mt-2 w-50 btn btn-primary">Editar contraseña</button>
+			</div>
 		</div>
 
-        <h1 class="text-center display-5">Historial de Reservas</h1>
 
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">Reserva</h5>
-                <ul th:each="reserva : ${listReservas}">
+		<h1 class="text-center display-5">Historial de Reservas</h1>
+
+		<div class="card" style="width: 18rem;">
+			<div class="card-body">
+				<h5 class="card-title">Reserva</h5>
+				<ul th:each="reserva : ${listReservas}">
 					<li>
 						<p class="card-text">
-							Aula: <span th:text="${reserva.aula.nombre}">1º DAM</span>
+							<span class="font-weight-bold">Aula:</span> <span
+								th:text="${reserva.aula.nombre}">1º DAM</span>
 						</p>
 					</li>
 					<li>
 						<p class="card-text">
-							Fecha: <span th:text="${reserva.fecha}">fecha</span>
+							<span class="font-weight-bold">Fecha:</span> <span
+								th:text="${reserva.fecha}">fecha</span>
 						</p>
 					</li>
 					<li>
 						<p class="card-text">
-							Horas: <span th:text="${reserva.hora}">hora</span>
+							<span class="font-weight-bold">Horas:</span> <span
+								th:text="${reserva.hora}">hora</span>
 						</p>
 					</li>
 				</ul>
-                <button type="button" class="btn btn-outline-danger" id="borrarReserva" name="borrarReserva">Borrar Reserva</button>
-            </div>
-        </div>
-    </div>
+				<button type="button" class="btn btn-outline-danger"
+					id="borrarReserva" name="borrarReserva">Borrar Reserva</button>
+			</div>
+		</div>
+	</div>
 
 </body>
 
