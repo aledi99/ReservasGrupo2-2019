@@ -22,6 +22,38 @@
 			</nav>
 		</div>
 	</aside>
+	<section class="float-left col-lg-8 p-0 mt-3 ml-3">
+		<div th:if="${!reservas.isEmpty()}">
+			<table class="table mx-auto">
+				<thead class="thead-dark">
+					<tr>
+						<th scope="col">Hora</th>
+						<th scope="col">Aula</th>
+						<th scope="col">Usuario</th>
+						<th scope="col">Fecha</th>
+						<th scope="col"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="reserva : ${reservas}">
+						<td th:text="${reserva.hora}">Hora</td>
+						<td th:text="${reserva.aula.nombre}">Aula</td>
+						<td th:text="${reserva.usuario.email}">Usuario</td>
+						<td th:text="${reserva.fecha}">Fecha</td>
+						<td><a href="#"
+							th:href="@{/admin/eliminarReserva/{id}(id=${reserva.id})}">
+								<i class="fas fa-trash"></i>
+						</a>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div th:if="${reservas.isEmpty()}">
+			<p>No existen reservas actualmente</p>
+		</div>
+		
+	</section>
 
 </body>
 </html>
