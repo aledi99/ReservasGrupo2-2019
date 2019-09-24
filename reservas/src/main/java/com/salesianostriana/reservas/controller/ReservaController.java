@@ -2,6 +2,8 @@ package com.salesianostriana.reservas.controller;
 
 import java.security.Principal;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,9 +13,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.salesianostriana.reservas.formbean.FormBeanReserva;
 import com.salesianostriana.reservas.formbean.FormbeanFecha;
 import com.salesianostriana.reservas.model.Aula;
 import com.salesianostriana.reservas.model.Horas;
+import com.salesianostriana.reservas.model.Reserva;
 import com.salesianostriana.reservas.service.AulaServicio;
 import com.salesianostriana.reservas.service.ReservaServicio;
 import com.salesianostriana.reservas.service.UsuarioServicio;
@@ -38,6 +42,7 @@ public class ReservaController {
 	@GetMapping("/user/reservar/{id}")
 	public String mostrarReservar(@PathVariable("id") long id,Model model, Principal p) {
 		LocalDate fecha=LocalDate.now();
+	
 		Aula aula=as.findById(id);
 		model.addAttribute("aula",aula);
 		model.addAttribute("formbeanFecha",new FormbeanFecha());
@@ -50,6 +55,10 @@ public class ReservaController {
 		model.addAttribute("reserva5", rs.listarReservasCalendario(Horas.QUINTA,rs.CalcularSemanasMes(fecha),aula));
 		model.addAttribute("reserva6", rs.listarReservasCalendario(Horas.SEXTA,rs.CalcularSemanasMes(fecha),aula));
 		model.addAttribute("semana",rs.CalcularSemanasMes(fecha));
+		
+		List<Horas> horaslista = new ArrayList<Horas>();
+		horaslista.add(Horas.CUARTA);
+		System.out.println(horaslista);
 		return "user/reservas";
 	}
 	/**
@@ -62,6 +71,7 @@ public class ReservaController {
 	public String mostrarReservarSemana(@PathVariable("id") long id,
 			@ModelAttribute("formbeanFecha") FormbeanFecha ff, Model model, Principal p) {
 		Aula aula=as.findById(id);
+		FormBeanReserva fbr=new FormBeanReserva();
 		LocalDate fecha=rs.ConversorTextoFecha(ff.getFecha());
 		model.addAttribute("aula",aula);	
 		model.addAttribute("horas",Horas.values());
@@ -77,6 +87,20 @@ public class ReservaController {
 		return "user/reservas";
 	}
 	
+	@PostMapping("/user/reservar/{id}/nueva-reserva/submit")
+	public String crearNuevaReserva(@PathVariable("id") long id,
+			@ModelAttribute("nuevaReserva") FormBeanReserva fbr,
+			@ModelAttribute("formbeanFecha") FormbeanFecha ff, Model model, Principal p) {
+			Reserva r= new Reserva();
+			r.setAula(as.findById(id));
+			r.setUsuario(us.buscarUsuarioLogged(p));
+			r.setFecha(rs.ConversorTextoFecha(ff.getFecha()));
+			r.setHora(fbr.getHora());
+			
+			rs.save(r);
+			
+		return "redirect:/user/reservar/{id}";
+	}
 	
 	
 }
