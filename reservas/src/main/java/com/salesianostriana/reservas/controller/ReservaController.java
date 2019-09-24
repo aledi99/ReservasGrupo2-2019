@@ -42,7 +42,7 @@ public class ReservaController {
 	@GetMapping("/user/reservar/{id}")
 	public String mostrarReservar(@PathVariable("id") long id,Model model, Principal p) {
 		LocalDate fecha=LocalDate.now();
-	
+		FormBeanReserva fbr=new FormBeanReserva();
 		Aula aula=as.findById(id);
 		model.addAttribute("aula",aula);
 		model.addAttribute("formbeanFecha",new FormbeanFecha());
@@ -55,10 +55,8 @@ public class ReservaController {
 		model.addAttribute("reserva5", rs.listarReservasCalendario(Horas.QUINTA,rs.CalcularSemanasMes(fecha),aula));
 		model.addAttribute("reserva6", rs.listarReservasCalendario(Horas.SEXTA,rs.CalcularSemanasMes(fecha),aula));
 		model.addAttribute("semana",rs.CalcularSemanasMes(fecha));
-		
-		List<Horas> horaslista = new ArrayList<Horas>();
-		horaslista.add(Horas.CUARTA);
-		System.out.println(horaslista);
+		model.addAttribute("nuevaReserva",fbr);
+
 		return "user/reservas";
 	}
 	/**
@@ -74,6 +72,7 @@ public class ReservaController {
 		FormBeanReserva fbr=new FormBeanReserva();
 		LocalDate fecha=rs.ConversorTextoFecha(ff.getFecha());
 		model.addAttribute("aula",aula);	
+		model.addAttribute("horasLibres", rs.listarHorasLibres(fecha, aula));
 		model.addAttribute("horas",Horas.values());
 		model.addAttribute("reserva1", rs.listarReservasCalendario(Horas.PRIMERA,rs.CalcularSemanasMes(fecha),aula));
 		model.addAttribute("reserva2", rs.listarReservasCalendario(Horas.SEGUNDA,rs.CalcularSemanasMes(fecha),aula));
@@ -83,6 +82,7 @@ public class ReservaController {
 		model.addAttribute("reserva6", rs.listarReservasCalendario(Horas.SEXTA,rs.CalcularSemanasMes(fecha),aula));
 		model.addAttribute("semana",rs.CalcularSemanasMes(fecha));
 		model.addAttribute("usuario",us.buscarUsuarioLogged(p));
+		model.addAttribute("nuevaReserva",fbr);
 		
 		return "user/reservas";
 	}
@@ -92,6 +92,7 @@ public class ReservaController {
 			@ModelAttribute("nuevaReserva") FormBeanReserva fbr,
 			@ModelAttribute("formbeanFecha") FormbeanFecha ff, Model model, Principal p) {
 			Reserva r= new Reserva();
+			System.out.println("prueba"+ff);
 			r.setAula(as.findById(id));
 			r.setUsuario(us.buscarUsuarioLogged(p));
 			r.setFecha(rs.ConversorTextoFecha(ff.getFecha()));

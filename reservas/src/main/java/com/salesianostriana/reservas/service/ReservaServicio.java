@@ -163,7 +163,22 @@ public class ReservaServicio extends ServicioBase<Reserva, Long, ReservaReposito
 		return reservas;
 
 	}
-	
+	public List<Horas> listarHorasLibres(LocalDate fecha, Aula aula){
+		List <Reserva> r=repositorio.findByFechaAndAulaOrderByHoraAsc(fecha,aula);
+		List <Horas> horasLibres=new ArrayList<Horas>();
+		for(Horas i : Horas.values()) {
+			for(Reserva j: r) {
+				System.out.println(j);
+				if(j.getHora()!=i) {
+					
+					horasLibres.add(i);
+					
+				}
+			}
+		}
+		horasLibres.stream().forEach(x -> System.out.println(x));
+		return horasLibres;
+	}
 	
 	
 }
