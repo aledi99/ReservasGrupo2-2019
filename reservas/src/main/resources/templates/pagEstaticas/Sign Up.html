@@ -16,7 +16,7 @@
 		</select>
 	</div>
 
-	<form class="form-horizontal formularioD" name="form1" method="POST"
+	<form class="form-horizontal formularioD col-md-3" name="form1" method="POST"
 		onsubmit="return comprobarPassword() && comprobarCorreo() && valida()"
 		action="#" th:action="@{/signup/submit}" th:object="${usuario}"
 		role="form">
@@ -24,122 +24,120 @@
 
 			<!-- Form Name -->
 			<legend class="grande">
-				<h3>Registro</h3>
+				<h3 th:text="#{registro}">Registro</h3>
 			</legend>
 
-			<div class="row">
-				<div class="col-sm-3 hhh">
-					<!-- Text input-->
-					<div class="form-group">
-						<label class="col-md-8 control-label" for="textinput">Nombre</label>
-						<div class="col-md-16">
-							<input id="textinput" name="textinput" type="text"
-								th:field="*{nombre}" placeholder="Antonio"
-								class="form-control input-md" required>
-						</div>
-					</div>
-
-					<!-- Prepended text-->
-					<div class="form-group">
-						<label class="col-md-8 control-label" for="prependedtext">Correo
-							Electrónico</label>
-						<div class="col-md-16">
-							<div class="input-group">
-								<span class="input-group-addon arroba">@</span> <input
-									id="correo1" name="prependedtext" class="form-control"
-									placeholder="example@example.com" type="text"
-									th:field="*{email}" required>
-							</div>
-							<p class="help-block">Debe de ser un correo válido</p>
-						</div>
-					</div>
-
-					<!-- Password input-->
-					<div class="form-group">
-						<label class="col-md-8 control-label" for="passwordinput">Contraseña</label>
-						<div class="col-md-16">
-							<input id="passwordInput" name="passwordInput" type="password"
-								th:field="*{password}" placeholder="..."
-								class="form-control input-md" required> <span
-								class="help-block">Mínimo 8 caracteres</span>
-						</div>
-					</div>
-
-
-
-
+			<!-- Text input-->
+			<div class="form-group">
+				<label class="col-md-8 control-label" for="textinput"
+					th:text="#{nombre}">Nombre</label>
+				<div class="col-md-10">
+					<input id="textinput" name="textinput" type="text"
+						th:field="*{nombre}" placeholder="Antonio"
+						class="form-control input-md" required>
 				</div>
-				<div class="col-sm-3 hhh">
-					<!-- Text input-->
-					<div class="form-group">
-						<label class="col-md-8 control-label" for="textinput">Apellidos</label>
-						<div class="col-md-16">
-							<input id="textinput" name="textinput" type="text"
-								th:field="*{apellidos}" placeholder="Cotán García"
-								class="form-control input-md" required>
-						</div>
+			</div>
+
+			<!-- Text input-->
+			<div class="form-group">
+				<label class="col-md-5 control-label" for="textinput"
+					th:text="#{apellidos}">Apellidos</label>
+				<div class="col-md-10">
+					<input id="textinput" name="textinput" type="text"
+						th:field="*{apellidos}" placeholder="Cotán García"
+						class="form-control input-md" required>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-md-8 control-label" for="selectbasic"
+					th:text="#{centro}">Centro</label>
+				<div class="col-md-10">
+					<select id="selectbasic" name="selectbasic" class="form-control">
+						<option value="1">Salesianos Triana</option>
+					</select>
+				</div>
+			</div>
+
+			<!-- Prepended text-->
+			<div class="form-group">
+				<label class="col-md-8 control-label" for="prependedtext"
+					th:text="#{email}">Correo Electrónico</label>
+				<div class="col-md-10">
+					<div class="input-group">
+						<span class="input-group-addon arroba">@</span> <input
+							id="correo1" name="prependedtext" class="form-control"
+							placeholder="example@example.com" type="text" th:field="*{email}"
+							required>
 					</div>
+					<p class="help-block" th:text="#{validoEmail}">Debe de ser un
+						correo válido</p>
+				</div>
+			</div>
 
-					<!-- Select Basic -->
-
-
-					<!-- Prepended text-->
-					<div class="form-group">
-						<label class="col-md-12 control-label" for="prependedtext">Repetir
-							Correo Electrónico</label>
-						<div class="col-md-16">
-							<div class="input-group">
-								<span class="input-group-addon arroba">@</span> <input
-									id="reCorreo" name="prependedtext" class="form-control"
-									placeholder="example@example.com" type="text" required>
-							</div>
-							<p class="help-block">El correo debe de coincidir</p>
-						</div>
+			<!-- Prepended text-->
+			<div class="form-group">
+				<label class="col-md-12 control-label" for="prependedtext"
+					th:text="#{reEmail}">Repetir Correo Electrónico</label>
+				<div class="col-md-10">
+					<div class="input-group">
+						<span class="input-group-addon arroba">@</span> <input
+							id="reCorreo" name="prependedtext" class="form-control"
+							placeholder="example@example.com" type="text" required>
 					</div>
+					<p class="help-block" th:text="#{validoReEmail}">El correo debe
+						de coincidir</p>
+				</div>
+			</div>
 
-					<!-- Password input-->
-					<div class="form-group">
-						<label class="col-md-8 control-label" for="passwordinput">Repetir
-							Contraseña</label>
-						<div class="col-md-16">
-							<input id="rePasswordInput" name="passwordinput" type="password"
-								placeholder="..." class="form-control input-md" required>
-							<span class="help-block">Las contraseñas deben de
-								coincidir</span>
-						</div>
+			<!-- Password input-->
+			<div class="form-group">
+				<label class="col-md-8 control-label" for="passwordinput"
+					th:text="#{contrasenya}">Contraseña</label>
+				<div class="col-md-10">
+					<input id="passwordInput" name="passwordInput" type="password"
+						th:field="*{password}" placeholder="..."
+						class="form-control input-md" required> <span
+						class="help-block" th:text="#{ochoCaract}">Mínimo 8
+						caracteres</span>
+				</div>
+			</div>
+
+
+			<!-- Password input-->
+			<div class="form-group">
+				<label class="col-md-8 control-label" for="passwordinput"
+					th:text="#{rePassword}">Repetir Contraseña</label>
+				<div class="col-md-10">
+					<input id="rePasswordInput" name="passwordinput" type="password"
+						placeholder="..." class="form-control input-md" required>
+					<span class="help-block" th:text="#{validoRePassword}">Las
+						contraseñas deben de coincidir</span>
+				</div>
+			</div>
+
+
+			<!-- Button -->
+			<div class="form-group final">
+				<!-- Multiple Checkboxes (inline) -->
+				<div class="form-group acepto">
+					<div class="">
+						<label class="checkbox-inline" for="checkboxes-0"> <h7
+								class="acepto" th:text="#{terminos}">Acepto los términos de
+							esta página</h7> <input class="check" type="checkbox"
+							name="checkboxes" id="checkboxes-0" value="1" required>
+						</label>
 					</div>
 				</div>
-				<div class="col-sm-3 hhh">
-					<div class="form-group">
-						<label class="col-md-8 control-label" for="selectbasic">Centro</label>
-						<div class="col-md-16">
-							<select id="selectbasic" name="selectbasic" class="form-control">
-								<option value="1">Salesianos Triana</option>
-							</select>
-						</div>
-					</div>
-
-
-
-					<!-- Button -->
-					<div class="form-group final">
-						<!-- Multiple Checkboxes (inline) -->
-						<div class="form-group acepto">
-							<div class="col-md-16">
-								<label class="checkbox-inline" for="checkboxes-0"> <h7
-										class="acepto">Acepto los términos de esta página</h7> <input
-									class="check" type="checkbox" name="checkboxes"
-									id="checkboxes-0" value="1" required>
-								</label>
-							</div>
-						</div>
-						<div class="col-md-4">
-							<button id="singlebutton" name="singlebutton" type="submit"
-								value="submit" class="btn btn-primary">Confirmar</button>
-						</div>
-					</div>
-
+				<div class="col-md-4">
+					<button id="singlebutton" name="singlebutton" type="submit"
+						value="submit" class="btn btn-primary">
+						<span th:text="#{confirmar}">Confirmar</span>
+					</button>
 				</div>
+			</div>
+
+
 			</div>
 
 
