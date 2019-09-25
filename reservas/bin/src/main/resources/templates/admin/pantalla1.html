@@ -1,19 +1,23 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head th:replace="pagEstaticas/head :: headFragment (titulo='Reservar')">>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="pagEstaticas/head :: headFragment (titulo='Reservar')">
 </head>
 <body>
+	<nav th:replace="admin/navAdmin :: navAdmin"></nav>
 	<aside class="float-left col-lg-2 p-0 subNav">
 		<div class="container-fluid col-lg-12 h-100 col-12 p-0 float-left">
 			<nav class="nav nav-stacked text-center subNav">
-				<a class="nav-link col-lg-12 col-md-4 col-4 p-4 rounded-0"
-					href="adminClientesListar.html" th:href="@{/admin/clientes}">Espacios</a>
-				<a class="nav-link col-lg-12 col-md-4 col-4 boton p-4 rounded-0"
-					href="pedidos.html" th:href="@{/admin/pedidos}">Fechas</a> 
-				<a class="nav-link col-lg-12 col-md-4 col-4 p-4 rounded-0"
-					href="productos.html" th:href="@{/admin/productos}">Usuarios</a>
-					<a class="nav-link col-lg-12 col-md-4 col-4 p-4 rounded-0"
-					href="productos.html" th:href="@{/admin/productos}">Reservas</a>
+				<a class="nav-link col-lg-12 col-md-4 col-4 p-4 rounded-0" href="#"
+					th:href="@{/admin/espacios}">Espacios</a> <a
+					class="nav-link col-lg-12 col-md-4 col-4 boton p-4 rounded-0"
+					href="#" th:href="@{/admin/festivos}">Festivos</a> <a
+					class="nav-link col-lg-12 col-md-4 col-4 p-4 rounded-0" href="#"
+					th:href="@{/admin/reservas}">Reservas</a> <a
+					class="nav-link col-lg-12 col-md-4 col-4 p-4 rounded-0" href="#"
+					th:href="@{/admin/solicitudes}">Solicitudes</a> <a
+					class="nav-link col-lg-12 col-md-4 col-4 p-4 rounded-0" href="#"
+					th:href="@{/admin/usuarios}">Usuarios</a>
 
 			</nav>
 		</div>

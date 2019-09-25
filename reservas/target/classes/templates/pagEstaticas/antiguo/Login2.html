@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="pagEstaticas/head :: headFragment (titulo='LogIn')">
+</head>
+  <body class="pepe">
+
+        <img src="img/Logo-horizontal-segundo-nivel.png" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="Logo Salesianos Triana">
+        <div class="form-group pais">
+          <label for=""></label>
+          <select class="form-control" name="" id="">
+            <option></option>
+            <option></option>
+            <option></option>
+          </select>
+        </div>
+        <div class="site-wrapper">
+                <div class="container">
+                    <div class="d-flex justify-content-center h-100">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Iniciar sesión</h3>
+                            </div>
+                            <div class="card-body">
+                                <form method="POST" action="#" th:action="@{/}">
+                                    <div class="input-group form-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fa fa-user-circle-o" aria-hidden="true"></i></span>
+                                        </div>
+                                        <input type="text" name="username" id="username" class="form-control" placeholder="Usuario">
+        
+                                    </div>
+                                    <div class="input-group form-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                                        </div>
+                                        <input type="password" name="password" id="password" class="form-control"
+                                            placeholder="Contraseña">
+                                    </div>
+                                    <div class="ordenar row align-items-center remember">
+                                        <input type="checkbox">Recuérdame
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="submit" value="Login"
+                                            class="btn float-right login_btn">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="card-footer">
+                                <div class="d-flex justify-content-center links">
+                                    ¿No tienes una cuenta? <a href="#" th:href="@{/user/signup}"> ¡Regístrate!</a>
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    <a href="#">¿Olvidaste tu contraseña?</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+      
+  
+  </body>
+</html>

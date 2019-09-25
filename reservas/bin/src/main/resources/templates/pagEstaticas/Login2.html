@@ -19,7 +19,7 @@
                     <div class="d-flex justify-content-center h-100">
                         <div class="card col-md-5 login">
                             <div class="card-header titulo">
-                                <h3>Iniciar sesión</h3>
+                                <h3 th:text="#{login}">Iniciar sesión</h3>
                             </div>
                             <div class="card-body">
                                 <form method="POST" action="#" th:action="@{/}">
@@ -27,7 +27,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="fas fa-user-circle"></i></span>
                                         </div>
-                                        <input type="text" name="username" id="username2" class="form-control" placeholder="Usuario">
+                                        <input type="text" name="username" id="username2" class="form-control" th:placeholder="#{usuario}">
         
                                     </div>
                                     <div class="input-group form-group login">
@@ -35,10 +35,10 @@
                                             <span class="input-group-text"><i class="fa fa-lock" aria-hidden="true"></i></span>
                                         </div>
                                         <input type="password" name="password" id="password2" class="form-control"
-                                            placeholder="Contraseña">
+                                            th:placeholder="#{contrasenya}">
                                     </div>
-                                    <div class="ordenar row align-items-center remember">
-                                        <input type="checkbox">Recuérdame
+                                    <div class="ordenar row align-items-center remember" >
+                                        <input type="checkbox" th:text="#{recuerdame}">
                                     </div>
                                     <div class="form-group">
                                         <input type="submit" value="Login"
@@ -48,7 +48,7 @@
                             </div>
                             <div class="card-footer">
                                 <div class="d-flex justify-content-center links">
-                                    ¿No tienes una cuenta? <a href="#" th:href="@{/signup}"> ¡Regístrate!</a>
+                                    ¿No tienes una cuenta? <a href="#" th:href="@{/signup}">¡Regístrate!</a>
                                 </div>
                                 <div class="d-flex justify-content-center">
                                     <a href="#">¿Olvidaste tu contraseña?</a>

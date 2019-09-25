@@ -5,26 +5,25 @@
         <nav th:replace="user/navegadorUsuario :: navegadorUsuario"></nav>
         <div class="container-fluid mt-4">
             <div class="col-12">
-                <h1 class="display-3"></h1>
+                <h1 class="display-3 text-center mb-3" th:text="${aula.nombre}"></h1>
 
             </div>
             <aside class="col-md-6 col-12 col-lg-4 float-left">
-               
+                
                 <div class="col-12">
-                    <form class="border border-0 " th:action="@{/user/reservar/semana}" th:object="${formbeanFecha}" method="post">
+                    <h4>Escoja una fecha del calendario</h4>
+                    <form class="border border-0 " th:action="@{/user/reservar/{id}/submit (id=${aula.id})}" th:object="${formbeanFecha}" method="post">
                         <div class="col-12 form-group float-left p-0">
                             <input type='text' placeholder="Selecciona una fecha" class="col-11 datepicker float-left" id="cal" th:field="*{fecha}" data-date-format="dd/mm/yyyy"/>
-                            
-                            
+                      
+                          <input type="submit" value="Buscar" class="btn btn-danger">
                         </div>
-                        
-                        <input type="submit" value="Buscar" class="btn btn-danger">
                     </form>
                 </div>
                 
             </aside>
             <section class="col-md-6 col-12 col-lg-8 float-left">
-                <div th:if="${semana!= null}" class="col-12 m-0 p-0 b-0">
+                <div th:if="${semana!= null}" class="col-12 m-0 p-0 b-0" style="overflow-x:auto;">
                     <table class="table table-bordered m-0">
                         <thead>
                             <tr class="bg-dark text-white">
@@ -44,13 +43,59 @@
                                 <th class="bg-warning">HORAS</th>
                                 <th:block th:each="f : ${semana}">
                                 <th th:text="${#temporals.format(f, 'dd/MM/yyyy')}">xx/xx/xxxx</th>
-                            </th:block>
-                        </tr>
-                        <tr th:each="h : ${horas}" >
-                            <td th:text="${h.descripcion}" class="bg-dark text-white"></td>
-                            
-                        </tr>
-                        
+                                </th:block>
+                            </tr>
+                            <tr class="p-0">
+                                <td class="p-0">
+                                    <table class="m-0 w-100 ">
+                                        <tr th:each="h : ${horas}">
+                                            <td th:text="${h.descripcion}" class="bg-dark text-white"></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td colspan="7"  class="p-0">
+                                    <table class="m-0 w-100">
+                                        <tr>
+                                            <th:block th:each="r : ${reserva1}">
+                                                <td th:if="${r==null}" class=" bg-secondary"></td>
+                                                <td th:if="${r!=null&&r.usuario.email==usuario.email}"class=" bg-primary">hola</td>
+                                            </th:block>
+                                        </tr>
+                                        <tr>
+                                            <th:block th:each="r : ${reserva2}">
+                                                <td th:if="${r==null}" class=" bg-secondary"></td>
+                                                <td th:if="${r!=null&&r.usuario.email==usuario.email}"class=" bg-primary">hola</td>
+                                            </th:block>
+                                        </tr>
+                                        <tr>
+                                            <th:block th:each="r : ${reserva3}">
+                                                <td th:if="${r==null}" class=" bg-secondary"></td>
+                                                <td th:if="${r!=null&&r.usuario.email==usuario.email}"class=" bg-primary">hola</td>
+                                            </th:block>
+                                        </tr>
+                                        <tr>
+                                            <th:block th:each="r : ${reserva4}">
+                                                <td th:if="${r==null}" class=" bg-secondary"></td>
+                                                <td th:if="${r!=null&&r.usuario.email==usuario.email}"class=" bg-primary">hola</td>
+                                            </th:block>
+                                        </tr>
+                                        <tr>
+                                            <th:block th:each="r : ${reserva5}">
+                                                <td th:if="${r==null}" class=" bg-secondary"></td>
+                                                <td th:if="${r!=null&&r.usuario.email==usuario.email}"class=" bg-primary">hola</td>
+                                            </th:block>
+                                        </tr>
+                                        <tr>
+                                            <th:block th:each="r : ${reserva6}">
+                                                <td th:if="${r==null}" class=" bg-secondary"></td>
+                                                <td th:if="${r!=null&&r.usuario.email==usuario.email}"class=" bg-primary">hola</td>
+                                            </th:block>
+                                        </tr>
+
+                                    </table>
+                                    
+                                </td>
+                            </tr>
                     </tbody>
                 </table>
             </div>
