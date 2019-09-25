@@ -30,6 +30,7 @@ public class Reserva {
 	private Usuario usuario;
 	
 	private LocalDate fecha;
+
 	
 	/**
 	 * Constructor de una Reserva de un Aula por un usuario
@@ -39,12 +40,14 @@ public class Reserva {
 	 * @param fecha Fecha de la reserva
 	 * 
 	 */
-	public Reserva(Horas hora, Aula aula, Usuario usuario, LocalDate fecha, boolean empty) {
+	public Reserva(Horas hora, Aula aula, Usuario usuario, LocalDate fecha) {
 		super();
 		this.hora = hora;
 		this.aula = aula;
 		this.usuario = usuario;
 		this.fecha = fecha;
+		
+		
 		
 	}
 

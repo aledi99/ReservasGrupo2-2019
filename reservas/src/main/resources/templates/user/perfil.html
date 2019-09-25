@@ -14,24 +14,33 @@
 				<div class="col-sm font-weight-bold"><span th:text="#{email}">Email</span></div>
 			</div>
 			<div class="row">
-				<div class="col-sm">Luismi</div>
-				<div class="col-sm">Lopez</div>
-				<div class="col-sm">luismi.lopez@salesianos.edu</div>
+				<div class="col-sm" th:text="${usuario.nombre}">Luismi</div>
+				<div class="col-sm" th:text="${usuario.apellidos}">Lopez</div>
+				<div class="col-sm" th:text="${usuario.email}">luismi.lopez@salesianos.edu</div>
 			</div>
 		</div>
 		<!-- Button -->
 		<div class="form-group ml-5">
 			<label class=" control-label" for="edit"></label>
 			<div class="text-center mt-5">
+<<<<<<< HEAD
 				<button id="edit" name="edit" class="w-50 btn btn-primary"><span th:text="#{editarU}">Editar
 					usuario</span></button>
+=======
+				<a th:href="@{/user/editPerfil}"><button id="edit" name="edit" class="w-50 btn btn-primary">Editar
+						usuario</button></a>
+>>>>>>> 3bf5c08aaf8085f34d93f631fda1396f19fa45fd
 				<button id="editPass" name="editPass"
 					class="mt-2 w-50 btn btn-primary"><span th:text="#{editarC}">Editar contraseña</span></button>
 			</div>
 		</div>
 
 
+<<<<<<< HEAD
 		<h1 class="text-center display-5"><span th:text="#{historialR}">Historial de Reservas</span></h1>
+=======
+		<h1 class="text-center display-5 mt-5">Historial de Reservas</h1>
+>>>>>>> 3bf5c08aaf8085f34d93f631fda1396f19fa45fd
 
 		<div class="card" style="width: 18rem;">
 			<div class="card-body">
@@ -55,9 +64,16 @@
 								th:text="${reserva.hora}">hora</span>
 						</p>
 					</li>
+					<a th:href="@{/user/borrar/{id}(id=${reserva.id})}"><button
+							type="button" class="btn btn-outline-danger mt-3"
+							id="borrarReserva" name="borrarReserva">Borrar Reserva</button></a>
 				</ul>
+<<<<<<< HEAD
 				<button type="button" class="btn btn-outline-danger"
 					id="borrarReserva" name="borrarReserva"><span th:text="#{borrarR}">Borrar Reserva</span></button>
+=======
+
+>>>>>>> 3bf5c08aaf8085f34d93f631fda1396f19fa45fd
 			</div>
 		</div>
 	</div>

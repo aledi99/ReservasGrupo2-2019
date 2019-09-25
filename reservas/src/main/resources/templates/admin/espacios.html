@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="pagEstaticas/head :: headFragment (titulo='Reservar')">
+</head>
+<body>
+
+	<nav th:replace="admin/navAdmin :: navAdmin"></nav>
+	<aside class="float-left col-lg-2 p-0 subNav">
+		<div class="container-fluid col-lg-12 h-100 col-12 p-0 float-left">
+			<nav class="nav nav-stacked text-center subNav">
+				<a class="nav-link col-lg-12 col-md-4 col-4 p-4 rounded-0" href="#"
+					th:href="@{/admin/espacios}">Espacios</a> <a
+					class="nav-link col-lg-12 col-md-4 col-4 boton p-4 rounded-0"
+					href="#" th:href="@{/admin/festivos}">Festivos</a> <a
+					class="nav-link col-lg-12 col-md-4 col-4 p-4 rounded-0" href="#"
+					th:href="@{/admin/reservas}">Reservas</a> <a
+					class="nav-link col-lg-12 col-md-4 col-4 p-4 rounded-0" href="#"
+					th:href="@{/admin/solicitudes}">Solicitudes</a> <a
+					class="nav-link col-lg-12 col-md-4 col-4 p-4 rounded-0" href="#"
+					th:href="@{/admin/usuarios}">Usuarios</a>
+
+			</nav>
+		</div>
+	</aside>
+	<section class="float-left col-lg-8 p-0 mt-3 ml-3">
+		<div th:if="${!espacios.isEmpty()}">
+			<table class="table mx-auto">
+				<thead class="thead-dark">
+					<tr>
+						<th scope="col">Nombre</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="espacio : ${espacios}">
+						<td th:text="${espacio.nombre}">NOMBRE</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div th:if="${espacios.isEmpty()}">
+			<p>No existen aulas registradas</p>
+		</div>
+	</section>
+
+</body>
+</html>

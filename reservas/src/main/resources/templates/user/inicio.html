@@ -3,8 +3,9 @@
 
 <head th:replace="pagEstaticas/head :: headFragment (titulo='Inicio')">
 <body>
-   <nav th:replace="user/navegadorUsuario :: navegadorUsuario"></nav>
+	<nav th:replace="user/navegadorUsuario :: navegadorUsuario"></nav>
 
+<<<<<<< HEAD
     <h1 class="display-3 text-center mt-4" th:text="#{aula}">Listas de Aulas</h1>
     <div class="lista w-50 text-center">
         <ul class="">
@@ -15,6 +16,20 @@
 
         </ul>
     </div>
+=======
+	<h1 class="display-3 text-center mt-4 text-dark">Listas de Aulas</h1>
+	<div class="lista w-50 text-center container">
+		<div class="row text-center">
+			<ul class="w-100">
+				<div class="col-sm h-25">
+					<li class="listaAulas h-75 border" th:each="aula : ${listAulas}"><a
+						href="#" class="text-danger" style="font-size: 40px;" th:text="${aula.nombre}"
+						th:href="@{/user/reservar/{id} (id=${aula.id})}">1º Dam</a>
+				</div>
+			</ul>
+		</div>
+	</div>
+>>>>>>> 3bf5c08aaf8085f34d93f631fda1396f19fa45fd
 
 </body>
 
