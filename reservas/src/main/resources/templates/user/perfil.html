@@ -14,17 +14,17 @@
 				<div class="col-sm font-weight-bold">Email</div>
 			</div>
 			<div class="row">
-				<div class="col-sm">Luismi</div>
-				<div class="col-sm">Lopez</div>
-				<div class="col-sm">luismi.lopez@salesianos.edu</div>
+				<div class="col-sm" th:text="${usuario.nombre}">Luismi</div>
+				<div class="col-sm" th:text="${usuario.apellidos}">Lopez</div>
+				<div class="col-sm" th:text="${usuario.email}">luismi.lopez@salesianos.edu</div>
 			</div>
 		</div>
 		<!-- Button -->
 		<div class="form-group ml-5">
 			<label class=" control-label" for="edit"></label>
 			<div class="text-center mt-5">
-				<button id="edit" name="edit" class="w-50 btn btn-primary">Editar
-					usuario</button>
+				<a th:href="@{/user/editPerfil}"><button id="edit" name="edit" class="w-50 btn btn-primary">Editar
+						usuario</button></a>
 				<button id="editPass" name="editPass"
 					class="mt-2 w-50 btn btn-primary">Editar contraseña</button>
 			</div>
