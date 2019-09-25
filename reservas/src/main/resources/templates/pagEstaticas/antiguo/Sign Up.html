@@ -1,193 +1,171 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="pagEstaticas/head :: headFragment (titulo='SignUp')">
-</head>
-<body class="pepe">
+  </head>
+  <body class="pepe">
 
-	<img src="img/Logo-horizontal-segundo-nivel.png"
-		class="img-fluid imagen ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
-		alt="">
-	<div class="form-group pais">
-		<label for=""></label> <select class="form-control col-sm-12" name=""
-			id="">
-			<option>Español</option>
-			<option></option>
-			<option></option>
-		</select>
-	</div>
+    <img src="img/Logo-horizontal-segundo-nivel.png" class="img-fluid imagen ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="">
+        <div class="form-group pais">
+          <label for=""></label>
+          <select class="form-control col-sm-12" name="" id="">
+            <option>Español</option>
+            <option></option>
+            <option></option>
+          </select>
+        </div>
 
-	<form class="form-horizontal formularioD col-md-5" name="form1"
-		method="POST" onsubmit="return comprobarPassword() && valida()"
-		action="#" th:action="@{/user/editPerfil/submit}"
-		th:object="${usuario}" role="form">
-		<fieldset>
+        <form class="form-horizontal formularioD" method="POST" onSubmit="comprobarPassword();" action="#" th:action="@{/signup/submit}" th:object="${usuario}" role="form">
+                <fieldset>
+                
+                <!-- Form Name -->
+                <legend class="grande"><h3>Registro</h3></legend>
+                
+                <div class="row">
+                        <div class="col-sm-3 hhh">
+                          <!-- Text input-->
+                <div class="form-group">
+                        <label class="col-md-8 control-label" for="textinput">Nombre</label>  
+                        <div class="col-md-16">
+                        <input id="textinput" name="textinput" type="text" th:field="*{nombre}" placeholder="Antonio" class="form-control input-md">  
+                        </div>
+                      </div>
 
-			<input id="id" name="id" type="hidden" th:field="*{id}"> 
-			<input id="correo1" name="correo1" type="hidden" th:field="*{email}">
+                       <!-- Prepended text-->
+                <div class="form-group">
+                        <label class="col-md-8 control-label" for="prependedtext">Correo Electrónico</label>
+                        <div class="col-md-16">
+                          <div class="input-group">
+                            <span class="input-group-addon arroba">@</span>
+                            <input id="correo1" name="prependedtext" class="form-control" placeholder="example@example.com" type="text" th:field="*{email}">
+                          </div>
+                          <p class="help-block">Debe de ser un correo válido</p>
+                        </div>
+                      </div>
 
-			<!-- Form Name -->
-			<legend class="grande">
-				<h3 th:text="#{registro}">Formulario de edicion</h3>
-			</legend>
+                      <!-- Password input-->
+                <div class="form-group">
+                        <label class="col-md-8 control-label" for="passwordinput">Contraseña</label>
+                        <div class="col-md-16">
+                          <input id="passwordinput" name="passwordinput" type="password" th:field="*{password}" placeholder="..." class="form-control input-md">
+                          <span class="help-block">Mínimo 8 caracteres</span>
+                        </div>
+                      </div>
 
-			<!-- Text input-->
-			<div class="form-group">
-				<label class="col-md-8 control-label" for="textinput"
-					th:text="#{nombre}">Nombre</label>
-				<div class="col-md-10">
-					<input id="textinput" name="textinput" type="text"
-						th:field="*{nombre}" placeholder="Antonio"
-						class="form-control input-md" required>
-				</div>
-			</div>
+                 
 
-			<!-- Text input-->
-			<div class="form-group">
-				<label class="col-md-5 control-label" for="textinput"
-					th:text="#{apellidos}">Apellidos</label>
-				<div class="col-md-10">
-					<input id="textinput" name="textinput" type="text"
-						th:field="*{apellidos}" placeholder="Cotán García"
-						class="form-control input-md" required>
-				</div>
-			</div>
+                      
+                        </div>
+                        <div class="col-sm-3 hhh">
+                                        <!-- Text input-->
+                <div class="form-group">
+                        <label class="col-md-8 control-label" for="textinput">Apellidos</label>  
+                        <div class="col-md-16">
+                        <input id="textinput" name="textinput" type="text" th:field="*{apellidos}" placeholder="Cotán García" class="form-control input-md"> 
+                        </div>
+                      </div>
 
-			<div class="form-group">
-				<label class="col-md-8 control-label" for="selectbasic"
-					th:text="#{centro}">Centro</label>
-				<div class="col-md-10">
-					<select id="selectbasic" name="selectbasic" class="form-control">
-						<option value="1">Salesianos Triana</option>
-					</select>
-				</div>
-			</div>
+                                 <!-- Select Basic -->
+               
 
-			<!-- Password input-->
-			<div class="form-group">
-				<label class="col-md-8 control-label" for="passwordinput"
-					th:text="#{contrasenya}">Contraseña</label>
-				<div class="col-md-10">
-					<input id="passwordInput" name="passwordInput" type="password"
-						th:field="*{password}" placeholder="..."
-						class="form-control input-md" required> <span
-						class="help-block" th:text="#{ochoCaract}">Mínimo 8
-						caracteres</span>
-				</div>
-			</div>
+                       <!-- Prepended text-->
+                <div class="form-group">
+                        <label class="col-md-12 control-label" for="prependedtext">Repetir Correo Electrónico</label>
+                        <div class="col-md-16">
+                          <div class="input-group">
+                            <span class="input-group-addon arroba">@</span>
+                            <input id="reCorreo" name="prependedtext" class="form-control" placeholder="example@example.com" type="text">
+                          </div>
+                          <p class="help-block">El correo debe de coincidir</p>
+                        </div>
+                      </div>
 
+                      <!-- Password input-->
+                <div class="form-group">
+                        <label class="col-md-8 control-label" for="passwordinput">Repetir Contraseña</label>
+                        <div class="col-md-16">
+                          <input id="rePasswordinput" name="passwordinput" type="password" placeholder="..." class="form-control input-md">
+                          <span class="help-block">Las contraseñas deben de coincidir</span>
+                        </div>
+                      </div>
+                        </div>
+                        <div class="col-sm-3 hhh">           
+		 <div class="form-group">
+                        <label class="col-md-8 control-label" for="selectbasic">Centro</label>
+                        <div class="col-md-16">
+                          <select id="selectbasic" name="selectbasic" class="form-control">
+                            <option value="1">Salesianos Triana</option>
+                          </select>
+                        </div>
+                      </div>
+                      
+               
 
-			<!-- Password input-->
-			<div class="form-group">
-				<label class="col-md-8 control-label" for="passwordinput"
-					th:text="#{rePassword}">Repetir Contraseña</label>
-				<div class="col-md-10">
-					<input id="rePasswordInput" name="passwordinput" type="password"
-						placeholder="..." class="form-control input-md" required>
-					<span class="help-block" th:text="#{validoRePassword}">Las
-						contraseñas deben de coincidir</span>
-				</div>
-			</div>
+                      <!-- Button -->
+<div class="form-group final">
+             <!-- Multiple Checkboxes (inline) -->
+                <div class="form-group acepto">
+                        <div class="col-md-16">
+                          <label class="checkbox-inline" for="checkboxes-0"> <h7 class="acepto">Acepto los términos de esta página</h7> 
+                            <input class="check" type="checkbox" name="checkboxes" id="checkboxes-0" value="1">
+                          </label>
+                        </div>
+                      </div>
+  <div class="col-md-4">
+    <button id="singlebutton" name="singlebutton" class="btn btn-primary">Confirmar</button>
+  </div>
+</div>
 
-			<!-- Multiple Checkboxes (inline) -->
-			<div class="form-group acepto">
-				<div class="">
-					<label class="checkbox-inline" for="checkboxes-0"> <h7
-							class="acepto" th:text="#{terminos}">Acepto los términos de
-						esta página</h7> <input class="check" type="checkbox" name="checkboxes"
-						id="checkboxes-0" value="1" required>
-					</label>
-				</div>
-			</div>
+                        </div>
+                      </div>
 
+                
+                
+                </fieldset>
+                </form>
+                
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  
+    <script type="text/javascript">
+    function comprobarPassword(){
+      var password1 = document.getElementById("passwordInput").value;
+      var password2 = document.getElementById("rePasswordInput").value;
+    
+      if (password1.length == 0 || password2.length == 0) {
+  alert("Los campos Contraseña y Repetir Contraseña no pueden quedar vacíos");
+  return false;
+}
 
-			<!-- Button -->
-			<div class="form-group final">
+if (password1 != password2) {
+  alert("Las contraseñas no coinciden");
+  return false;
+} else {
+  return true; 
+}
+    }
 
-				<div class="col-md-4">
-					<button id="singlebutton" name="singlebutton" type="submit"
-						value="submit" class="btn btn-dark">
-						<span th:text="#{confirmar}">Confirmar</span>
-					</button>
-				</div>
-			</div>
+    function comprobarCorreo() {
+      var correo1 = document.getElementById("correo1").value;
+      var correo2 = document.getElementById("reCorreo").value;
 
+      if (correo1.length == 0 || correo2.length == 0) {
+  alert("Los campos Correo Electrónico y Repetir Correo Electrónico no pueden quedar vacíos");
+  return false;
+}
 
-			</div>
-
-
-
-		</fieldset>
-	</form>
-
-	<script>
-		function comprobarPassword() {
-			var password1 = document.getElementById("passwordInput").value;
-			var password2 = document.getElementById("rePasswordInput").value;
-
-			if (password1.length == 0 || password2.length == 0) {
-				alert("Los campos Contraseña y Repetir Contraseña no pueden quedar vacíos");
-				return false;
-			}
-
-			if (password1 != password2) {
-				alert("Las contraseñas no coinciden");
-				return false;
-			} else {
-				return true;
-			}
-		}
-
-		function comprobarCorreo() {
-			var correo1 = document.getElementById("correo1").value;
-			var correo2 = document.getElementById("reCorreo").value;
-
-			if (correo1.length == 0 || correo2.length == 0) {
-				alert("Los campos Correo Electrónico y Repetir Correo Electrónico no pueden quedar vacíos");
-				return false;
-			}
-
-			if (correo1 != correo2) {
-				alert("Los e-mail's no coinciden");
-				return false;
-			} else {
-				return true;
-			}
-		}
-
-		function valida() {
-			var password1 = document.getElementById("passwordInput").value;
-
-			if (password1.length < 8) {
-				alert("La contraseña debe ser de 8 o más caracteres");
-				return false;
-			} else {
-				return true;
-			}
-		}
-
-		function avisarEmail() {
-			alert("Este email ya ha sido registrado");
-		}
-	</script>
-
-	<script th:inline="javascript" th:if="${errorEmail==true}">
-		avisarEmail();
-	</script>
-
-	<!-- Optional JavaScript -->
-	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-		crossorigin="anonymous"></script>
+if (correo1 != correo2) {
+  alert("Los e-mail's no coinciden");
+  return false;
+} else {
+  return true; 
+}
+    }
 
 
-</body>
+    </script>
+  </body>
 </html>

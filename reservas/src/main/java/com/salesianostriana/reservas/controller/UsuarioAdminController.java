@@ -56,9 +56,7 @@ public class UsuarioAdminController {
 	}
 
 	@GetMapping("/usuarios")
-	public String usuarios(Model model) {
-		model.addAttribute("usuarios", usuarioservicio.buscarPorGestionadoTrueAndAdminFalse());
-		
+	public String usuarios() {
 		return "admin/usuarios";
 	}
 
