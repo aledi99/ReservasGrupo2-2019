@@ -8,6 +8,7 @@ function enviar(id) {
     });
 });
 
+
 $.fn.datepicker.dates['es'] = {
     days: ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "VIernes", "Sábado"],
     daysShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],

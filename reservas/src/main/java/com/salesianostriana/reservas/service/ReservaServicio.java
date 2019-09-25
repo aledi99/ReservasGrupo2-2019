@@ -166,13 +166,15 @@ public class ReservaServicio extends ServicioBase<Reserva, Long, ReservaReposito
 
 	}
 	public List<Horas> listarHorasLibres(LocalDate fecha, Aula aula){
-		List <Reserva> r=repositorio.findByFechaAndAulaOrderByHoraAsc(fecha,aula);
+		System.out.println("fecha en listarhoraslibres"+fecha);
+		System.out.println("aula en listarhoraslibres"+aula);
+	//	List <Reserva> r=repositorio.findByFechaAndAula(fecha,aula);
 		List <Horas> horasLibres= new ArrayList<>();
 		Arrays.asList(Horas.values()).forEach(horasLibres::add);
 		System.out.println("CREADO" +horasLibres);
 		for(Horas i : Horas.values()) {
 			System.out.println("HORA BUCLE"+i);
-			for(Reserva j: r) {	
+			for(Reserva j: repositorio.findByFechaAndAula(fecha,aula)) {	
 				if(j.getHora()==i) {
 					
 					horasLibres.removeIf(p -> p.name().equals(j.getHora().name()));
@@ -185,6 +187,7 @@ public class ReservaServicio extends ServicioBase<Reserva, Long, ReservaReposito
 		horasLibres.stream().forEach(x -> System.out.println(x));
 		return horasLibres;
 	}
+	
 	
 	
 }

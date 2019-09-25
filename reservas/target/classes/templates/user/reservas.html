@@ -4,13 +4,16 @@
 <style>
    td, th {
         height: 49.6px;
+        text-align: center;
     }
     td p{
         font-size: 10px;
+      
     }
     .dias{
-        font-size: 12px;
+        font-size: 13px;
     }
+    
 </style>
 <body>
         <nav th:replace="user/navegadorUsuario :: navegadorUsuario"></nav>
@@ -19,34 +22,43 @@
                 <h1 class="display-3 text-center mb-3" th:text="${aula.nombre}"></h1>
 
             </div>
-            <aside class="col-md-6 col-12 col-lg-4 float-left">
+            <aside class="col-md-4 col-12 col-lg-4 float-left">
             <div class="containter-fluid">
                 <div class="row">
                     <div class="col-12 ">
                         <h4>Escoja una fecha del calendario</h4>
-                        <form class="border border-0 " th:action="@{/user/reservar/{id}/submit (id=${aula.id})}" th:object="${formbeanFecha}" method="post">
+                        <form class="border border-0 " th:action="@{/user/reservar/{id}/submit (id=${aula.id})}" th:object="${formbeanFecha}" method="post" id="buscarFecha">
                             <div class="col-12 form-group float-left p-0 m-0">
-                                <input type='text' placeholder="Selecciona una fecha" class="col-8 datepicker float-left mr-2" id="cal" th:field="*{fecha}" data-date-format="dd/mm/yyyy"/>
-                            
-                                <input type="submit" value="Buscar" class="btn btn-danger col-2 float left">
+                                <input type='text' placeholder="Selecciona una fecha" required class="col-8 datepicker float-left mr-2" id="cal" th:field="*{fecha}" data-date-format="dd/mm/yyyy" onchange="enviar('buscarFecha')"/>
+        
                             </div>
                         </form>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row mt-2">
                     <div class="col-12">
                             <h4>Escoja una hora</h4>
                             <form th:action="@{/user/reservar/{id}/nueva-reserva/submit (id=${aula.id})}"
                             method="POST" th:object="${nuevaReserva}" id="elegirHora">
                             <input type="hidden" th:field="*{fecha}">
-                            <select th:field="*{hora}" class="p-2 mt-2">
+                            <select th:field="*{hora}" class="p-2 mt-2 col-8" name="hora" required>
                                 
                                 <option th:each="hl : ${horasLibres}" th:value="${hl}"
                                     th:text="${hl.descripcion}" >xxx</option>
                             </select>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn pepe text-white">Submit</button>
                         </form>
                         
+                    </div>
+                </div>
+                <div class="row mt-4 mb-4">
+                    <div class="col-12">
+                        <div class="col-1 pepe border border-1 float-left"><p>&nbsp;</p></div>
+                        <div class="col-3 float-left"><p>Su reserva</p></div>
+                        <div class="col-1 bg-secondary border border-1 float-left"><p>&nbsp;</p></div>
+                        <div class="col-3 float-left"><p>No disponible</p></div>
+                        <div class="col-1 border border-1 float-left"><p>&nbsp;</p></div>
+                        <div class="col-3 float-left"><p>Disponible</p></div>
                     </div>
                 </div>
             </div>
@@ -91,7 +103,7 @@
                                         <tbody>
                                             <tr>
                                                 <th:block th:each="f : ${semana}">
-                                                <th th:text="${#temporals.format(f, 'dd/MM/yyyy')}">xx/xx/xxxx</th>
+                                                <th th:text="${#temporals.format(f, 'dd/MM/yyyy')}" class="dias">xx/xx/xxxx</th>
                                                 </th:block>
                                             </tr>
                                             <tbody>
@@ -99,10 +111,10 @@
                                                     <th:block th:each="r : ${reserva1}">
                                                         <td th:if="${r==null}"></td>
                                                         <td th:if="${r!=null&&r.usuario.email==usuario.email}"class="pepe">
-                                                            <p th:text="${usuario.apellidos}" class="text-white"></p>
+                                                            <p th:text="${usuario.apellidos}" class="text-white p-0 m-0">
                 
                                                         </td>
-                                                        <td th:if="${r!=null&&r.usuario.email!=usuario.email}"class=" bg-secondary">hola</td>
+                                                        <td th:if="${r!=null&&r.usuario.email!=usuario.email}"class=" bg-secondary"></td>
 
                                                     </th:block>
                                                 </tr>
@@ -110,60 +122,60 @@
                                                     <th:block th:each="r : ${reserva2}">
                                                         <td th:if="${r==null}"></td>
                                                         <td th:if="${r!=null&&r.usuario.email==usuario.email}"class="pepe">
-                                                            <p th:text="${usuario.apellidos}" class="text-white"></p>
+                                                            <p th:text="${usuario.apellidos}" class="text-white p-0 m-0">
                 
                                                         </td>
-                                                        <td th:if="${r!=null&&r.usuario.email!=usuario.email}"class=" bg-secondary">hola</td>
+                                                        <td th:if="${r!=null&&r.usuario.email!=usuario.email}"class=" bg-secondary"></td>
                                                     </th:block>
                                                 </tr>
                                                 <tr>
                                                     <th:block th:each="r : ${reserva3}">
                                                         <td th:if="${r==null}"></td>
                                                         <td th:if="${r!=null&&r.usuario.email==usuario.email}"class="pepe">
-                                                            <p th:text="${usuario.apellidos}" class="text-white"></p>
+                                                            <p th:text="${usuario.apellidos}" class="text-white p-0 m-0">
                 
                                                         </td>
-                                                        <td th:if="${r!=null&&r.usuario.email!=usuario.email}"class=" bg-secondary">hola</td>
+                                                        <td th:if="${r!=null&&r.usuario.email!=usuario.email}"class=" bg-secondary"></td>
                                                     </th:block>
                                                 </tr>
                                                 <tr>
                                                     <th:block th:each="r : ${reserva4}">
                                                         <td th:if="${r==null}"></td>
                                                         <td th:if="${r!=null&&r.usuario.email==usuario.email}"class="pepe">
-                                                            <p th:text="${usuario.apellidos}" class="text-white"></p>
+                                                            <p th:text="${usuario.apellidos}" class="text-white p-0 m-0">
                 
                                                         </td>
-                                                        <td th:if="${r!=null&&r.usuario.email!=usuario.email}"class=" bg-secondary">hola</td>
+                                                        <td th:if="${r!=null&&r.usuario.email!=usuario.email}"class=" bg-secondary"></td>
                                                     </th:block>
                                                 </tr>
                                                 <tr>
                                                     <th:block th:each="r : ${reserva5}">
                                                         <td th:if="${r==null}"></td>
                                                         <td th:if="${r!=null&&r.usuario.email==usuario.email}"class="pepe">
-                                                            <p th:text="${usuario.apellidos}" class="text-white"></p>
+                                                            <p th:text="${usuario.apellidos}" class="text-white p-0 m-0">
                 
                                                         </td>
-                                                        <td th:if="${r!=null&&r.usuario.email!=usuario.email}"class=" bg-secondary">hola</td>
+                                                        <td th:if="${r!=null&&r.usuario.email!=usuario.email}"class=" bg-secondary"></td>
                                                     </th:block>
                                                 </tr>
                                                 <tr>
                                                     <th:block th:each="r : ${reserva6}">
                                                         <td th:if="${r==null}"></td>
                                                         <td th:if="${r!=null&&r.usuario.email==usuario.email}"class="pepe">
-                                                            <p th:text="${usuario.apellidos}" class="text-white"></p>
+                                                            <p th:text="${usuario.apellidos}" class="text-white p-0 m-0">
                 
                                                         </td>
-                                                        <td th:if="${r!=null&&r.usuario.email!=usuario.email}"class=" bg-secondary">hola</td>
+                                                        <td th:if="${r!=null&&r.usuario.email!=usuario.email}"class=" bg-secondary"></td>
                                                     </th:block>
                                                 </tr>
                                                 <tr>
                                                     <th:block th:each="r : ${reserva7}">
                                                         <td th:if="${r==null}"></td>
                                                         <td th:if="${r!=null&&r.usuario.email==usuario.email}"class="pepe">
-                                                            <p th:text="${usuario.apellidos}" class="text-white"></p>
+                                                            <p th:text="${usuario.apellidos}" class="text-white p-0 m-0">
                 
                                                         </td>
-                                                        <td th:if="${r!=null&&r.usuario.email!=usuario.email}"class=" bg-secondary">hola</td>
+                                                        <td th:if="${r!=null&&r.usuario.email!=usuario.email}"class=" bg-secondary"></td>
                                                     </th:block>
                                                 </tr>
                 

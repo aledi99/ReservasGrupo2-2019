@@ -12,5 +12,5 @@ import com.salesianostriana.reservas.model.Reserva;
 public interface ReservaRepository  extends JpaRepository<Reserva, Long>{
 	Reserva findByFechaAndHoraAndAula(LocalDate fecha,Horas hora,Aula aula);
 	
-	List<Reserva> findByFechaAndAulaOrderByHoraAsc(LocalDate fecha, Aula aula);
+	List<Reserva> findByFechaAndAula(LocalDate fecha, Aula aula);
 }
