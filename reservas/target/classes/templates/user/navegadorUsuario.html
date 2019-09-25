@@ -24,19 +24,19 @@
 				<div class="col-4">
 					<a href="../user/inicio.html" th:href="@{/user/inicio}" class="float-right mx-2">
 						<button type="button" class="btn bg-light btn-outline-danger  px-4 py-2">
-							<span th:text="#{inicio}"> Inicio </span>
+							<span> Inicio </span>
 						</button>
 					</a>
 				</div>
 					<a href="../user/perfil.html" th:href="@{/user/perfil}" class="float-right mx-2 ">
 						<button type="button" class="btn btn bg-light btn-outline-danger  px-4 py-2">
-							<span th:text="#{perfil}"> Perfil </span>
+							<span> Perfil </span>
 						</button>
 					</a>
 				<div class="col-4">
 					<form class="border border-0" th:action="@{/logout}" method="POST" id="logoutForm">
 						<a href="#" onclick="enviar('logoutForm')" class="float-right" mx-2>
-							<button type="button" class="btn bg-dark btn-outline-secondary btn  p-2 text-white"><span th:text="#{desconectar}">Desconectar</span></button>
+							<button type="button" class="btn bg-dark btn-outline-secondary btn  p-2 text-white">Desconectar</button>
 						</a>
 					</form>
 				</div>

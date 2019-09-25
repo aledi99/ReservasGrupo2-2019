@@ -11,7 +11,8 @@
 		<label for=""></label> <select class="form-control col-sm-12" name=""
 			id="">
 			<option>Español</option>
-			<option>English</option>
+			<option></option>
+			<option></option>
 		</select>
 	</div>
 
@@ -23,11 +24,11 @@
 
 			<!-- Form Name -->
 			<legend class="grande">
-				<h3 class="gordo" th:text="#{registro}">REGISTRO</h3>
+				<h3 th:text="#{registro}">Registro</h3>
 			</legend>
 
 			<!-- Text input-->
-			<div class="form-group cent">
+			<div class="form-group">
 				<label class="col-md-8 control-label" for="textinput"
 					th:text="#{nombre}">Nombre</label>
 				<div class="col-md-10">
@@ -38,7 +39,7 @@
 			</div>
 
 			<!-- Text input-->
-			<div class="form-group cent">
+			<div class="form-group">
 				<label class="col-md-5 control-label" for="textinput"
 					th:text="#{apellidos}">Apellidos</label>
 				<div class="col-md-10">
@@ -48,7 +49,7 @@
 				</div>
 			</div>
 
-			<div class="form-group cent">
+			<div class="form-group">
 				<label class="col-md-8 control-label" for="selectbasic"
 					th:text="#{centro}">Centro</label>
 				<div class="col-md-10">
@@ -59,7 +60,7 @@
 			</div>
 
 			<!-- Prepended text-->
-			<div class="form-group cent">
+			<div class="form-group">
 				<label class="col-md-8 control-label" for="prependedtext"
 					th:text="#{email}">Correo Electrónico</label>
 				<div class="col-md-10">
@@ -75,14 +76,14 @@
 			</div>
 
 			<!-- Prepended text-->
-			<div class="form-group cent">
+			<div class="form-group">
 				<label class="col-md-12 control-label" for="prependedtext"
 					th:text="#{reEmail}">Repetir Correo Electrónico</label>
 				<div class="col-md-10">
 					<div class="input-group">
 						<span class="input-group-addon arroba">@</span> <input
 							id="reCorreo" name="prependedtext" class="form-control"
-							placeholder="example@example.com" type="text">
+							placeholder="example@example.com" type="text" required>
 					</div>
 					<p class="help-block" th:text="#{validoReEmail}">El correo debe
 						de coincidir</p>
@@ -90,7 +91,7 @@
 			</div>
 
 			<!-- Password input-->
-			<div class="form-group cent">
+			<div class="form-group">
 				<label class="col-md-8 control-label" for="passwordinput"
 					th:text="#{contrasenya}">Contraseña</label>
 				<div class="col-md-10">
@@ -104,19 +105,19 @@
 
 
 			<!-- Password input-->
-			<div class="form-group cent">
+			<div class="form-group">
 				<label class="col-md-8 control-label" for="passwordinput"
 					th:text="#{rePassword}">Repetir Contraseña</label>
 				<div class="col-md-10">
 					<input id="rePasswordInput" name="passwordinput" type="password"
-						placeholder="..." class="form-control input-md">
+						placeholder="..." class="form-control input-md" required>
 					<span class="help-block" th:text="#{validoRePassword}">Las
-						contraseÃ±as deben de coincidir</span>
+						contraseñas deben de coincidir</span>
 				</div>
 			</div>
 			
 			<!-- Multiple Checkboxes (inline) -->
-				<div class="form-group cent acepto">
+				<div class="form-group acepto">
 					<div class="">
 						<label class="checkbox-inline" for="checkboxes-0"> <h7
 								class="acepto" th:text="#{terminos}">Acepto los términos de
@@ -185,7 +186,7 @@
 			var password1 = document.getElementById("passwordInput").value;
 
 			if (password1.length < 8) {
-				alert("La contraseña debe ser de 8 o más caracteres);
+				alert("La contraseña debe ser de 8 o más caracteres");
 				return false;
 			} else {
 				return true;
@@ -193,9 +194,8 @@
 		}
 
 		function avisarEmail() {
-			alert("Este e-mail ya ha sido registrado");
+			alert("Este email ya ha sido registrado");
 		}
-		
 	</script>
 
 	<script th:inline="javascript" th:if="${errorEmail==true}">

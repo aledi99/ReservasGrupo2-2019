@@ -23,8 +23,8 @@ select, option {
 	text-align: center;
 }
 
-.cent {
-	margin-left: 10%;
+.form-group {
+	margin-left: 5%;
 }
 
 .login {
@@ -57,10 +57,6 @@ legend {
 
 .grande {
 	margin: 0 auto;
-}
-
-.gordo {
-	font-weight: 800;
 }
 
 .arroba {

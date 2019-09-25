@@ -31,7 +31,6 @@
 						<th scope="col">Email</th>
 						<th scope="col">Nombre</th>
 						<th scope="col">Apellidos</th>
-						<th scope="col"></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -39,25 +38,14 @@
 						<td th:text="${usuario.email}">EMAIL</td>
 						<td th:text="${usuario.nombre}">NOMBRE</td>
 						<td th:text="${usuario.apellidos}">APELLIDOS</td>
-						<td><a href="#"
-							th:href="@{/admin/eliminarSolicitud/{id}(id=${usuario.id})}">
-								<i class="fas fa-trash"></i>
-						</a>
-							<form th:action="@{/admin/validar/{id}(id=${usuario.id})}"
-								th:object="${usuario}" method="post">
-								<button type="submit">
-									<i class="fas fa-check"></i>
-								</button>
-							</form></td>
 					</tr>
 				</tbody>
 			</table>
 		</div>
 
 		<div th:if="${usuarios.isEmpty()}">
-			<p>No existen solicitudes pendientes</p>
+			<p>No existen usuarios registrados</p>
 		</div>
-
 	</section>
 
 </body>

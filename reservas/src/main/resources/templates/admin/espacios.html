@@ -4,6 +4,7 @@
 <head th:replace="pagEstaticas/head :: headFragment (titulo='Reservar')">
 </head>
 <body>
+
 	<nav th:replace="admin/navAdmin :: navAdmin"></nav>
 	<aside class="float-left col-lg-2 p-0 subNav">
 		<div class="container-fluid col-lg-12 h-100 col-12 p-0 float-left">
@@ -22,6 +23,26 @@
 			</nav>
 		</div>
 	</aside>
+	<section class="float-left col-lg-8 p-0 mt-3 ml-3">
+		<div th:if="${!espacios.isEmpty()}">
+			<table class="table mx-auto">
+				<thead class="thead-dark">
+					<tr>
+						<th scope="col">Nombre</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="espacio : ${espacios}">
+						<td th:text="${espacio.nombre}">NOMBRE</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div th:if="${espacios.isEmpty()}">
+			<p>No existen aulas registradas</p>
+		</div>
+	</section>
 
 </body>
 </html>

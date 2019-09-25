@@ -6,12 +6,12 @@
 	<nav th:replace="user/navegadorUsuario :: navegadorUsuario"></nav>
 
 	<div class="container mt-4">
-		<h1 class="text-center display-5" th:text="#{datosP}">Datos Personales</h1>
+		<h1 class="text-center display-5">Datos Personales</h1>
 		<div class="container">
 			<div class="row">
-				<div class="col-sm font-weight-bold"><span th:text="#{nombre}">Nombre</span></div>
-				<div class="col-sm font-weight-bold"><span th:text="#{apellidos}">Apellidos</span></div>
-				<div class="col-sm font-weight-bold"><span th:text="#{email}">Email</span></div>
+				<div class="col-sm font-weight-bold">Nombre</div>
+				<div class="col-sm font-weight-bold">Apellidos</div>
+				<div class="col-sm font-weight-bold">Email</div>
 			</div>
 			<div class="row">
 				<div class="col-sm">Luismi</div>
@@ -23,41 +23,43 @@
 		<div class="form-group ml-5">
 			<label class=" control-label" for="edit"></label>
 			<div class="text-center mt-5">
-				<button id="edit" name="edit" class="w-50 btn btn-primary"><span th:text="#{editarU}">Editar
-					usuario</span></button>
+				<button id="edit" name="edit" class="w-50 btn btn-primary">Editar
+					usuario</button>
 				<button id="editPass" name="editPass"
-					class="mt-2 w-50 btn btn-primary"><span th:text="#{editarC}">Editar contraseña</span></button>
+					class="mt-2 w-50 btn btn-primary">Editar contraseña</button>
 			</div>
 		</div>
 
 
-		<h1 class="text-center display-5"><span th:text="#{historialR}">Historial de Reservas</span></h1>
+		<h1 class="text-center display-5 mt-5">Historial de Reservas</h1>
 
 		<div class="card" style="width: 18rem;">
 			<div class="card-body">
-				<h5 class="card-title"><span th:text="#{reserva}">Reserva</span></h5>
+				<h5 class="card-title">Reserva</h5>
 				<ul th:each="reserva : ${listReservas}">
 					<li>
 						<p class="card-text">
-							<span class="font-weight-bold" th:text="#{clase}">Aula:</span> <span
+							<span class="font-weight-bold">Aula:</span> <span
 								th:text="${reserva.aula.nombre}">1º DAM</span>
 						</p>
 					</li>
 					<li>
 						<p class="card-text">
-							<span class="font-weight-bold" th:text="#{fecha}">Fecha:</span> <span
+							<span class="font-weight-bold">Fecha:</span> <span
 								th:text="${reserva.fecha}">fecha</span>
 						</p>
 					</li>
 					<li>
 						<p class="card-text">
-							<span class="font-weight-bold" th:text="#{hora}">Horas:</span> <span
+							<span class="font-weight-bold">Horas:</span> <span
 								th:text="${reserva.hora}">hora</span>
 						</p>
 					</li>
+					<a th:href="@{/user/borrar/{id}(id=${reserva.id})}"><button
+							type="button" class="btn btn-outline-danger mt-3"
+							id="borrarReserva" name="borrarReserva">Borrar Reserva</button></a>
 				</ul>
-				<button type="button" class="btn btn-outline-danger"
-					id="borrarReserva" name="borrarReserva"><span th:text="#{borrarR}">Borrar Reserva</span></button>
+
 			</div>
 		</div>
 	</div>

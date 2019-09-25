@@ -9,8 +9,7 @@
     <div class="lista w-50 text-center">
         <ul class="">
             <li class="listaAulas" th:each="aula : ${listAulas}">
-            	<a href="#" th:text="${aula.nombre}" 
-            	th:href="@{/user/reservar/{id} (id=${aula.id})}">1º Dam</a>
+            	<a href="#" th:text="${aula.nombre}">1º Dam</a>
             </li>
 
         </ul>

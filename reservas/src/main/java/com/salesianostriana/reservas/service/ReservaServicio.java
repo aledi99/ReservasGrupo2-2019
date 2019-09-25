@@ -1,9 +1,10 @@
 package com.salesianostriana.reservas.service;
 
+import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Comparator;
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 import com.salesianostriana.reservas.model.Aula;
 import com.salesianostriana.reservas.model.Horas;
 import com.salesianostriana.reservas.model.Reserva;
+import com.salesianostriana.reservas.model.Usuario;
 import com.salesianostriana.reservas.repository.ReservaRepository;
 @Service
 public class ReservaServicio extends ServicioBase<Reserva, Long, ReservaRepository>{
@@ -144,44 +146,45 @@ public class ReservaServicio extends ServicioBase<Reserva, Long, ReservaReposito
 	
 		return fechaSemana;
 	}
-	
-	/*public List<Reserva> listarReservasSemana(List<LocalDate>fechaSemana,Aula aula) {
-		List<Reserva> reservas=new ArrayList<Reserva>();
-		
-		for(Horas i: Horas.values()) {
-			if(i!=null) {
-				for(LocalDate j:fechaSemana) {
-					if(repositorio.findByFechaAndHoraAndAula(j, i,aula)!=null) {
-						reservas.add(repositorio.findByFechaAndHoraAndAula(j, i,aula));
-					}else {
-						reservas.add(null);
-					}
-				}
-			}
-			
-		}
-	
-		for(Reserva r:reservas) {
-			System.out.println(r);
-		}
-		return reservas;
-		
-		
-		
-	
-	}*/
+
 	public List<Reserva> listarReservasCalendario(Horas h,List<LocalDate>fechaSemana,Aula aula) {
 		List<Reserva> reservas=new ArrayList<Reserva>();
+
 		for(LocalDate f: fechaSemana) {
 			if(repositorio.findByFechaAndHoraAndAula(f, h,aula)!=null) {
 				reservas.add(repositorio.findByFechaAndHoraAndAula(f, h,aula));
 			}else {
+				
 				reservas.add(null);
 			}
 			
 		}
+		for(Reserva i: reservas) {
+			System.out.println(i);
+		}
 		return reservas;
-	
+
 	}
+	public List<Horas> listarHorasLibres(LocalDate fecha, Aula aula){
+		List <Reserva> r=repositorio.findByFechaAndAulaOrderByHoraAsc(fecha,aula);
+		List <Horas> horasLibres= new ArrayList<>();
+		Arrays.asList(Horas.values()).forEach(horasLibres::add);
+		System.out.println("CREADO" +horasLibres);
+		for(Horas i : Horas.values()) {
+			System.out.println("HORA BUCLE"+i);
+			for(Reserva j: r) {	
+				if(j.getHora()==i) {
+					
+					horasLibres.removeIf(p -> p.name().equals(j.getHora().name()));
+					System.out.println("ELIMINADO" +horasLibres);
+					
+					
+				}
+			}
+		}
+		horasLibres.stream().forEach(x -> System.out.println(x));
+		return horasLibres;
+	}
+	
 	
 }

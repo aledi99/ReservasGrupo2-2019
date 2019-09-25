@@ -9,8 +9,9 @@
         <div class="form-group pais">
           <label for=""></label>
           <select class="form-control col-sm-12" name="" id="">
-            <option th:href="@{/?lang=es}">Español</option>
-            <option th:href="@{/?lang=eng}">English</option>
+            <option>Español</option>
+            <option>English</option>
+            <option>Français</option>
           </select>
         </div>
         <div class="site-wrapper">
@@ -41,16 +42,16 @@
                                     </div>
                                     <div class="form-group">
                                         <input type="submit" value="Login"
-                                            class="btn float-right login_btn btn-dark">
+                                            class="btn float-right login_btn">
                                     </div>
                                 </form>
                             </div>
                             <div class="card-footer">
                                 <div class="d-flex justify-content-center links">
-                                    <span th:text="#{cuenta}">¿No tienes una cuenta?</span> <a href="#" th:href="@{/signup}"><span th:text="#{registrar}">¡Regístrate!</span></a>
+                                    ¿No tienes una cuenta? <a href="#" th:href="@{/signup}">¡Regístrate!</a>
                                 </div>
                                 <div class="d-flex justify-content-center">
-                                    <a href="#"><span th:text="#{olvidar}">¿Olvidaste tu contraseña?</span></a>
+                                    <a href="#">¿Olvidaste tu contraseña?</a>
                                 </div>
                             </div>
                         </div>

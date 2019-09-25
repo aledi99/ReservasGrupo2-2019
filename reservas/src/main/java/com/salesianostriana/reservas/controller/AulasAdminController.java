@@ -1,11 +1,15 @@
 package com.salesianostriana.reservas.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.salesianostriana.reservas.service.AulaServicio;
 
 @Controller
 @RequestMapping("/admin")
-public class AulaAdminController {
+public class AulasAdminController {
 	
 	/**
 	 * OJO A LA ANOTACIÓN DE CLASE "@RequestMapping("/admin")". Todos los @GetMapping 
@@ -18,5 +22,20 @@ public class AulaAdminController {
 	 * 
 	 * "localhost:9000/admin/aulas".
 	 */
+	
+	private AulaServicio aulaservicio;
+	
+	public AulasAdminController(AulaServicio aulaservicio) {
+		this.aulaservicio = aulaservicio;
+	}
+	
+	@GetMapping("/espacios")
+	public String espacios(Model model) {
+		model.addAttribute("espacios", aulaservicio.findAll());
+		
+		return "admin/espacios";
+	}
+	
+	
 
 }

@@ -2,8 +2,10 @@ package com.salesianostriana.reservas.model;
 
 import java.time.LocalDate;
 
-
-import javax.persistence.Embeddable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -12,8 +14,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data @NoArgsConstructor @AllArgsConstructor
-@Embeddable
+@Entity
 public class Festivo {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private long id;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fecha;
 	private boolean festivo;
