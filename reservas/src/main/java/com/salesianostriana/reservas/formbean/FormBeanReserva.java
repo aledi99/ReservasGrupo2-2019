@@ -9,5 +9,6 @@ import lombok.NoArgsConstructor;
 @Data @NoArgsConstructor
 public class FormBeanReserva {
 	private Horas hora;
+	private LocalDate fecha;
 
 }

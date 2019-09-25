@@ -1,8 +1,10 @@
 package com.salesianostriana.reservas.service;
 
+import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -165,13 +167,17 @@ public class ReservaServicio extends ServicioBase<Reserva, Long, ReservaReposito
 	}
 	public List<Horas> listarHorasLibres(LocalDate fecha, Aula aula){
 		List <Reserva> r=repositorio.findByFechaAndAulaOrderByHoraAsc(fecha,aula);
-		List <Horas> horasLibres=new ArrayList<Horas>();
+		List <Horas> horasLibres= new ArrayList<>();
+		Arrays.asList(Horas.values()).forEach(horasLibres::add);
+		System.out.println("CREADO" +horasLibres);
 		for(Horas i : Horas.values()) {
-			for(Reserva j: r) {
-				System.out.println(j);
-				if(j.getHora()!=i) {
+			System.out.println("HORA BUCLE"+i);
+			for(Reserva j: r) {	
+				if(j.getHora()==i) {
 					
-					horasLibres.add(i);
+					horasLibres.removeIf(p -> p.name().equals(j.getHora().name()));
+					System.out.println("ELIMINADO" +horasLibres);
+					
 					
 				}
 			}

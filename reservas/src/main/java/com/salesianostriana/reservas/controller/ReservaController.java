@@ -43,6 +43,7 @@ public class ReservaController {
 	public String mostrarReservar(@PathVariable("id") long id,Model model, Principal p) {
 		LocalDate fecha=LocalDate.now();
 		FormBeanReserva fbr=new FormBeanReserva();
+	
 		Aula aula=as.findById(id);
 		model.addAttribute("aula",aula);
 		model.addAttribute("formbeanFecha",new FormbeanFecha());
@@ -71,6 +72,7 @@ public class ReservaController {
 		Aula aula=as.findById(id);
 		FormBeanReserva fbr=new FormBeanReserva();
 		LocalDate fecha=rs.ConversorTextoFecha(ff.getFecha());
+		fbr.setFecha(fecha);
 		model.addAttribute("aula",aula);	
 		model.addAttribute("horasLibres", rs.listarHorasLibres(fecha, aula));
 		model.addAttribute("horas",Horas.values());
@@ -90,12 +92,12 @@ public class ReservaController {
 	@PostMapping("/user/reservar/{id}/nueva-reserva/submit")
 	public String crearNuevaReserva(@PathVariable("id") long id,
 			@ModelAttribute("nuevaReserva") FormBeanReserva fbr,
-			@ModelAttribute("formbeanFecha") FormbeanFecha ff, Model model, Principal p) {
+			Model model, Principal p) {
 			Reserva r= new Reserva();
-			System.out.println("prueba"+ff);
+			
 			r.setAula(as.findById(id));
 			r.setUsuario(us.buscarUsuarioLogged(p));
-			r.setFecha(rs.ConversorTextoFecha(ff.getFecha()));
+			r.setFecha(fbr.getFecha());
 			r.setHora(fbr.getHora());
 			
 			rs.save(r);
