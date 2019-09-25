@@ -19,9 +19,8 @@ public class Festivo {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@DateTimeFormat(pattern = "dd-MM-yyyy")
 	private LocalDate fecha;
-	private boolean festivo;
 	
 	
 }
