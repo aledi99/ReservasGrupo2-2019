@@ -24,7 +24,6 @@ public class FestivoServicio extends ServicioBase<Festivo, Long, FestivoReposito
 		for (LocalDate date = startDate; date.isBefore(finishDate); date = date.plusDays(1)) {
 			if (date.getDayOfWeek().getValue() == 6 || date.getDayOfWeek().getValue() == 7) {
 				Festivo anadir = new Festivo();
-				anadir.setFestivo(true);
 				anadir.setFecha(date);
 				repositorio.save(anadir);
 			}
@@ -49,6 +48,8 @@ public class FestivoServicio extends ServicioBase<Festivo, Long, FestivoReposito
 		
 		return festivos;
 	}
+	
+	
 	
 	
 }

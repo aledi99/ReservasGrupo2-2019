@@ -21,7 +21,6 @@ public class Festivo {
 	private long id;
 	@DateTimeFormat(pattern = "dd-MM-yyyy")
 	private LocalDate fecha;
-	private boolean festivo;
 	
 	
 }
