@@ -32,3 +32,6 @@ build/
 
 ### DataBase ###
 db/
+
+###pom.properties###
+target/classes/META-INF/maven/com.salesianostriana/reservas/pom.properties
