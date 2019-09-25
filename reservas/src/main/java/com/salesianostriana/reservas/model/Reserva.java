@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -28,7 +30,7 @@ public class Reserva {
 	private Aula aula;
 	@ManyToOne
 	private Usuario usuario;
-	
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private LocalDate fecha;
 
 	

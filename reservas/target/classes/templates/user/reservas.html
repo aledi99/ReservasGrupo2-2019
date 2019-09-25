@@ -29,7 +29,7 @@
                         <h4>Escoja una fecha del calendario</h4>
                         <form class="border border-0 " th:action="@{/user/reservar/{id}/submit (id=${aula.id})}" th:object="${formbeanFecha}" method="post" id="buscarFecha">
                             <div class="col-12 form-group float-left p-0 m-0">
-                                <input type='text' placeholder="Selecciona una fecha" required class="col-8 datepicker float-left mr-2" id="cal" th:field="*{fecha}" data-date-format="dd/mm/yyyy" onchange="enviar('buscarFecha')"/>
+                                <input type='text' placeholder="Selecciona una fecha" required class="col-8 datepicker float-left mr-2" id="cal" name="cal" th:field="*{fecha}" data-date-format="dd/mm/yyyy" onchange="enviar('buscarFecha')"/>
         
                             </div>
                         </form>

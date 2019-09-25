@@ -2,9 +2,6 @@ package com.salesianostriana.reservas.controller;
 
 import java.security.Principal;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-
 import com.salesianostriana.reservas.formbean.FormBeanReserva;
 import com.salesianostriana.reservas.formbean.FormbeanFecha;
 import com.salesianostriana.reservas.model.Aula;
@@ -21,8 +17,6 @@ import com.salesianostriana.reservas.model.Reserva;
 import com.salesianostriana.reservas.service.AulaServicio;
 import com.salesianostriana.reservas.service.ReservaServicio;
 import com.salesianostriana.reservas.service.UsuarioServicio;
-
-
 
 
 @Controller
@@ -71,7 +65,7 @@ public class ReservaController {
 			@ModelAttribute("formbeanFecha") FormbeanFecha ff, Model model, Principal p) {
 		Aula aula=as.findById(id);
 		FormBeanReserva fbr=new FormBeanReserva();
-		LocalDate fecha=rs.ConversorTextoFecha(ff.getFecha());
+		LocalDate fecha=ff.getFecha();
 		fbr.setFecha(fecha);
 		model.addAttribute("aula",aula);	
 		model.addAttribute("horasLibres", rs.listarHorasLibres(fecha, aula));

@@ -1,10 +1,13 @@
 function enviar(id) {
-	document.getElementById(id).submit();
-	alert('entra en enviar formulario');
-}
+    
+      document.getElementById(id).submit();
+   }
+  
+
   $(function () {
     $('.datepicker').datepicker({
-        startDate: new Date()
+        startDate: new Date(),
+        autoclose: true
     });
 });
 
