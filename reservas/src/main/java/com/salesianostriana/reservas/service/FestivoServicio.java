@@ -49,6 +49,20 @@ public class FestivoServicio extends ServicioBase<Festivo, Long, FestivoReposito
 		return festivos;
 	}
 	
+	public boolean comprobarFestivo(LocalDate fecha) {
+		boolean encontrado = false;
+		List<Festivo> festivos = repositorio.findAll();
+		boolean salir = false;
+		for (int i = 0 ; i < festivos.size() && !salir; i++ ) {
+			if (festivos.get(i).getFecha().equals(fecha)) {
+				salir = true;
+				encontrado = true;
+			}
+		}
+		
+		return encontrado;
+	}
+	
 	
 	
 	

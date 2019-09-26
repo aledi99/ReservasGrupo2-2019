@@ -20,13 +20,13 @@ insert into AULA (id, nombre) values (NEXTVAL('hibernate_sequence'), '1º Comerc
 
 
 insert into RESERVA (id, hora, aula_id, usuario_id, fecha) values (NEXTVAL('hibernate_sequence'), 0, 13, 1 ,'2019-09-27');
-insert into RESERVA (id, hora, aula_id, usuario_id, fecha) values (NEXTVAL('hibernate_sequence'), 5, 14, 3 ,'2019-09-27');
-insert into RESERVA (id, hora, aula_id, usuario_id, fecha) values (NEXTVAL('hibernate_sequence'), 5, 15, 4 ,'2019-09-24');
-insert into RESERVA (id, hora, aula_id, usuario_id, fecha) values (NEXTVAL('hibernate_sequence'), 4, 13, 5 ,'2019-09-27');
+insert into RESERVA (id, hora, aula_id, usuario_id, fecha) values (NEXTVAL('hibernate_sequence'), 5, 14, 1 ,'2019-09-27');
+insert into RESERVA (id, hora, aula_id, usuario_id, fecha) values (NEXTVAL('hibernate_sequence'), 5, 15, 1 ,'2019-09-24');
+insert into RESERVA (id, hora, aula_id, usuario_id, fecha) values (NEXTVAL('hibernate_sequence'), 4, 13, 1 ,'2019-09-27');
 insert into RESERVA (id, hora, aula_id, usuario_id, fecha) values (NEXTVAL('hibernate_sequence'), 1, 13, 1 ,'2019-09-25');	
-insert into RESERVA (id, hora, aula_id, usuario_id, fecha) values (NEXTVAL('hibernate_sequence'), 0, 14, 6 ,'2019-09-27');
-insert into RESERVA (id, hora, aula_id, usuario_id, fecha) values (NEXTVAL('hibernate_sequence'), 3, 14, 6 ,'2019-09-27');
-insert into RESERVA (id, hora, aula_id, usuario_id, fecha) values (NEXTVAL('hibernate_sequence'), 3, 14, 4 ,'2019-09-26');
-insert into RESERVA (id, hora, aula_id, usuario_id, fecha) values (NEXTVAL('hibernate_sequence'), 3, 14, 3 ,'2019-09-24');
-insert into RESERVA (id, hora, aula_id, usuario_id, fecha) values (NEXTVAL('hibernate_sequence'), 5, 15, 7 ,'2019-09-27');
-insert into RESERVA (id, hora, aula_id, usuario_id, fecha) values (NEXTVAL('hibernate_sequence'), 2, 15, 7 ,'2019-09-27');	
+insert into RESERVA (id, hora, aula_id, usuario_id, fecha) values (NEXTVAL('hibernate_sequence'), 0, 14, 1 ,'2019-09-27');
+insert into RESERVA (id, hora, aula_id, usuario_id, fecha) values (NEXTVAL('hibernate_sequence'), 3, 14, 1 ,'2019-09-27');
+insert into RESERVA (id, hora, aula_id, usuario_id, fecha) values (NEXTVAL('hibernate_sequence'), 3, 14, 1 ,'2019-09-26');
+insert into RESERVA (id, hora, aula_id, usuario_id, fecha) values (NEXTVAL('hibernate_sequence'), 3, 14, 1 ,'2019-09-24');
+insert into RESERVA (id, hora, aula_id, usuario_id, fecha) values (NEXTVAL('hibernate_sequence'), 5, 15, 1 ,'2019-09-27');
+insert into RESERVA (id, hora, aula_id, usuario_id, fecha) values (NEXTVAL('hibernate_sequence'), 2, 15, 1 ,'2019-09-27');	

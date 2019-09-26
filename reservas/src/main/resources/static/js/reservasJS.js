@@ -40,3 +40,8 @@ $.fn.datetimepicker.dates['en'] = {
     monthsShort: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
     today: "Today"
 };
+
+function avisarFestivo() {
+	alert("Este día ya es festivo");
+}
+
