@@ -3,6 +3,7 @@ package com.salesianostriana.reservas.controller;
 import java.security.Principal;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -42,6 +43,8 @@ public class PerfilController {
 
 	@PostMapping("/user/perfil/editPerfil/submit")
 	public String editPerfilSubmit(@ModelAttribute("usuario") Usuario u, Model model) {
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		u.setPassword(encoder.encode(u.getPassword()));
 		us.edit(u);
 		return "redirect:/user/perfil";
 	}
