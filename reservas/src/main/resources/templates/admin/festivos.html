@@ -5,18 +5,19 @@
 </head>
 <body>
 	<nav th:replace="admin/navAdmin :: navAdmin"></nav>
-	<aside class="float-left col-lg-2 p-0 subNav">
+	<aside class="float-left col-lg-2 p-0 subNav bg-danger">
 		<div class="container-fluid col-lg-12 h-100 col-12 p-0 float-left">
 			<nav class="nav nav-stacked text-center subNav">
-				<a class="nav-link col-lg-12 col-md-4 col-4 p-4 rounded-0" href="#"
-					th:href="@{/admin/espacios}">Espacios</a> <a
-					class="nav-link col-lg-12 col-md-4 col-4 boton p-4 rounded-0"
+				<a
+					class="nav-link col-lg-12 col-md-4 col-4 p-4 rounded-0 text-white"
+					href="#" th:href="@{/admin/espacios}">Espacios</a> <a
+					class="nav-link col-lg-12 col-md-4 col-4 boton p-4 rounded-0 text-white bg-warning"
 					href="#" th:href="@{/admin/festivos}">Festivos</a> <a
-					class="nav-link col-lg-12 col-md-4 col-4 p-4 rounded-0" href="#"
+					class="nav-link col-lg-12 col-md-4 col-4 p-4 rounded-0 text-white" href="#"
 					th:href="@{/admin/reservas}">Reservas</a> <a
-					class="nav-link col-lg-12 col-md-4 col-4 p-4 rounded-0" href="#"
+					class="nav-link col-lg-12 col-md-4 col-4 p-4 rounded-0 text-white" href="#"
 					th:href="@{/admin/solicitudes}">Solicitudes</a> <a
-					class="nav-link col-lg-12 col-md-4 col-4 p-4 rounded-0" href="#"
+					class="nav-link col-lg-12 col-md-4 col-4 p-4 rounded-0 text-white" href="#"
 					th:href="@{/admin/usuarios}">Usuarios</a>
 
 			</nav>
@@ -43,27 +44,31 @@
 			</div>
 
 			<div class="col-5 text-right float-left my-2" th:if="${!sabado}">
-				<a href="#" th:href="@{/admin/habilitarSabados}"
-					id="" class="btn btn-success w-100" role="button">Habilitar reservas los sábados<i class="fas fa-plus-square p-2"></i>
+				<a href="#" th:href="@{/admin/habilitarSabados}" id=""
+					class="btn btn-success w-100" role="button">Habilitar reservas
+					los sábados<i class="fas fa-plus-square p-2"></i>
 				</a>
 			</div>
 			<div class="col-5 text-right float-left my-2" th:if="${sabado}">
-				<a href="#" th:href="@{/admin/deshabilitarSabados}"
-					id="" class="btn btn-success w-100" role="button">Deshabilitar reservas los sábados<i class="fas fa-plus-square p-2"></i>
+				<a href="#" th:href="@{/admin/deshabilitarSabados}" id=""
+					class="btn btn-success w-100" role="button">Deshabilitar
+					reservas los sábados<i class="fas fa-plus-square p-2"></i>
 				</a>
 			</div>
 			<div class="col-5 text-right float-left my-2" th:if="${!domingo}">
-				<a href="#" th:href="@{/admin/habilitarDomingos}"
-					id="" class="btn btn-success w-100" role="button">Habilitar reservas los domingos<i class="fas fa-plus-square p-2"></i>
+				<a href="#" th:href="@{/admin/habilitarDomingos}" id=""
+					class="btn btn-success w-100" role="button">Habilitar reservas
+					los domingos<i class="fas fa-plus-square p-2"></i>
 				</a>
 			</div>
 			<div class="col-5 text-right float-left my-2" th:if="${domingo}">
-				<a href="#" th:href="@{/admin/deshabilitarDomingos}"
-					id="" class="btn btn-success w-100" role="button">Deshabilitar reservas los domingos<i class="fas fa-plus-square p-2"></i>
+				<a href="#" th:href="@{/admin/deshabilitarDomingos}" id=""
+					class="btn btn-success w-100" role="button">Deshabilitar
+					reservas los domingos<i class="fas fa-plus-square p-2"></i>
 				</a>
 			</div>
-			
-			
+
+
 		</div>
 	</section>
 
