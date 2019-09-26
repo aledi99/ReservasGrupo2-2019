@@ -49,6 +49,44 @@ public class FestivoServicio extends ServicioBase<Festivo, Long, FestivoReposito
 		return festivos;
 	}
 	
+	public List<LocalDate> BuscarSabados() {
+		LocalDate hoy = LocalDate.now();
+		int anno = hoy.getYear();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+		LocalDate startDate = LocalDate.parse("01/01/" + anno, formatter);
+		LocalDate finishDate = LocalDate.parse("31/12/" + (anno + 1), formatter);
+
+		List<LocalDate> festivos = new ArrayList<LocalDate>();
+
+		for (LocalDate date = startDate; date.isBefore(finishDate); date = date.plusDays(1)) {
+			if (date.getDayOfWeek().getValue() == 6) {
+				festivos.add(date);
+			}
+		}
+		
+		return festivos;
+	}
+	
+	public List<LocalDate> BuscarDomingos() {
+		LocalDate hoy = LocalDate.now();
+		int anno = hoy.getYear();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+		LocalDate startDate = LocalDate.parse("01/01/" + anno, formatter);
+		LocalDate finishDate = LocalDate.parse("31/12/" + (anno + 1), formatter);
+
+		List<LocalDate> festivos = new ArrayList<LocalDate>();
+
+		for (LocalDate date = startDate; date.isBefore(finishDate); date = date.plusDays(1)) {
+			if (date.getDayOfWeek().getValue() == 7) {
+				festivos.add(date);
+			}
+		}
+		
+		return festivos;
+	}
+	
 	public boolean comprobarFestivo(LocalDate fecha) {
 		boolean encontrado = false;
 		List<Festivo> festivos = repositorio.findAll();
