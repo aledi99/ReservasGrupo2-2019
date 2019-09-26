@@ -26,7 +26,8 @@
 		<div class="containter-fluid">
 			<div class="row">
 				<div class="col-12 ">
-					<h4>Escoja una fecha del calendario</h4>
+					<h4>Escoja una fecha del calendario para marcarla como día
+						festivo</h4>
 					<form class="border border-0 "
 						th:action="@{/admin/festivos/submit}" th:object="${formbeanFecha}"
 						method="post" id="buscarFecha">
@@ -41,18 +42,28 @@
 				</div>
 			</div>
 
-			<div class="custom-control custom-switch">
-				<input type="checkbox" class="custom-control-input"
-					id="customSwitches"> <label class="custom-control-label"
-					for="customSwitches">Incluir sábados como días festivos</label>
+			<div class="col-5 text-right float-left my-2">
+				<a href="#" th:href="@{/admin/habilitarSabados}"
+					id="" class="btn btn-success w-100" role="button">Habilitar reservas los sábados<i class="fas fa-plus-square p-2"></i>
+				</a>
+			</div>
+			<div class="col-5 text-right float-left my-2">
+				<a href="#" th:href="@{/admin/deshabilitarSabados}"
+					id="" class="btn btn-success w-100" role="button">Deshabilitar reservas los sábados<i class="fas fa-plus-square p-2"></i>
+				</a>
+			</div>
+			<div class="col-5 text-right float-left my-2">
+				<a href="#" th:href="@{/admin/habilitarDomingos}"
+					id="" class="btn btn-success w-100" role="button">Habilitar reservas los domingos<i class="fas fa-plus-square p-2"></i>
+				</a>
+			</div>
+			<div class="col-5 text-right float-left my-2">
+				<a href="#" th:href="@{/admin/deshabilitarDomingos}"
+					id="" class="btn btn-success w-100" role="button">Deshabilitar reservas los domingos<i class="fas fa-plus-square p-2"></i>
+				</a>
 			</div>
 			
 			
-			<div class="custom-control custom-switch">
-				<input type="checkbox" class="custom-control-input"
-					id="customSwitches"> <label class="custom-control-label"
-					for="customSwitches">Incluir domingos como días festivos</label>
-			</div>
 		</div>
 	</section>
 
