@@ -99,3 +99,9 @@ a:visited, a:active, a:link, a:hover {
 .lista {
 	margin: 0 auto;
 }
+
+@media screen and (min-width: 992px) {
+	aside {
+		min-height: 100vh;
+	}
+}

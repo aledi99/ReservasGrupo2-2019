@@ -5,19 +5,24 @@
 </head>
 <body>
 	<nav th:replace="admin/navAdmin :: navAdmin"></nav>
-	<aside class="float-left col-lg-2 p-0 subNav">
+	<aside class="float-left col-lg-2 p-0 subNav bg-danger">
 		<div class="container-fluid col-lg-12 h-100 col-12 p-0 float-left">
 			<nav class="nav nav-stacked text-center subNav">
 				<a class="nav-link col-lg-12 col-md-4 col-4 p-4 rounded-0" href="#"
-					th:href="@{/admin/espacios}"><span th:text="#{espacios}">Espacios</span></a> <a
+					th:href="@{/admin/espacios}"><span class="text-white"
+					th:text="#{espacios}">Espacios</span></a> <a
 					class="nav-link col-lg-12 col-md-4 col-4 boton p-4 rounded-0"
-					href="#" th:href="@{/admin/festivos}"><span th:text="#{festivos}">Festivos</span></a> <a
+					href="#" th:href="@{/admin/festivos}"><span class="text-white"
+					th:text="#{festivos}">Festivos</span></a> <a
+					class="nav-link col-lg-12 col-md-4 col-4 p-4 rounded-0 bg-warning"
+					href="#" th:href="@{/admin/reservas}"><span class="text-white"
+					th:text="#{reservas}">Reservas</span></a> <a
 					class="nav-link col-lg-12 col-md-4 col-4 p-4 rounded-0" href="#"
-					th:href="@{/admin/reservas}"><span th:text="#{reservas}">Reservas</span></a> <a
+					th:href="@{/admin/solicitudes}"><span class="text-white"
+					th:text="#{solicitudes}">Solicitudes</span></a> <a
 					class="nav-link col-lg-12 col-md-4 col-4 p-4 rounded-0" href="#"
-					th:href="@{/admin/solicitudes}"><span th:text="#{solicitudes}">Solicitudes</span></a> <a
-					class="nav-link col-lg-12 col-md-4 col-4 p-4 rounded-0" href="#"
-					th:href="@{/admin/usuarios}"><span th:text="#{usuarios}">Usuarios</span></a>
+					th:href="@{/admin/usuarios}"><span class="text-white"
+					th:text="#{usuarios}">Usuarios</span></a>
 
 			</nav>
 		</div>
@@ -41,8 +46,8 @@
 						<td th:text="${reserva.usuario.email}">Usuario</td>
 						<td th:text="${reserva.fecha}">Fecha</td>
 						<td><a href="#"
-							th:href="@{/admin/eliminarReserva/{id}(id=${reserva.id})}">
-								<i class="fas fa-trash"></i>
+							th:href="@{/admin/eliminarReserva/{id}(id=${reserva.id})}"> <i
+								class="fas fa-trash"></i>
 						</a>
 					</tr>
 				</tbody>
@@ -50,9 +55,11 @@
 		</div>
 
 		<div th:if="${reservas.isEmpty()}">
-			<p><span th:text="#{noExistenR}">No existen reservas actualmente</span></p>
+			<p>
+				<span th:text="#{noExistenR}">No existen reservas actualmente</span>
+			</p>
 		</div>
-		
+
 	</section>
 
 </body>
