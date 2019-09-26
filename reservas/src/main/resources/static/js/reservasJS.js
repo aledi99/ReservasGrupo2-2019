@@ -2,6 +2,10 @@ function enviar(id) {
     
       document.getElementById(id).submit();
    }
+function enviar(id) {
+
+document.getElementById(id).submit();
+ }
   
 
   $(function () {

@@ -1,11 +1,13 @@
 package com.salesianostriana.reservas.service;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import com.salesianostriana.reservas.model.Aula;
+import com.salesianostriana.reservas.model.Festivo;
 import com.salesianostriana.reservas.model.Horas;
 import com.salesianostriana.reservas.model.Reserva;
 import com.salesianostriana.reservas.repository.ReservaRepository;
@@ -179,6 +181,13 @@ public class ReservaServicio extends ServicioBase<Reserva, Long, ReservaReposito
 		return horasLibres;
 	}
 	
+/*	public List<String> formatearFechas(List<Festivo> festivos){
+		List<String> festivosFormat=new ArrayList <String>();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+			festivos.forEach(x->festivosFormat.add(x.getFecha().format(formatter)));
+		return festivosFormat; 
+	}
+	*/
 	
 	
 }
