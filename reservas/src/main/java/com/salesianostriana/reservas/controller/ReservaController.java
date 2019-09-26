@@ -15,6 +15,7 @@ import com.salesianostriana.reservas.model.Aula;
 import com.salesianostriana.reservas.model.Horas;
 import com.salesianostriana.reservas.model.Reserva;
 import com.salesianostriana.reservas.service.AulaServicio;
+import com.salesianostriana.reservas.service.FestivoServicio;
 import com.salesianostriana.reservas.service.ReservaServicio;
 import com.salesianostriana.reservas.service.UsuarioServicio;
 
@@ -27,6 +28,9 @@ public class ReservaController {
 	AulaServicio as;
 	@Autowired
 	UsuarioServicio us;
+	@Autowired
+	FestivoServicio fs;
+	private boolean esFestivo;
 	/**
 	 * Muestra la pantalla para escoger una fecha y luego mostrar la semana
 	 * @param model
@@ -37,7 +41,10 @@ public class ReservaController {
 	public String mostrarReservar(@PathVariable("id") long id,Model model, Principal p) {
 		LocalDate fecha=LocalDate.now();
 		FormBeanReserva fbr=new FormBeanReserva();
-	
+		if(esFestivo) {
+			model.addAttribute("esFestivo", esFestivo);
+			esFestivo=false;
+		}
 		Aula aula=as.findById(id);
 		model.addAttribute("aula",aula);
 		model.addAttribute("formbeanFecha",new FormbeanFecha());
@@ -67,6 +74,17 @@ public class ReservaController {
 		FormBeanReserva fbr=new FormBeanReserva();
 		LocalDate fecha=ff.getFecha();
 		fbr.setFecha(fecha);
+		if(fs.comprobarFestivo(fecha)) {
+			esFestivo=true;
+			return "redirect://user/reservar/{id}";
+		}else {
+			esFestivo=false;
+		}
+		/*
+		 * 
+		 * 
+		 * 
+		 */
 		model.addAttribute("aula",aula);	
 		model.addAttribute("horasLibres", rs.listarHorasLibres(fecha, aula));
 		model.addAttribute("horas",Horas.values());

@@ -194,7 +194,10 @@
     </div>
 
 </body>
-<script th:inline="javascript">
+<script th:inline="javascript" th:if="${esFestivo==true}">
     var festivos = /*[[${festivos}]]*/ [];
+    var fecha = /*[[${formbeanFecha}*/ ' ';
+    alert("Por favor, seleccione otra fecha.\nLa fecha seleccionada es día festivo")
+   
 </script>
 </html>
