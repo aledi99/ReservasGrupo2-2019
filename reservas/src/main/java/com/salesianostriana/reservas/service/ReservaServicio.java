@@ -1,15 +1,16 @@
 package com.salesianostriana.reservas.service;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
 import org.springframework.stereotype.Service;
+
 import com.salesianostriana.reservas.model.Aula;
-import com.salesianostriana.reservas.model.Festivo;
 import com.salesianostriana.reservas.model.Horas;
 import com.salesianostriana.reservas.model.Reserva;
+import com.salesianostriana.reservas.model.Usuario;
 import com.salesianostriana.reservas.repository.ReservaRepository;
 @Service
 public class ReservaServicio extends ServicioBase<Reserva, Long, ReservaRepository>{
@@ -172,6 +173,8 @@ public class ReservaServicio extends ServicioBase<Reserva, Long, ReservaReposito
 		}
 		return reservas;
 	}
+	
+	
 	public List<Horas> listarHorasLibres(LocalDate fecha, Aula aula){
 		List <Horas> horasLibres= new ArrayList<>();
 		Arrays.asList(Horas.values()).forEach(horasLibres::add);
@@ -181,13 +184,14 @@ public class ReservaServicio extends ServicioBase<Reserva, Long, ReservaReposito
 		return horasLibres;
 	}
 	
-/*	public List<String> formatearFechas(List<Festivo> festivos){
-		List<String> festivosFormat=new ArrayList <String>();
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-			festivos.forEach(x->festivosFormat.add(x.getFecha().format(formatter)));
-		return festivosFormat; 
+	/**
+	 * Este método es para comprobar si el usuario tiene una reserva en un aula con la misma fecha y hora que 
+	 * pretende reservar. Es imposible estar en dos sitios a la vez.
+	 * Si es posible la reserva, devolverá false. Pero si es imposible, devuelve true.
+	 * @return
+	 */
+	public boolean comprobarReservaImposible(Usuario usuario, LocalDate fecha, Horas hora) {
+		return repositorio.findByUsuarioAndFechaAndHora(usuario, fecha, hora)==null? false:true;
 	}
-	*/
-	
 	
 }

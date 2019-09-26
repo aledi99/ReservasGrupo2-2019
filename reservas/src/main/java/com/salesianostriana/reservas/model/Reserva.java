@@ -14,7 +14,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * Clase que modela un evento o reserva de un Aula
+ * Clase que modela un evento o reserva de un Reserva
  * @author Esperanza Macarena Escacena Morcillo
  *
  */
