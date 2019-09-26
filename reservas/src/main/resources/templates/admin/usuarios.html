@@ -10,15 +10,15 @@
 		<div class="container-fluid col-lg-12 h-100 col-12 p-0 float-left">
 			<nav class="nav nav-stacked text-center subNav">
 				<a class="nav-link col-lg-12 col-md-4 col-4 p-4 rounded-0" href="#"
-					th:href="@{/admin/espacios}">Espacios</a> <a
+					th:href="@{/admin/espacios}"><span th:text="#{espacios}">Espacios</span></a> <a
 					class="nav-link col-lg-12 col-md-4 col-4 boton p-4 rounded-0"
-					href="#" th:href="@{/admin/festivos}">Festivos</a> <a
+					href="#" th:href="@{/admin/festivos}"><span th:text="#{festivos}">Festivos</span></a> <a
 					class="nav-link col-lg-12 col-md-4 col-4 p-4 rounded-0" href="#"
-					th:href="@{/admin/reservas}">Reservas</a> <a
+					th:href="@{/admin/reservas}"><span th:text="#{reservas}">Reservas</span></a> <a
 					class="nav-link col-lg-12 col-md-4 col-4 p-4 rounded-0" href="#"
-					th:href="@{/admin/solicitudes}">Solicitudes</a> <a
+					th:href="@{/admin/solicitudes}"><span th:text="#{solicitudes}">Solicitudes</span></a> <a
 					class="nav-link col-lg-12 col-md-4 col-4 p-4 rounded-0" href="#"
-					th:href="@{/admin/usuarios}">Usuarios</a>
+					th:href="@{/admin/usuarios}"><span th:text="#{usuarios}">Usuarios</span></a>
 
 			</nav>
 		</div>
@@ -28,9 +28,9 @@
 			<table class="table mx-auto">
 				<thead class="thead-dark">
 					<tr>
-						<th scope="col">Email</th>
-						<th scope="col">Nombre</th>
-						<th scope="col">Apellidos</th>
+						<th scope="col"><span th:text="#{email2}">Email</span></th>
+						<th scope="col"><span th:text="#{nombre}">Nombre</span></th>
+						<th scope="col"><span th:text="#{apellidos}">Apellidos</span></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -44,7 +44,7 @@
 		</div>
 
 		<div th:if="${usuarios.isEmpty()}">
-			<p>No existen usuarios registrados</p>
+			<p><span th:text="#{noExistenU}">No existen usuarios registrados</span></p>
 		</div>
 	</section>
 
