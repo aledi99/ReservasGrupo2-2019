@@ -45,6 +45,7 @@ public class PerfilController {
 	public String editPerfilSubmit(@ModelAttribute("usuario") Usuario u, Model model) {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		u.setPassword(encoder.encode(u.getPassword()));
+		u.setGestionado(true);
 		us.edit(u);
 		return "redirect:/user/perfil";
 	}
