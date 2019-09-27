@@ -32,9 +32,16 @@ public class ReservaAdminController {
 	
 	@GetMapping("/reservas")
 	public String reservas(Model model) {
-		model.addAttribute("reservas", reservaservicio.findAll());
+		model.addAttribute("reservas", reservaservicio.buscarReservasFuturas());
 		
 		return "/admin/reservas";		
+	}
+	
+	@GetMapping("/reservas/historico")
+	public String historicoReservas(Model model) {
+		model.addAttribute("reservas", reservaservicio.buscarReservasPasadas());
+		
+		return "/admin/historicoReservas";
 	}
 	
 	@GetMapping("/eliminarReserva/{id}")

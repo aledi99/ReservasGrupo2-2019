@@ -29,9 +29,8 @@
 	</aside>
 	<section class="float-left col-lg-8 p-0 mt-3 ml-3">
 		<div class="col-4 text-right float-left my-2">
-			<a href="#" th:href="@{/admin/reservas/historico}" id=""
-				class="btn btn-success w-100" role="button">Histórico de
-				Reservas<i class="far fa-clock ml-1"></i>
+			<a href="#" th:href="@{/admin/reservas}" id=""
+				class="btn btn-success w-100" role="button">Volver<i class="fas fa-backward ml-1"></i>
 			</a>
 		</div>
 		<div th:if="${!reservas.isEmpty()}">
@@ -42,7 +41,6 @@
 						<th scope="col"><span th:text="#{clase}">Aula</span></th>
 						<th scope="col"><span th:text="#{usuario}">Usuario</span></th>
 						<th scope="col"><span th:text="#{fecha}">Fecha</span></th>
-						<th scope="col"></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -51,10 +49,6 @@
 						<td th:text="${reserva.aula.nombre}">Aula</td>
 						<td th:text="${reserva.usuario.email}">Usuario</td>
 						<td th:text="${reserva.fecha}">Fecha</td>
-						<td><a href="#"
-							th:href="@{/admin/eliminarReserva/{id}(id=${reserva.id})}"> <i
-								class="fas fa-trash"></i>
-						</a></td>
 					</tr>
 				</tbody>
 			</table>
@@ -62,10 +56,10 @@
 
 		<div th:if="${reservas.isEmpty()}">
 			<p>
-				<span th:text="#{noExistenR}">No existen reservas actualmente</span>
+				<span th:text="#{noExistenR}">No hay reservas guardadas en el
+					histórico</span>
 			</p>
 		</div>
-
 	</section>
 
 </body>
