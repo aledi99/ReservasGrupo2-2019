@@ -4,7 +4,6 @@
 <head th:replace="pagEstaticas/head :: headFragment (titulo='Reservar')">
 </head>
 <body>
-
 	<nav th:replace="admin/navAdmin :: navAdmin"></nav>
 	<aside class="float-left col-lg-2 p-0 subNav bg-danger">
 		<div class="container-fluid col-lg-12 h-100 col-12 p-0 float-left">
@@ -15,12 +14,12 @@
 					class="nav-link col-lg-12 col-md-4 col-4 boton p-4 rounded-0"
 					href="#" th:href="@{/admin/festivos}"><span class="text-white"
 					th:text="#{festivos}">Festivos</span></a> <a
-					class="nav-link col-lg-12 col-md-4 col-4 p-4 rounded-0" href="#"
-					th:href="@{/admin/reservas}"><span class="text-white"
-					th:text="#{reservas}">Reservas</span></a> <a
 					class="nav-link col-lg-12 col-md-4 col-4 p-4 rounded-0 bg-warning"
-					href="#" th:href="@{/admin/solicitudes}"><span
-					class="text-white" th:text="#{solicitudes}">Solicitudes</span></a> <a
+					href="#" th:href="@{/admin/reservas}"><span class="text-white"
+					th:text="#{reservas}">Reservas</span></a> <a
+					class="nav-link col-lg-12 col-md-4 col-4 p-4 rounded-0" href="#"
+					th:href="@{/admin/solicitudes}"><span class="text-white"
+					th:text="#{solicitudes}">Solicitudes</span></a> <a
 					class="nav-link col-lg-12 col-md-4 col-4 p-4 rounded-0" href="#"
 					th:href="@{/admin/usuarios}"><span class="text-white"
 					th:text="#{usuarios}">Usuarios</span></a>
@@ -29,43 +28,38 @@
 		</div>
 	</aside>
 	<section class="float-left col-lg-8 p-0 mt-3 ml-3">
-		<div th:if="${!usuarios.isEmpty()}">
+		<div class="col-4 text-right float-left my-2">
+			<a href="#" th:href="@{/admin/reservas}" id=""
+				class="btn btn-success w-100" role="button"><span th:text="#{volver}">Volver</span><i class="fas fa-backward ml-1"></i>
+			</a>
+		</div>
+		<div th:if="${!reservas.isEmpty()}">
 			<table class="table mx-auto">
 				<thead class="thead-dark">
 					<tr>
-						<th scope="col"><span th:text="#{email}">Email</span></th>
-						<th scope="col"><span th:text="#{nombre}">Nombre</span></th>
-						<th scope="col"><span th:text="#{apellidos}">Apellidos</span></th>
-						<th scope="col"></th>
+						<th scope="col"><span th:text="#{hora}">Hora</span></th>
+						<th scope="col"><span th:text="#{clase}">Aula</span></th>
+						<th scope="col"><span th:text="#{usuario}">Usuario</span></th>
+						<th scope="col"><span th:text="#{fecha}">Fecha</span></th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr th:each="usuario : ${usuarios}">
-						<td th:text="${usuario.email}">EMAIL</td>
-						<td th:text="${usuario.nombre}">NOMBRE</td>
-						<td th:text="${usuario.apellidos}">APELLIDOS</td>
-						<td><a href="#"
-							th:href="@{/admin/eliminarSolicitud/{id}(id=${usuario.id})}">
-								<i class="fas fa-trash"></i>
-						</a>
-							<form th:action="@{/admin/validar/{id}(id=${usuario.id})}"
-								th:object="${usuario}" method="post">
-								<button type="submit">
-									<i class="fas fa-check"></i>
-								</button>
-							</form></td>
+					<tr th:each="reserva : ${reservas}">
+						<td th:text="${reserva.hora}">Hora</td>
+						<td th:text="${reserva.aula.nombre}">Aula</td>
+						<td th:text="${reserva.usuario.email}">Usuario</td>
+						<td th:text="${reserva.fecha}">Fecha</td>
 					</tr>
 				</tbody>
 			</table>
 		</div>
 
-		<div th:if="${usuarios.isEmpty()}">
+		<div th:if="${reservas.isEmpty()}">
 			<p>
-				<span th:text="#{noExistenS}">No existen solicitudes
-					pendientes</span>
+				<span th:text="#{noExistenR}">No hay reservas guardadas en el
+					histórico</span>
 			</p>
 		</div>
-
 	</section>
 
 </body>

@@ -194,4 +194,31 @@ public class ReservaServicio extends ServicioBase<Reserva, Long, ReservaReposito
 		return repositorio.findByUsuarioAndFechaAndHora(usuario, fecha, hora)==null? false:true;
 	}
 	
+	public List<Reserva> buscarReservasFuturas() {
+		List <Reserva> FuturasReservas = new ArrayList<Reserva>();
+		LocalDate hoy = LocalDate.now();
+		
+		for (Reserva r : repositorio.findAll()) {
+			if (r.getFecha().isAfter(hoy) || r.getFecha().equals(hoy)) {
+				FuturasReservas.add(r);
+			}
+		}
+		
+		return FuturasReservas;
+		
+	}
+	
+	public List<Reserva> buscarReservasPasadas() {
+		List <Reserva> PasadasReservas = new ArrayList<Reserva>();
+		LocalDate hoy = LocalDate.now();
+		
+		for (Reserva r : repositorio.findAll()) {
+			if (r.getFecha().isBefore(hoy)) {
+				PasadasReservas.add(r);
+			}
+		}
+		
+		return PasadasReservas;
+	}
+	
 }

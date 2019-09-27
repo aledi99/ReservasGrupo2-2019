@@ -28,13 +28,19 @@
 		</div>
 	</aside>
 	<section class="float-left col-lg-8 p-0 mt-3 ml-3">
+		<div class="col-4 text-right float-left my-2">
+			<a href="#" th:href="@{/admin/reservas/historico}" id=""
+				class="btn btn-success w-100" role="button"><span th:text="#{historicoR}">Histórico de
+				Reservas</span><i class="far fa-clock ml-1"></i>
+			</a>
+		</div>
 		<div th:if="${!reservas.isEmpty()}">
 			<table class="table mx-auto">
 				<thead class="thead-dark">
 					<tr>
 						<th scope="col"><span th:text="#{hora}">Hora</span></th>
 						<th scope="col"><span th:text="#{clase}">Aula</span></th>
-						<th scope="col"><span th:text="#{usuario}">Usuario</th>
+						<th scope="col"><span th:text="#{usuario}">Usuario</span></th>
 						<th scope="col"><span th:text="#{fecha}">Fecha</span></th>
 						<th scope="col"></th>
 					</tr>
@@ -48,7 +54,7 @@
 						<td><a href="#"
 							th:href="@{/admin/eliminarReserva/{id}(id=${reserva.id})}"> <i
 								class="fas fa-trash"></i>
-						</a>
+						</a></td>
 					</tr>
 				</tbody>
 			</table>

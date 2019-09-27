@@ -31,7 +31,7 @@
 						class="float-right mx-2">
 						<button type="button"
 							class="btn bg-light btn-outline-danger  px-4 py-2">
-							<span> Inicio </span>
+							<span th:text="#{inicio}"> Inicio </span>
 						</button>
 					</a>
 				</div>
@@ -39,7 +39,7 @@
 					class="float-right mx-2 ">
 					<button type="button"
 						class="btn btn bg-light btn-outline-danger  px-4 py-2">
-						<span> Perfil </span>
+						<span th:text="#{perfil}"> Perfil </span>
 					</button>
 				</a>
 				<div class="col-4">
@@ -48,7 +48,7 @@
 						<a href="#" onclick="enviar('logoutForm')" class="float-right"
 							mx-2>
 							<button type="button"
-								class="btn bg-dark btn-outline-secondary btn  p-2 text-white">Desconectar</button>
+								class="btn bg-dark btn-outline-secondary btn  p-2 text-white"><span th:text="#{desconectar}">Desconectar</span></button>
 						</a>
 					</form>
 				</div>
