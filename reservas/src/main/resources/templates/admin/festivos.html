@@ -51,12 +51,12 @@
 				</div>
 				<div class="bg-danger col-8 mx-auto">
 					<p class="font-weight-bold text-white">
-						Las reservas están <span th:if="${sabado}">habilitadas (NO son festivos)</span><span
-							th:if="${!sabado}">deshabilitadas (SON festivos)</span> los sábados.
+						<span th:text="#{res}">Las reservas están</span> <span th:if="${sabado}" th:text="#{habF}">habilitadas (NO son festivos)</span><span
+							th:if="${!sabado}" th:text="#{deshabF}">deshabilitadas (SON festivos)</span> <span th:text="#{losSab}">los sábados.</span>
 					</p>
 					<p class="font-weight-bold text-white">
-						Las reservas están <span th:if="${domingo}">habilitadas (NO son festivos)</span><span
-							th:if="${!domingo}">deshabilitadas (SON festivos)</span> los domingos.
+						<span th:text="#{res}">Las reservas están</span> <span th:if="${domingo}" th:text="#{habF}">habilitadas (NO son festivos)</span><span
+							th:if="${!domingo}" th:text="#{deshabF}">deshabilitadas (SON festivos)</span> <span th:text="#{losDom}">los domingos.</span>
 					</p>
 				</div>
 				<div class="col-6 text-right float-left my-2" th:if="${!sabado}">
@@ -107,7 +107,7 @@
 			</div>
 
 			<div th:if="${festivos.isEmpty()}">
-				<p>No hay festivos añadidos actualmente. (Si tiene todos los
+				<p th:text="#{parrafo}">No hay festivos añadidos actualmente. (Si tiene todos los
 					sábados y/o domingos definidos como festivos, no aparecerán en esta
 					lista)</p>
 			</div>

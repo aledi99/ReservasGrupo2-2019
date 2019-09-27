@@ -56,10 +56,10 @@
 					</div>
 					<div class="card-footer">
 						<div class="d-flex justify-content-center links">
-							¿No tienes una cuenta? <a href="#" th:href="@{/signup}">¡Regístrate!</a>
+							<span th:text="#{cuenta}">¿No tienes una cuenta?</span> <a href="#" th:href="@{/signup}"><span th:text="#{registrar}">¡Regístrate!</span></a>
 						</div>
 						<div class="d-flex justify-content-center">
-							<a href="#">¿Olvidaste tu contraseña?</a>
+							<a href="#"><span th:text="#{olvidar}">¿Olvidaste tu contraseña?</span></a>
 						</div>
 					</div>
 				</div>
