@@ -36,7 +36,7 @@
 					th:text="#{nombre}">Nombre</label>
 				<div class="col-md-10">
 					<input id="textinput" name="textinput" type="text"
-						th:field="*{nombre}" placeholder="Antonio"
+						th:field="*{nombre}" th:placeholder="#{nombre}"
 						class="form-control input-md" required>
 				</div>
 			</div>
@@ -47,7 +47,7 @@
 					th:text="#{apellidos}">Apellidos</label>
 				<div class="col-md-10">
 					<input id="textinput" name="textinput" type="text"
-						th:field="*{apellidos}" placeholder="Cotán García"
+						th:field="*{apellidos}" placeholder="#{apellidos}"
 						class="form-control input-md" required>
 				</div>
 			</div>

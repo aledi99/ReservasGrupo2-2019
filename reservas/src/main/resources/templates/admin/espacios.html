@@ -42,7 +42,13 @@
 		<div th:if="${espacios.isEmpty()}">
 			<p><span th:text="#{noExistenA}">No existen aulas registradas</span></p>
 		</div>
+		
+		<button type="button" class="btn btn-primary"><a class="ole" href=# th:href="@{/admin/newAula}"><span th:text="#{addA}">Añadir Aula</span></a>
+  </button>
 	</section>
+	
+	
+
 
 </body>
 </html>

@@ -3,8 +3,12 @@ package com.salesianostriana.reservas.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.salesianostriana.reservas.model.Aula;
 import com.salesianostriana.reservas.service.AulaServicio;
 
 @Controller
@@ -36,6 +40,19 @@ public class AulasAdminController {
 		return "admin/espacios";
 	}
 	
+	@GetMapping("/newAula")
+	public String newAula(Model model) {
+		model.addAttribute("aula", new Aula());
+		
+		return "admin/SignUpAula";
+	}
+	
+	@PostMapping("/newAula/submit")
+	public String procesarAula(@ModelAttribute("aula") Aula a) {
+		aulaservicio.save(a);
+		
+		return "redirect:/admin/espacios";
+	}
 	
 
 }
