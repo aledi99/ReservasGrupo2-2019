@@ -9,7 +9,7 @@
 	<aside class="float-left col-lg-2 p-0 subNav bg-danger">
 		<div class="container-fluid col-lg-12 h-100 col-12 p-0 float-left">
 			<nav class="nav nav-stacked text-center subNav">
-				<a class="nav-link col-lg-12 col-md-4 col-4 p-4 rounded-0 bg-warning" href="#"
+				<a class="nav-link col-lg-12 col-md-4 col-4 p-4 rounded-0 bg-secondary" href="#"
 					th:href="@{/admin/espacios}"><span class="text-white" th:text="#{espacios}">Espacios</span></a> <a
 					class="nav-link col-lg-12 col-md-4 col-4 boton p-4 rounded-0"
 					href="#" th:href="@{/admin/festivos}"><span class="text-white" th:text="#{festivos}">Festivos</span></a> <a
@@ -23,17 +23,20 @@
 			</nav>
 		</div>
 	</aside>
-	<section class="float-left col-lg-8 p-0 mt-3 ml-3">
+	<section class="float-left col-md-10 col-12 mt-3 p-4">
 		<div th:if="${!espacios.isEmpty()}">
 			<table class="table mx-auto">
 				<thead class="thead-dark">
-					<tr>
-						<th scope="col"><span th:text="#{nombre}">Nombre</span></th>
+					<tr class="text-center">
+						<th><span th:text="#{nombre}" >Nombre</span></th>
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr th:each="espacio : ${espacios}">
-						<td th:text="${espacio.nombre}">NOMBRE</td>
+						<td th:text="${espacio.nombre}" class="text-center">NOMBRE</td>
+						<td><a th:href="@{/admin/espacios/eliminar/{id} (id=${espacio.id})}"
+							class="btn bg-danger text-white"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
 					</tr>
 				</tbody>
 			</table>
@@ -43,7 +46,11 @@
 			<p><span th:text="#{noExistenA}">No existen aulas registradas</span></p>
 		</div>
 		
-		<button type="button" class="btn btn-primary"><a class="ole" href=# th:href="@{/admin/newAula}"><span th:text="#{addA}">Añadir Aula</span></a>
+		<a class="ole" href=# th:href="@{/admin/newAula}">
+			<button type="button" class="btn btn-dark">
+				<span th:text="#{addA}">Añadir Aula</span>
+			</button>
+		</a>
   </button>
 	</section>
 	

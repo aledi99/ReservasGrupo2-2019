@@ -24,7 +24,7 @@ public class PerfilController {
 	
 	@GetMapping("/user/perfil")
 	public String mostrarPerfil(Model model, Principal p) {
-		model.addAttribute("listReservas", rs.findAll());
+		model.addAttribute("listReservas", rs.listarReservasPorUsuario(us.buscarUsuarioLogged(p)));
 		model.addAttribute("usuario", us.buscarUsuarioLogged(p));
 		return "user/perfil";
 	}

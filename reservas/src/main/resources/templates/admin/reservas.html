@@ -27,10 +27,10 @@
 			</nav>
 		</div>
 	</aside>
-	<section class="float-left col-lg-8 p-0 mt-3 ml-3">
+	<section class="float-left col-md-10 col-12 mt-3 p-4">
 		<div class="col-4 text-right float-left my-2">
 			<a href="#" th:href="@{/admin/reservas/historico}" id=""
-				class="btn btn-success w-100" role="button"><span th:text="#{historicoR}">Histórico de
+				class="btn btn-dark w-100" role="button"><span th:text="#{historicoR}">Histórico de
 				Reservas</span><i class="far fa-clock ml-1"></i>
 			</a>
 		</div>
@@ -47,13 +47,13 @@
 				</thead>
 				<tbody>
 					<tr th:each="reserva : ${reservas}">
-						<td th:text="${reserva.hora}">Hora</td>
+						<td th:text="${reserva.hora.descripcion}">Hora</td>
 						<td th:text="${reserva.aula.nombre}">Aula</td>
 						<td th:text="${reserva.usuario.email}">Usuario</td>
 						<td th:text="${reserva.fecha}">Fecha</td>
 						<td><a href="#"
 							th:href="@{/admin/eliminarReserva/{id}(id=${reserva.id})}"> <i
-								class="fas fa-trash"></i>
+								class="fas fa-trash text-dark"></i>
 						</a></td>
 					</tr>
 				</tbody>

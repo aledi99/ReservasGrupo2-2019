@@ -9,12 +9,14 @@
 	<nav th:fragment="navegadorUsuario"
 		class="navbar navbar-expand-lg navbar-light pepe">
 		<div class="col-4">
-			<a class="navbar-brand" href="../user/inicio.html"
-			th:href="@{/user/inicio}"> <img class="img-fluid w-25 bg-white"
-			src="../Logo-horizontal-segundo-nivel.png"
-			th:src="@{/img/Logo-horizontal-segundo-nivel.png}"
-			th:alt="|Salesianos Triana- Inicio|" alt="Salesianos Triana - Inicio">
-			<h5 class="d-inline text-white ml-3"
+			<a href="../user/inicio.html"
+			th:href="@{/user/inicio}"> 
+				<img class="img-fluid w-25 bg-white"
+					src="../Logo-horizontal-segundo-nivel.png"
+					th:src="@{/img/Logo-horizontal-segundo-nivel.png}"
+					th:alt="|Salesianos Triana- Inicio|" alt="Salesianos Triana - Inicio"></a>
+			<a th:href="@{/user/perfil}" href="../user/perfil.html">
+				<h5 class="d-inline text-white ml-3"
 				th:text="|${usuario.nombre} ${usuario.apellidos}|">Salesianos
 				Triana</h5>
 			</a>

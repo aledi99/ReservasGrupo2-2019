@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/admin")
 public class ComunAdminController {
 
-	/**
+	/*
 	 * OJO A LA ANOTACIÓN DE CLASE "@RequestMapping("/admin")". Todos
 	 * los @GetMapping
 	 * 

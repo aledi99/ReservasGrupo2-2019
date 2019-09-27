@@ -18,7 +18,7 @@ public class ReservaAdminController {
 		this.reservaservicio = reservaservicio;
 	}
 	
-	/**
+	/*
 	 * OJO A LA ANOTACIÓN DE CLASE "@RequestMapping("/admin")". Todos los @GetMapping 
 	 * 
 	 * que se incluyan en esta clase irán precedidos de "/admin". Es decir, 

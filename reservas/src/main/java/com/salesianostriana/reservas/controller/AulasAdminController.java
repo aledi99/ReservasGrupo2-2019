@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import com.salesianostriana.reservas.model.Aula;
 import com.salesianostriana.reservas.service.AulaServicio;
 
@@ -29,9 +28,12 @@ public class AulasAdminController {
 	
 	private AulaServicio aulaservicio;
 	
+	
 	public AulasAdminController(AulaServicio aulaservicio) {
 		this.aulaservicio = aulaservicio;
+		
 	}
+	
 	
 	@GetMapping("/espacios")
 	public String espacios(Model model) {
@@ -53,6 +55,13 @@ public class AulasAdminController {
 		
 		return "redirect:/admin/espacios";
 	}
+	@GetMapping("/espacios/eliminar/{id}")
+	public String eliminarAula(@PathVariable("id") long id,Model model) {
+		aulaservicio.eliminarAula(aulaservicio.findById(id));
+		
+		return "redirect:/admin/espacios";
+	}
+	
 	
 
 }

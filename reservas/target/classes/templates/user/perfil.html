@@ -8,22 +8,22 @@
 	<div class="container mt-4">
 		<h1 class="text-center display-5" th:text="#{datosP}">Datos
 			Personales</h1>
-		<div class="container">
+		<div class="container mt-5">
 			<div class="row">
-				<div class="col-sm font-weight-bold">
+				<div class="col-sm font-weight-bold text-center">
 					<span th:text="#{nombre}">Nombre</span>
 				</div>
-				<div class="col-sm font-weight-bold">
+				<div class="col-sm font-weight-bold text-center">
 					<span th:text="#{apellidos}">Apellidos
 				</div>
-				<div class="col-sm font-weight-bold">
+				<div class="col-sm font-weight-bold text-center">
 					<span th:text="#{email2}">Email</span>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-sm" th:text="${usuario.nombre}">Luismi</div>
-				<div class="col-sm" th:text="${usuario.apellidos}">Lopez</div>
-				<div class="col-sm" th:text="${usuario.email}">luismi.lopez@salesianos.edu</div>
+				<div class="col-sm text-center" th:text="${usuario.nombre}">Luismi</div>
+				<div class="col-sm text-center" th:text="${usuario.apellidos}">Lopez</div>
+				<div class="col-sm text-center" th:text="${usuario.email}">luismi.lopez@salesianos.edu</div>
 			</div>
 		</div>
 		<!-- Button -->
@@ -31,7 +31,7 @@
 			<label class=" control-label" for="edit"></label>
 			<div class="text-center mt-5">
 				<a th:href="@{/user/perfil/editPerfil}"><button id="edit"
-						name="edit" class="w-50 btn btn-primary">
+						name="edit" class="w-50 btn btn-dark">
 						<span th:text="#{editarU}">Editar usuario</span>
 					</button></a>
 			</div>
@@ -62,7 +62,7 @@
 						<li>
 							<p class="card-text">
 								<span class="font-weight-bold" th:text="#{fechaD}">Horas:</span>
-								<span th:text="${reserva.hora}">hora</span>
+								<span th:text="${reserva.hora.descripcion}">hora</span>
 							</p>
 						</li>
 						<a th:href="@{/user/borrar/{id}(id=${reserva.id})}"><button

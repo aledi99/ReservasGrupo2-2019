@@ -5,7 +5,7 @@
 </head>
 <body>
 	<nav th:replace="admin/navAdmin :: navAdmin"></nav>
-	<aside class="float-left col-lg-2 p-0 subNav bg-danger">
+	<aside class="float-left col-lg-2 col-12 p-0 subNav bg-danger">
 		<div class="container-fluid col-lg-12 h-100 col-12 p-0 float-left">
 			<nav class="nav nav-stacked text-center subNav">
 				<a
@@ -28,7 +28,7 @@
 			</nav>
 		</div>
 	</aside>
-	<section class="float-left col-9 p-0 mt-3 ml-3">
+	<section class="float-left col-md-10 col-12 mt-3 p-4">
 		<div class="containter-fluid">
 			<div class="mx-auto text-center">
 				<div class="row">
@@ -49,37 +49,37 @@
 						</form>
 					</div>
 				</div>
-				<div class="bg-danger col-8 mx-auto">
+				<div class="bg-danger col-8 mx-auto my-3">
 					<p class="font-weight-bold text-white">
 						<span th:text="#{res}">Las reservas están</span> <span th:if="${sabado}" th:text="#{habF}">habilitadas (NO son festivos)</span><span
 							th:if="${!sabado}" th:text="#{deshabF}">deshabilitadas (SON festivos)</span> <span th:text="#{losSab}">los sábados.</span>
 					</p>
-					<p class="font-weight-bold text-white">
+					<p class="font-weight-bold text-white my-3">
 						<span th:text="#{res}">Las reservas están</span> <span th:if="${domingo}" th:text="#{habF}">habilitadas (NO son festivos)</span><span
 							th:if="${!domingo}" th:text="#{deshabF}">deshabilitadas (SON festivos)</span> <span th:text="#{losDom}">los domingos.</span>
 					</p>
 				</div>
 				<div class="col-6 text-right float-left my-2" th:if="${!sabado}">
 					<a href="#" th:href="@{/admin/habilitarSabados}" id=""
-						class="btn btn-success w-100" role="button"><span
+						class="btn btn-dark w-100" role="button"><span
 						th:text="#{habR}">Habilitar reservas los sábados</span><i
-						class="fas fa-wrench"></i> </a>
+						class="fas fa-wrench mx-2"></i> </a>
 				</div>
 				<div class="col-6 text-right float-left my-2" th:if="${sabado}">
 					<a href="#" th:href="@{/admin/deshabilitarSabados}" id=""
-						class="btn btn-success w-100" role="button"><span
+						class="btn btn-dark w-100" role="button"><span
 						th:text="#{deshabR}">Deshabilitar reservas los sábados</span><i
-						class="fas fa-wrench"></i> </a>
+						class="fas fa-wrench mx-2"></i> </a>
 				</div>
 				<div class="col-6 text-right float-right my-2" th:if="${!domingo}">
 					<a href="#" th:href="@{/admin/habilitarDomingos}" id=""
-						class="btn btn-success w-100" role="button"><span
+						class="btn btn-dark w-100" role="button"><span
 						th:text="#{habDom}">Habilitar reservas los domingos</span><i
 						class="fas fa-wrench"></i> </a>
 				</div>
 				<div class="col-6 text-right float-right my-2" th:if="${domingo}">
 					<a href="#" th:href="@{/admin/deshabilitarDomingos}" id=""
-						class="btn btn-success w-100" role="button"><span
+						class="btn btn-dark w-100" role="button"><span
 						th:text="#{deshabDom}">Deshabilitar reservas los domingos</span><i
 						class="fas fa-wrench"></i> </a>
 				</div>

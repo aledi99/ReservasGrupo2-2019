@@ -28,7 +28,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	public UserDetailsServiceImpl(UsuarioServicio servicio) {
 		this.usuarioServicio = servicio;
 	}
-
+	/**
+	 * Método que asignará roles. Sólo si el usuario está gestionado se le asignará un rol.
+	 */
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		Usuario usuario = usuarioServicio.buscarPorEmail(username);

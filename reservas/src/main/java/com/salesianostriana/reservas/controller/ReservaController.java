@@ -18,7 +18,11 @@ import com.salesianostriana.reservas.service.AulaServicio;
 import com.salesianostriana.reservas.service.FestivoServicio;
 import com.salesianostriana.reservas.service.ReservaServicio;
 import com.salesianostriana.reservas.service.UsuarioServicio;
-
+/**
+ * Controller de Reserva (usuario)
+ * @author Esperanza M Escacena M
+ *
+ */
 
 @Controller
 public class ReservaController {
