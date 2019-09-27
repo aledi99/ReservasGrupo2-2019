@@ -10,7 +10,8 @@
 }
 
 .bosco {
-	background-image: img/san-juan-boscol.jpg
+	background-image: url("../img/san-juan-bosco.jpg");
+	background-size: cover;
 }
 
 .pais {
