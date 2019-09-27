@@ -16,7 +16,7 @@
             <aside class="col-md-6 col-12 col-lg-4 float-left">
                 
                 <div class="col-12 ">
-                    <h4>Escoja una fecha del calendario</h4>
+                    <h4 th:text="#{escoja}">Escoja una fecha del calendario</h4>
                     <form class="border border-0 " th:action="@{/user/reservar/{id}/submit (id=${aula.id})}" th:object="${formbeanFecha}" method="post">
                         <div class="col-12 form-group float-left p-0 m-0">
                             <input type='text' placeholder="Selecciona una fecha" class="col-8 datepicker float-left mr-2" id="cal" th:field="*{fecha}" data-date-format="dd/mm/yyyy"/>
@@ -42,7 +42,7 @@
                                             <tr>
                                         </thead>
                                         <tbody>
-                                                <th class="bg-warning">HORAS</th>
+                                                <th class="bg-warning" th:text="#{Hora}">HORAS</th>
                                             </tr>
                                             <tr th:each="h : ${horas}">
                                                 <td th:text="${h.descripcion}" class="bg-dark text-white"></td>
@@ -54,13 +54,13 @@
                                     <table class="table table-bordered m-0">
                                         <thead>
                                             <tr class="bg-dark text-white">
-                                                <th>LUNES</th>
-                                                <th>MARTES</th>
-                                                <th>MIÉRCOLES</th>
-                                                <th>JUEVES</th>
-                                                <th>VIERNES</th>
-                                                <th>SÁBADO</th>
-                                                <th>DOMINGO</th>
+                                                <th th:text="#{lunes}">LUNES</th>
+                                                <th th:text="#{martes}">MARTES</th>
+                                                <th th:text="#{miercoles}">MIÉRCOLES</th>
+                                                <th th:text="#{jueves}">JUEVES</th>
+                                                <th th:text="#{viernes}">VIERNES</th>
+                                                <th th:text="#{sabado}">SÁBADO</th>
+                                                <th th:text="#{domingo}">DOMINGO</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -76,7 +76,7 @@
                                                                
                                                             <tr th:if="${r.vacio}" class="btn btn-light">
                                                                 
-                                                                    <span>Reservar</span>
+                                                                    <span th:text="#{reservar}">Reservar</span>
                                                                     
                                                                         <input th:field="*{hora}" th:value="${horas[0]}" type="hidden" form="crearReserva" >
                                                                         <input th:field="*{fecha}" th:value="${r.fecha}" type="hidden" form="crearReserva">

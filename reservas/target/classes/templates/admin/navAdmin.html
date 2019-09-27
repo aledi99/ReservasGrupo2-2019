@@ -20,11 +20,11 @@
             <div class="row w-100">
                 <div class="col-lg-12">
                     <a class=" mx-2 " href="adminClientesListar.html" th:href="@{/admin/inicio}"><button type="button"
-							class="btn btn bg-light btn-outline-danger mr-4">
-							Panel del Administrador</button></a>
+							class="btn btn bg-light btn-outline-danger mr-4"><span th:text="#{panelAdm}">
+							Panel del Administrador</span></button></a>
                     <form th:action="@{/logout}" method="POST" id="logoutForm"></form>
                     <a href="#" onclick="enviar('logoutForm')" class="float-right" mx-2>
-                        <button type="button" class="btn bg-danger btn-outline-secondary btn p-2 mr-3 text-white">Desconectar</button>
+                        <button type="button" class="btn bg-danger btn-outline-secondary btn p-2 mr-3 text-white"><span th:text="#{desconectar}">Desconectar</span></button>
                     </a>
                 </div>
             </div>

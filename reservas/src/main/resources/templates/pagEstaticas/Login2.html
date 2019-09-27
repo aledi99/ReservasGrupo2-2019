@@ -5,13 +5,13 @@
 </head>
   <body class="pepe">
 
-        <img src="img/Logo-horizontal-segundo-nivel.png" class="img-fluid imagen ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="Logo Salesianos Triana">
+        
         <div class="form-group pais">
           <label for=""></label>
-          <select class="form-control col-sm-12" name="" id="">
-            <option>Español</option>
-            <option>English</option>
-            <option>Français</option>
+          <select class="form-control col-sm-12" name="lenguaje" onchange="location = this.value;" id="leng">
+            <option value=""><span th:text="#{seleccionaI}">Selecciona el idioma</span></option>
+            <option value="?lang=es"><span th:text="#{spain}">Español</span></option>
+            <option value="?lang=eng"><span th:text="#{english}">English</option>
           </select>
         </div>
         <div class="site-wrapper">
@@ -60,6 +60,6 @@
             </div>
      
       
-  
+
   </body>
 </html>

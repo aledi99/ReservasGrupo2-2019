@@ -11,6 +11,10 @@
 	float: right;
 }
 
+.noDec {
+	text-decoration: none;
+}
+
 .ordenar {
 	padding-left: 20px;
 }

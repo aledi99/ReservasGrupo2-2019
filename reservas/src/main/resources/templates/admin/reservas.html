@@ -30,8 +30,8 @@
 	<section class="float-left col-lg-8 p-0 mt-3 ml-3">
 		<div class="col-4 text-right float-left my-2">
 			<a href="#" th:href="@{/admin/reservas/historico}" id=""
-				class="btn btn-success w-100" role="button">Histórico de
-				Reservas<i class="far fa-clock ml-1"></i>
+				class="btn btn-success w-100" role="button"><span th:text="#{historicoR}">Histórico de
+				Reservas</span><i class="far fa-clock ml-1"></i>
 			</a>
 		</div>
 		<div th:if="${!reservas.isEmpty()}">

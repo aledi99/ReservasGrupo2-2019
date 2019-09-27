@@ -27,14 +27,14 @@
                 <div class="row">
                    
                     <div class="col-12 ml-1 mb-3 pepe text-white" th:if="${reservaImposible}==true">
-                        <p>Ya tiene una reserva el mismo día a la misma hora en otra aula.</p>
-                        <p>Por favor, vaya a perfil para comprobar sus reservas.</p>
+                        <p><span th:text="#{yaTiene}">Ya tiene una reserva el mismo día a la misma hora en otra aula.</span></p>
+                        <p><span th:text="#{porFavor}">Por favor, vaya a perfil para comprobar sus reservas.</p>
                     </div>
                     
                 </div>
                 <div class="row">
                     <div class="col-12 ">
-                        <h4>Escoja una fecha del calendario</h4>
+                        <h4 th:text="#{escoja}">Escoja una fecha del calendario</h4>
                         <form class="border border-0 " th:action="@{/user/reservar/{id}/submit (id=${aula.id})}" th:object="${formbeanFecha}" method="post" id="buscarFecha">
                             <div class="col-12 form-group float-left p-0 m-0">
                                 <input type='text' placeholder="Selecciona una fecha" required class="col-8 datepicker float-left mr-2" id="cal" name="cal" th:field="*{fecha}" data-date-format="dd/mm/yyyy" onchange="enviar('buscarFecha')"/>
@@ -45,7 +45,7 @@
                 </div>
                 <div class="row mt-2">
                     <div class="col-12">
-                            <h4>Escoja una hora</h4>
+                            <h4 th:text="#{escojaH}">Escoja una hora</h4>
                             <form th:action="@{/user/reservar/{id}/nueva-reserva/submit (id=${aula.id})}"
                             method="POST" th:object="${nuevaReserva}" id="elegirHora">
                             <input type="hidden" th:field="*{fecha}">
@@ -55,7 +55,7 @@
                                 <option th:each="hl : ${horasLibres}" th:value="${hl}"
                                     th:text="${hl.descripcion}" >xxx</option>
                             </select>
-                            <button type="submit" class="btn pepe text-white">Submit</button>
+                            <button type="submit" class="btn pepe text-white"><span th:text="#{submit}">Submit</span></button>
                         </form>
                         
                     </div>
@@ -63,11 +63,11 @@
                 <div class="row mt-4 mb-4">
                     <div class="col-12">
                         <div class="col-1 pepe border border-1 float-left"><p>&nbsp;</p></div>
-                        <div class="col-3 float-left"><p>Su reserva</p></div>
+                        <div class="col-3 float-left"><p th:text="#{suR}">Su reserva</p></div>
                         <div class="col-1 bg-secondary border border-1 float-left"><p>&nbsp;</p></div>
-                        <div class="col-3 float-left"><p>No disponible</p></div>
+                        <div class="col-3 float-left"><p th:text="#{noDisp}">No disponible</p></div>
                         <div class="col-1 border border-1 float-left"><p>&nbsp;</p></div>
-                        <div class="col-3 float-left"><p>Disponible</p></div>
+                        <div class="col-3 float-left"><p th:text="#{disp}">Disponible</p></div>
                     </div>
                 </div>
             </div>
@@ -89,7 +89,7 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <th class="bg-dark text-white">HORAS</th>
+                                                <th class="bg-dark text-white" th:text="#{Hora}">HORAS</th>
                                             </tr>
                                             <tr th:each="h : ${horas}">
                                                 <td th:text="${h.descripcion}" class="bg-dark text-white"></td>
@@ -101,13 +101,13 @@
                                     <table class="table table-bordered m-0">
                                         <thead>
                                             <tr class="bg-dark text-white">
-                                                <th>LUNES</th>
-                                                <th>MARTES</th>
-                                                <th>MIÉRCOLES</th>
-                                                <th>JUEVES</th>
-                                                <th>VIERNES</th>
-                                                <th>SÁBADO</th>
-                                                <th>DOMINGO</th>
+                                                <th th:text="#{lunes}">LUNES</th>
+                                                <th th:text="#{martes}">MARTES</th>
+                                                <th th:text="#{miercoles}">MIÉRCOLES</th>
+                                                <th th:text="#{jueves}">JUEVES</th>
+                                                <th th:text="#{viernes}">VIERNES</th>
+                                                <th th:text="#{sabado}">SÁBADO</th>
+                                                <th th:text="#{domingo}">DOMINGO</th>
                                             </tr>
                                         </thead>
                                         <tbody>

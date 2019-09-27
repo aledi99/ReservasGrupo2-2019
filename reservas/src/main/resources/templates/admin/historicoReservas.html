@@ -30,7 +30,7 @@
 	<section class="float-left col-lg-8 p-0 mt-3 ml-3">
 		<div class="col-4 text-right float-left my-2">
 			<a href="#" th:href="@{/admin/reservas}" id=""
-				class="btn btn-success w-100" role="button">Volver<i class="fas fa-backward ml-1"></i>
+				class="btn btn-success w-100" role="button"><span th:text="#{volver}">Volver</span><i class="fas fa-backward ml-1"></i>
 			</a>
 		</div>
 		<div th:if="${!reservas.isEmpty()}">

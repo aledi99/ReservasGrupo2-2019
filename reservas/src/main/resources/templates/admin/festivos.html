@@ -10,15 +10,20 @@
 			<nav class="nav nav-stacked text-center subNav">
 				<a
 					class="nav-link col-lg-12 col-md-4 col-4 p-4 rounded-0 text-white"
-					href="#" th:href="@{/admin/espacios}">Espacios</a> <a
+					href="#" th:href="@{/admin/espacios}"><span class=" text-white"
+					th:text="#{espacios}">Espacios</span></a> <a
 					class="nav-link col-lg-12 col-md-4 col-4 boton p-4 rounded-0 text-white bg-warning"
-					href="#" th:href="@{/admin/festivos}">Festivos</a> <a
+					href="#" th:href="@{/admin/festivos}"><span class=" text-white"
+					th:text="#{festivos}">Festivos</span></a> <a
 					class="nav-link col-lg-12 col-md-4 col-4 p-4 rounded-0 text-white" href="#"
-					th:href="@{/admin/reservas}">Reservas</a> <a
+					th:href="@{/admin/reservas}"><span class=" text-white"
+					th:text="#{reservas}">Reservas</span></a> <a
 					class="nav-link col-lg-12 col-md-4 col-4 p-4 rounded-0 text-white" href="#"
-					th:href="@{/admin/solicitudes}">Solicitudes</a> <a
+					th:href="@{/admin/solicitudes}"><span class=" text-white"
+					th:text="#{solicitudes}">Solicitudes</span></a> <a
 					class="nav-link col-lg-12 col-md-4 col-4 p-4 rounded-0 text-white" href="#"
-					th:href="@{/admin/usuarios}">Usuarios</a>
+					th:href="@{/admin/usuarios}"><span class=" text-white"
+					th:text="#{usuarios}">Usuarios</span></a>
 
 			</nav>
 		</div>
@@ -27,13 +32,13 @@
 		<div class="containter-fluid">
 			<div class="row">
 				<div class="col-12 ">
-					<h4>Escoja una fecha del calendario para marcarla como día
+					<h4 th:text="#{escojaF}">Escoja una fecha del calendario para marcarla como día
 						festivo</h4>
 					<form class="border border-0 "
 						th:action="@{/admin/festivos/submit}" th:object="${formbeanFecha}"
 						method="post" id="buscarFecha">
 						<div class="col-12 form-group float-left p-0 m-0">
-							<input type='text' placeholder="Selecciona una fecha" required
+							<input type='text' th:placeholder="#{selecF}" required
 								class="col-8 datepicker float-left mr-2" id="cal"
 								th:field="*{fecha}" data-date-format="dd/mm/yyyy"
 								onchange="enviar('buscarFecha')" />
@@ -45,26 +50,26 @@
 
 			<div class="col-5 text-right float-left my-2" th:if="${!sabado}">
 				<a href="#" th:href="@{/admin/habilitarSabados}" id=""
-					class="btn btn-success w-100" role="button">Habilitar reservas
-					los sábados<i class="fas fa-wrench"></i>
+					class="btn btn-success w-100" role="button"><span th:text="#{habR}">Habilitar reservas
+					los sábados</span><i class="fas fa-wrench"></i>
 				</a>
 			</div>
 			<div class="col-5 text-right float-left my-2" th:if="${sabado}">
 				<a href="#" th:href="@{/admin/deshabilitarSabados}" id=""
-					class="btn btn-success w-100" role="button">Deshabilitar
-					reservas los sábados<i class="fas fa-wrench"></i>
+					class="btn btn-success w-100" role="button"><span th:text="#{deshabR}">Deshabilitar
+					reservas los sábados</span><i class="fas fa-wrench"></i>
 				</a>
 			</div>
 			<div class="col-5 text-right float-left my-2" th:if="${!domingo}">
 				<a href="#" th:href="@{/admin/habilitarDomingos}" id=""
-					class="btn btn-success w-100" role="button">Habilitar reservas
-					los domingos<i class="fas fa-wrench"></i>
+					class="btn btn-success w-100" role="button"><span th:text="#{habDom}">Habilitar reservas
+					los domingos</span><i class="fas fa-wrench"></i>
 				</a>
 			</div>
 			<div class="col-5 text-right float-left my-2" th:if="${domingo}">
 				<a href="#" th:href="@{/admin/deshabilitarDomingos}" id=""
-					class="btn btn-success w-100" role="button">Deshabilitar
-					reservas los domingos<i class="fas fa-wrench"></i>
+					class="btn btn-success w-100" role="button"><span th:text="#{deshabDom}">Deshabilitar
+					reservas los domingos</span><i class="fas fa-wrench"></i>
 				</a>
 			</div>
 
