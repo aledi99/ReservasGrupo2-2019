@@ -24,8 +24,8 @@ public class FestivosAdminController {
 	FestivoServicio festivoServicio;
 	ReservaServicio reservaServicio;
 	boolean festivoYaExiste = false;
-	boolean sabadosHabilitados = true;
-	boolean domingosHabilitados = true;
+	boolean sabadosHabilitados = false;
+	boolean domingosHabilitados = false;
 
 	public FestivosAdminController(FestivoServicio festivoServicio, ReservaServicio reservaServicio) {
 		this.festivoServicio = festivoServicio;
@@ -37,6 +37,7 @@ public class FestivosAdminController {
 		model.addAttribute("formbeanFecha", new FormbeanFecha());
 		model.addAttribute("sabado", sabadosHabilitados);
 		model.addAttribute("domingo", domingosHabilitados);
+		model.addAttribute("festivos", festivoServicio.listarFestivosSinFinesDeSemana());
 
 		if (festivoYaExiste) {
 			model.addAttribute("errorFestivo", festivoYaExiste);
@@ -55,6 +56,7 @@ public class FestivosAdminController {
 		} else {
 			Festivo anadir = new Festivo();
 			anadir.setFecha(date);
+			anadir.setListar(true);
 			festivoServicio.save(anadir);
 
 		}
@@ -62,18 +64,54 @@ public class FestivosAdminController {
 
 	}
 
+	@GetMapping("/deshabilitarSabados")
+	public String deshabilitarSabados() {
+
+		sabadosHabilitados = false;
+
+		List<LocalDate> sabados = festivoServicio.BuscarSabados();
+
+		for (int i = 0; i < sabados.size(); i++) {
+			if (!festivoServicio.comprobarFestivo(sabados.get(i))) {
+				Festivo anadir = new Festivo();
+				anadir.setFecha(sabados.get(i));
+				anadir.setListar(false);
+				festivoServicio.save(anadir);
+			}
+		}
+
+		return "redirect:/admin/festivos";
+	}
+
+	@GetMapping("/deshabilitarDomingos")
+	public String deshabilitarDomingos() {
+
+		domingosHabilitados = false;
+
+		List<LocalDate> domingos = festivoServicio.BuscarDomingos();
+
+		for (int i = 0; i < domingos.size(); i++) {
+			if (!festivoServicio.comprobarFestivo(domingos.get(i))) {
+				Festivo anadir = new Festivo();
+				anadir.setFecha(domingos.get(i));
+				anadir.setListar(false);
+				festivoServicio.save(anadir);
+			}
+		}
+		return "redirect:/admin/festivos";
+	}
+
 	@GetMapping("/habilitarSabados")
 	public String habilitarSabados() {
 
 		sabadosHabilitados = true;
 
-		List<LocalDate> sabados = festivoServicio.BuscarSabados();
+		List<Festivo> festivos = festivoServicio.findAll();
 
-		for (int i = 0; i < sabados.size(); i++) {
-
-			Festivo anadir = new Festivo();
-			anadir.setFecha(sabados.get(i));
-			festivoServicio.save(anadir);
+		for (int i = 0; i < festivos.size(); i++) {
+			if (festivos.get(i).getFecha().getDayOfWeek().getValue() == 6 && !festivos.get(i).isListar()) {
+				festivoServicio.delete(festivos.get(i));
+			}
 		}
 
 		return "redirect:/admin/festivos";
@@ -84,43 +122,10 @@ public class FestivosAdminController {
 
 		domingosHabilitados = true;
 
-		List<LocalDate> domingos = festivoServicio.BuscarDomingos();
-
-		for (int i = 0; i < domingos.size(); i++) {
-
-			Festivo anadir = new Festivo();
-			anadir.setFecha(domingos.get(i));
-			festivoServicio.save(anadir);
-		}
-
-		return "redirect:/admin/festivos";
-	}
-
-	@GetMapping("/deshabilitarSabados")
-	public String deshabilitarSabados() {
-
-		sabadosHabilitados = false;
-
 		List<Festivo> festivos = festivoServicio.findAll();
 
 		for (int i = 0; i < festivos.size(); i++) {
-			if (festivos.get(i).getFecha().getDayOfWeek().getValue() == 6) {
-				festivoServicio.delete(festivos.get(i));
-			}
-		}
-
-		return "redirect:/admin/festivos";
-	}
-
-	@GetMapping("/deshabilitarDomingos")
-	public String deshabilitarDomingos() {
-		
-		domingosHabilitados = false;
-
-		List<Festivo> festivos = festivoServicio.findAll();
-
-		for (int i = 0; i < festivos.size(); i++) {
-			if (festivos.get(i).getFecha().getDayOfWeek().getValue() == 7) {
+			if (festivos.get(i).getFecha().getDayOfWeek().getValue() == 7 && !festivos.get(i).isListar()) {
 				festivoServicio.delete(festivos.get(i));
 			}
 		}

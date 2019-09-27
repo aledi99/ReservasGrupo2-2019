@@ -101,7 +101,18 @@ public class FestivoServicio extends ServicioBase<Festivo, Long, FestivoReposito
 		return encontrado;
 	}
 	
-	
+	public List<Festivo> listarFestivosSinFinesDeSemana() {
+		List<Festivo> festivos = new ArrayList<Festivo>();
+		LocalDate hoy = LocalDate.now();
+		
+		for (Festivo f : repositorio.findAll()) {
+			if (f.isListar() && hoy.getYear() <= f.getFecha().getYear()) {
+				festivos.add(f);
+			}
+		}
+		
+		return festivos;
+	}
 	
 	
 }

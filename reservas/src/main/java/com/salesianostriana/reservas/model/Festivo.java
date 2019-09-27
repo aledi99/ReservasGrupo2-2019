@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.UniqueConstraint;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -21,6 +23,8 @@ public class Festivo {
 	private long id;
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private LocalDate fecha;
+	@NotNull
+	private boolean listar;
 	
 	
 }

@@ -12,67 +12,105 @@
 					class="nav-link col-lg-12 col-md-4 col-4 p-4 rounded-0 text-white"
 					href="#" th:href="@{/admin/espacios}"><span class=" text-white"
 					th:text="#{espacios}">Espacios</span></a> <a
-					class="nav-link col-lg-12 col-md-4 col-4 boton p-4 rounded-0 text-white bg-warning"
+					class="nav-link col-lg-12 col-md-4 col-4 boton p-4 rounded-0 text-white bg-secondary"
 					href="#" th:href="@{/admin/festivos}"><span class=" text-white"
 					th:text="#{festivos}">Festivos</span></a> <a
-					class="nav-link col-lg-12 col-md-4 col-4 p-4 rounded-0 text-white" href="#"
-					th:href="@{/admin/reservas}"><span class=" text-white"
+					class="nav-link col-lg-12 col-md-4 col-4 p-4 rounded-0 text-white"
+					href="#" th:href="@{/admin/reservas}"><span class=" text-white"
 					th:text="#{reservas}">Reservas</span></a> <a
-					class="nav-link col-lg-12 col-md-4 col-4 p-4 rounded-0 text-white" href="#"
-					th:href="@{/admin/solicitudes}"><span class=" text-white"
-					th:text="#{solicitudes}">Solicitudes</span></a> <a
-					class="nav-link col-lg-12 col-md-4 col-4 p-4 rounded-0 text-white" href="#"
-					th:href="@{/admin/usuarios}"><span class=" text-white"
+					class="nav-link col-lg-12 col-md-4 col-4 p-4 rounded-0 text-white"
+					href="#" th:href="@{/admin/solicitudes}"><span
+					class=" text-white" th:text="#{solicitudes}">Solicitudes</span></a> <a
+					class="nav-link col-lg-12 col-md-4 col-4 p-4 rounded-0 text-white"
+					href="#" th:href="@{/admin/usuarios}"><span class=" text-white"
 					th:text="#{usuarios}">Usuarios</span></a>
 
 			</nav>
 		</div>
 	</aside>
-	<section class="float-left col-lg-8 p-0 mt-3 ml-3">
+	<section class="float-left col-9 p-0 mt-3 ml-3">
 		<div class="containter-fluid">
-			<div class="row">
-				<div class="col-12 ">
-					<h4 th:text="#{escojaF}">Escoja una fecha del calendario para marcarla como día
-						festivo</h4>
-					<form class="border border-0 "
-						th:action="@{/admin/festivos/submit}" th:object="${formbeanFecha}"
-						method="post" id="buscarFecha">
-						<div class="col-12 form-group float-left p-0 m-0">
-							<input type='text' th:placeholder="#{selecF}" required
-								class="col-8 datepicker float-left mr-2" id="cal"
-								th:field="*{fecha}" data-date-format="dd/mm/yyyy"
-								onchange="enviar('buscarFecha')" />
+			<div class="mx-auto text-center">
+				<div class="row">
+					<div class="col-12 mx-auto">
+						<h4 th:text="#{escojaF}">Escoja una fecha del calendario para
+							marcarla como día festivo (se deshabilitarán las reservas durante
+							los días marcados como festivos)</h4>
+						<form class="border border-0 col-6 mx-auto"
+							th:action="@{/admin/festivos/submit}"
+							th:object="${formbeanFecha}" method="post" id="buscarFecha">
+							<div class="col-12 form-group float-left p-0 m-0">
+								<input type='text' th:placeholder="#{selecF}" required
+									class="col-8 datepicker float-left mr-2" id="cal"
+									th:field="*{fecha}" data-date-format="dd/mm/yyyy"
+									onchange="enviar('buscarFecha')" />
 
-						</div>
-					</form>
+							</div>
+						</form>
+					</div>
 				</div>
+				<div class="bg-danger col-8 mx-auto">
+					<p class="font-weight-bold text-white">
+						Las reservas están <span th:if="${sabado}">habilitadas (NO son festivos)</span><span
+							th:if="${!sabado}">deshabilitadas (SON festivos)</span> los sábados.
+					</p>
+					<p class="font-weight-bold text-white">
+						Las reservas están <span th:if="${domingo}">habilitadas (NO son festivos)</span><span
+							th:if="${!domingo}">deshabilitadas (SON festivos)</span> los domingos.
+					</p>
+				</div>
+				<div class="col-6 text-right float-left my-2" th:if="${!sabado}">
+					<a href="#" th:href="@{/admin/habilitarSabados}" id=""
+						class="btn btn-success w-100" role="button"><span
+						th:text="#{habR}">Habilitar reservas los sábados</span><i
+						class="fas fa-wrench"></i> </a>
+				</div>
+				<div class="col-6 text-right float-left my-2" th:if="${sabado}">
+					<a href="#" th:href="@{/admin/deshabilitarSabados}" id=""
+						class="btn btn-success w-100" role="button"><span
+						th:text="#{deshabR}">Deshabilitar reservas los sábados</span><i
+						class="fas fa-wrench"></i> </a>
+				</div>
+				<div class="col-6 text-right float-right my-2" th:if="${!domingo}">
+					<a href="#" th:href="@{/admin/habilitarDomingos}" id=""
+						class="btn btn-success w-100" role="button"><span
+						th:text="#{habDom}">Habilitar reservas los domingos</span><i
+						class="fas fa-wrench"></i> </a>
+				</div>
+				<div class="col-6 text-right float-right my-2" th:if="${domingo}">
+					<a href="#" th:href="@{/admin/deshabilitarDomingos}" id=""
+						class="btn btn-success w-100" role="button"><span
+						th:text="#{deshabDom}">Deshabilitar reservas los domingos</span><i
+						class="fas fa-wrench"></i> </a>
+				</div>
+
 			</div>
 
-			<div class="col-5 text-right float-left my-2" th:if="${!sabado}">
-				<a href="#" th:href="@{/admin/habilitarSabados}" id=""
-					class="btn btn-success w-100" role="button"><span th:text="#{habR}">Habilitar reservas
-					los sábados</span><i class="fas fa-wrench"></i>
-				</a>
-			</div>
-			<div class="col-5 text-right float-left my-2" th:if="${sabado}">
-				<a href="#" th:href="@{/admin/deshabilitarSabados}" id=""
-					class="btn btn-success w-100" role="button"><span th:text="#{deshabR}">Deshabilitar
-					reservas los sábados</span><i class="fas fa-wrench"></i>
-				</a>
-			</div>
-			<div class="col-5 text-right float-left my-2" th:if="${!domingo}">
-				<a href="#" th:href="@{/admin/habilitarDomingos}" id=""
-					class="btn btn-success w-100" role="button"><span th:text="#{habDom}">Habilitar reservas
-					los domingos</span><i class="fas fa-wrench"></i>
-				</a>
-			</div>
-			<div class="col-5 text-right float-left my-2" th:if="${domingo}">
-				<a href="#" th:href="@{/admin/deshabilitarDomingos}" id=""
-					class="btn btn-success w-100" role="button"><span th:text="#{deshabDom}">Deshabilitar
-					reservas los domingos</span><i class="fas fa-wrench"></i>
-				</a>
+			<div th:if="${!festivos.isEmpty()}">
+				<table class="table mx-auto text-center">
+					<thead class="thead-dark">
+						<tr>
+							<th scope="col"><span th:text="#{fecha}">Fecha</span></th>
+							<th scope="col"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="festivo : ${festivos}">
+							<td th:text="${festivo.fecha}">Fecha</td>
+							<td><a href="#"
+								th:href="@{/admin/eliminarFestivo/{id}(id=${festivo.id})}">
+									<i class="fas fa-trash"></i>
+							</a></td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
 
+			<div th:if="${festivos.isEmpty()}">
+				<p>No hay festivos añadidos actualmente. (Si tiene todos los
+					sábados y/o domingos definidos como festivos, no aparecerán en esta
+					lista)</p>
+			</div>
 
 		</div>
 	</section>
