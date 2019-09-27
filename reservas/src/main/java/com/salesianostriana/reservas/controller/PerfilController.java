@@ -38,7 +38,7 @@ public class PerfilController {
 	@GetMapping("/user/perfil/editPerfil")
 	public String editPerfil(Model model, Principal p) {
 		model.addAttribute("usuario", us.buscarUsuarioLogged(p));
-		return "pagEstaticas/antiguo/Sign Up";
+		return "user/editForm";
 	}
 
 	@PostMapping("/user/perfil/editPerfil/submit")
