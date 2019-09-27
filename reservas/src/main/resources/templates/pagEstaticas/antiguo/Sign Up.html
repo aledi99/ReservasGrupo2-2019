@@ -3,28 +3,28 @@
 <head th:replace="pagEstaticas/head :: headFragment (titulo='EditForm')">
 </head>
 <body class="pepe">
+	<nav th:replace="user/navegadorUsuario :: navegadorUsuario"></nav>
 
-	<a class="text-decoration-none" href="../pagEstaticas/Login2.html"
-			th:href="@{/user/inicio}"><img src="img/Logo-horizontal-segundo-nivel.png" class="img-fluid imagen ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="Logo Salesianos Triana">
-			</a>
 	<div class="form-group pais">
-          <label for=""></label>
-          <select class="form-control col-sm-12" name="lenguaje" onchange="location = this.value;" id="leng">
-            <option value=""><span th:text="#{seleccionaI}">Selecciona el idioma</span></option>
-            <option value="?lang=es"><span th:text="#{spain}">Español</span></option>
-            <option value="?lang=eng"><span th:text="#{english}">English</option>
-          </select>
-        </div>
+		<label for=""></label> <select class="form-control col-sm-12"
+			name="lenguaje" onchange="location = this.value;" id="leng">
+			<option value=""><span th:text="#{seleccionaI}">Selecciona
+					el idioma</span></option>
+			<option value="?lang=es"><span th:text="#{spain}">Español</span></option>
+			<option value="?lang=eng"><span th:text="#{english}">English</option>
+		</select>
+	</div>
 
-	<form class="form-horizontal formularioD col-md-5" name="form1"
-		method="POST"
-		onsubmit="return comprobarPassword() && valida()"
-		action="#" th:action="@{/user/perfil/editPerfil/submit}" th:object="${usuario}"
-		role="form">
+	<form class="form-horizontal formularioD col-md-5 bg-light" name="form1"
+		method="POST" onsubmit="return comprobarPassword() && valida()"
+		action="#" th:action="@{/user/perfil/editPerfil/submit}"
+		th:object="${usuario}" role="form">
 		<fieldset>
 
-			<input id="reCorreo" name="prependedtext" class="form-control" type="hidden" th:field="*{email}">
-			<input id="id" name="prependedtext" class="form-control" type="hidden" th:field="*{id}">
+			<input id="reCorreo" name="prependedtext" class="form-control"
+				type="hidden" th:field="*{email}"> <input id="id"
+				name="prependedtext" class="form-control" type="hidden"
+				th:field="*{id}">
 
 			<!-- Form Name -->
 			<legend class="grande">

@@ -4,19 +4,22 @@
 </head>
 <body class="pepe">
 
-	<a class="text-decoration-none" href="../pagEstaticas/Login2.html"
-			th:href="@{/}"><img src="img/Logo-horizontal-segundo-nivel.png" class="img-fluid imagen ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="Logo Salesianos Triana">
-			</a>
+	<a href="../pagEstaticas/Login2.html" th:href="@{/}"><img
+		src="img/Logo-horizontal-segundo-nivel.png"
+		class="img-fluid imagen ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
+		alt="Logo Salesianos Triana" style="border-style: none"> </a>
 	<div class="form-group pais">
-          <label for=""></label>
-          <select class="form-control col-sm-12" name="lenguaje" onchange="location = this.value;" id="leng">
-            <option value=""><span th:text="#{seleccionaI}">Selecciona el idioma</span></option>
-            <option value="?lang=es"><span th:text="#{spain}">Español</span></option>
-            <option value="?lang=eng"><span th:text="#{english}">English</option>
-          </select>
-        </div>
+		<label for=""></label> <select class="form-control col-sm-12"
+			name="lenguaje" onchange="location = this.value;" id="leng">
+			<option value=""><span th:text="#{seleccionaI}">Selecciona
+					el idioma</span></option>
+			<option value="?lang=es"><span th:text="#{spain}">Español</span></option>
+			<option value="?lang=eng"><span th:text="#{english}">English</option>
+		</select>
+	</div>
 
-	<form class="form-horizontal formularioD col-md-5" name="form1" method="POST"
+	<form class="form-horizontal formularioD col-md-5" name="form1"
+		method="POST"
 		onsubmit="return comprobarPassword() && comprobarCorreo() && valida()"
 		action="#" th:action="@{/signup/submit}" th:object="${usuario}"
 		role="form">
@@ -115,22 +118,22 @@
 						contraseñas deben de coincidir</span>
 				</div>
 			</div>
-			
+
 			<!-- Multiple Checkboxes (inline) -->
-				<div class="form-group acepto">
-					<div class="">
-						<label class="checkbox-inline" for="checkboxes-0"> <h7
-								class="acepto" th:text="#{terminos}">Acepto los términos de
-							esta página</h7> <input class="check" type="checkbox"
-							name="checkboxes" id="checkboxes-0" value="1" required>
-						</label>
-					</div>
+			<div class="form-group acepto">
+				<div class="">
+					<label class="checkbox-inline" for="checkboxes-0"> <h7
+							class="acepto" th:text="#{terminos}">Acepto los términos de
+						esta página</h7> <input class="check" type="checkbox" name="checkboxes"
+						id="checkboxes-0" value="1" required>
+					</label>
 				</div>
+			</div>
 
 
 			<!-- Button -->
 			<div class="form-group final">
-				
+
 				<div class="col-md-4">
 					<button id="singlebutton" name="singlebutton" type="submit"
 						value="submit" class="btn btn-dark">
