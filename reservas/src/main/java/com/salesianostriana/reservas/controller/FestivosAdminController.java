@@ -17,6 +17,19 @@ import com.salesianostriana.reservas.service.ReservaServicio;
 @RequestMapping("/admin")
 public class FestivosAdminController {
 
+	/*
+	 * OJO A LA ANOTACIÓN DE CLASE "@RequestMapping("/admin")". Todos
+	 * los @GetMapping
+	 * 
+	 * que se incluyan en esta clase irán precedidos de "/admin". Es decir,
+	 * 
+	 * si creas un método anotado con "@GetMapping("/aulas")" la URL para llegar
+	 * 
+	 * a la plantilla que devuelva NO será "localhost:9000/aulas", sino que será
+	 * 
+	 * "localhost:9000/admin/aulas".
+	 */
+
 	FestivoServicio festivoServicio;
 	ReservaServicio reservaServicio;
 	boolean festivoYaExiste = false;
@@ -28,6 +41,11 @@ public class FestivosAdminController {
 		this.reservaServicio = reservaServicio;
 	}
 
+	/**
+	 * Método que controla la pantalla de gestión de festivos de admin. El if es por
+	 * si el administrador intenta marcar como festivo un día que ya está en la base
+	 * de datos marcado como festivo.
+	 */
 	@GetMapping("/festivos")
 	public String festivos(Model model) {
 		model.addAttribute("formbeanFecha", new FormbeanFecha());
@@ -43,6 +61,14 @@ public class FestivosAdminController {
 		return "admin/festivos";
 	}
 
+	/**
+	 * Comprueba si el festivo que se está tratando de añadir existe ya en la base
+	 * de datos. En caso afirmativo devuelve un error pero no detiene la ejecución
+	 * del programa ni guarda la fecha en la tabla de festivos de la base de datos
+	 * 
+	 * @param ff Bean que le pasa al fecha al controlador desde la plantilla
+	 *           Thymeleaf
+	 */
 	@PostMapping("/festivos/submit")
 	public String anadirDiaFestivo(@ModelAttribute("formbeanFecha") FormbeanFecha ff, Model model) {
 		LocalDate date = ff.getFecha();
@@ -60,6 +86,16 @@ public class FestivosAdminController {
 
 	}
 
+	/**
+	 * Primero, determina con un boolean que los sabados están deshabilitados para
+	 * que en la plantilla de Thymeleaf aparezca el botón de habilitarlos en vez del
+	 * de deshabilitarlos. Después, guarda todos los sábados de este año y el
+	 * siguiente en la tabla de festivos. No guardamos los sábados de más años
+	 * porque en algún punto había que parar para no hacer el tiempo de ejecución de
+	 * este método infinito y con dos años nos parecía suficiente. Si intenta añadir
+	 * un sábado que ya estaba marcado como festivo no lo guarda para evitar la
+	 * redundancia en la bbdd.
+	 */
 	@GetMapping("/deshabilitarSabados")
 	public String deshabilitarSabados() {
 
@@ -79,6 +115,16 @@ public class FestivosAdminController {
 		return "redirect:/admin/festivos";
 	}
 
+	/**
+	 * Primero, determina con un boolean que los domingos están deshabilitados para
+	 * que en la plantilla de Thymeleaf aparezca el botón de habilitarlos en vez del
+	 * de deshabilitarlos. Después, guarda todos los domingos de este año y el
+	 * siguiente en la tabla de festivos. No guardamos los domingos de más años
+	 * porque en algún punto había que parar para no hacer el tiempo de ejecución de
+	 * este método infinito y con dos años nos parecía suficiente. Si intenta añadir
+	 * un domingo que ya estaba marcado como festivo no lo guarda para evitar la
+	 * redundancia en la bbdd.
+	 */
 	@GetMapping("/deshabilitarDomingos")
 	public String deshabilitarDomingos() {
 
@@ -97,6 +143,14 @@ public class FestivosAdminController {
 		return "redirect:/admin/festivos";
 	}
 
+	/**
+	 * Primero, determina con un boolean que los sábados están habilitados para que
+	 * en la plantilla de Thymeleaf aparezca el botón de deshabilitarlos en vez del
+	 * de habilitarlos. Después, borra todos los sábados de la tabla de festivos de
+	 * la bbdd. En caso de haber introducido un sábado de manera manual en el
+	 * calendario se entenderá que es un sábado especial y ha de seguir siendo
+	 * festivo, por lo que no se borrará.
+	 */
 	@GetMapping("/habilitarSabados")
 	public String habilitarSabados() {
 
@@ -113,6 +167,14 @@ public class FestivosAdminController {
 		return "redirect:/admin/festivos";
 	}
 
+	/**
+	 * Primero, determina con un boolean que los domingos están habilitados para que
+	 * en la plantilla de Thymeleaf aparezca el botón de deshabilitarlos en vez del
+	 * de habilitarlos. Después, borra todos los domingos de la tabla de festivos de
+	 * la bbdd. En caso de haber introducido un domingo de manera manual en el
+	 * calendario se entenderá que es un domingo especial y ha de seguir siendo
+	 * festivo, por lo que no se borrará.
+	 */
 	@GetMapping("/habilitarDomingos")
 	public String habilitarDomingos() {
 

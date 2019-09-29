@@ -19,6 +19,11 @@ public class Festivo {
 	private long id;
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private LocalDate fecha;
+	/**
+	 * Determina si el festivo en cuestión debería aparecer en la lista de la pantalla de gestión de admin o no.
+	 * Es necesario porque si no estuviera y los sábados y/o los domingos estuvieran marcados como festivos, la lista
+	 * sería demasiado larga inútilmente.
+	 */
 	@NotNull
 	private boolean listar;
 	

@@ -13,6 +13,19 @@ import com.salesianostriana.reservas.service.UsuarioServicio;
 @Controller
 @RequestMapping("/admin")
 public class UsuarioAdminController {
+	
+	/*
+	 * OJO A LA ANOTACIÓN DE CLASE "@RequestMapping("/admin")". Todos
+	 * los @GetMapping
+	 * 
+	 * que se incluyan en esta clase irán precedidos de "/admin". Es decir,
+	 * 
+	 * si creas un método anotado con "@GetMapping("/aulas")" la URL para llegar
+	 * 
+	 * a la plantilla que devuelva NO será "localhost:9000/aulas", sino que será
+	 * 
+	 * "localhost:9000/admin/aulas".
+	 */
 
 	private UsuarioServicio usuarioservicio;
 
@@ -20,12 +33,12 @@ public class UsuarioAdminController {
 		this.usuarioservicio = usuarioservicio;
 	}
 	
+	
 	@ModelAttribute("usuarios")
 	public void listaSolicitudes(Model model) {
 		model.addAttribute("usuarios", usuarioservicio.buscarPorGestionadoFalse());
 	}
 	
-
 	@GetMapping("/solicitudes")
 	public String solicitudes(Model model) {
 		

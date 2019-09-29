@@ -14,7 +14,7 @@ import com.salesianostriana.reservas.service.AulaServicio;
 @RequestMapping("/admin")
 public class AulasAdminController {
 	
-	/**
+	/*
 	 * OJO A LA ANOTACIÓN DE CLASE "@RequestMapping("/admin")". Todos los @GetMapping 
 	 * 
 	 * que se incluyan en esta clase irán precedidos de "/admin". Es decir, 
