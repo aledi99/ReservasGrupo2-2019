@@ -1,6 +1,8 @@
 package com.salesianostriana.reservas.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.salesianostriana.reservas.model.Aula;
@@ -21,5 +23,9 @@ public class AulaServicio extends ServicioBase<Aula, Long, AulaRepository> {
 	public void eliminarAula(Aula aula) {
 		rs.eliminarReservasPorAula(aula);
 		repositorio.delete(aula);
+	}
+	
+	public Page<Aula> findAll(Pageable pageable) {
+		return repositorio.findAll(pageable);
 	}
 }

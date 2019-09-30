@@ -1,6 +1,12 @@
 # ReservasGrupo2019
 ## Descripción
-Proyecto del grupo 2 de 1ºDAM sobre gestionar reservas de espacios en un centro, desde dos usuarios con funcionalidades diferenciadas: administrador y usuario.
+Proyecto del grupo 2 de 1ºDAM sobre gestionar reservas de espacios en un centro, desde dos usuarios con funcionalidades diferenciadas: administrador y usuario. 
+
+Los componentes del grupo autor del proyecto son:
+##### Esperanza Escacena
+##### Alejandro Díaz
+##### Jose Manuel Terrero
+##### Álvaro Márquez
 
 ## Funcionamiento
 Primero has de acceder al repositorio de github (en el que deberías estar si estás leyendo este readme. URL: https://github.com/EsperanzaMacarena/ReservasGrupo2-2019). Una vez en él has de hacer click en la opción de "Clone or download". Puedes descargártelo en .zip sin necesidad de ningún otro programa o utilizar la url del repositorio para clonarlo con ayuda de algún programa que tenga el entorno de git incluido (GitHub Desktop, cmder...). 
