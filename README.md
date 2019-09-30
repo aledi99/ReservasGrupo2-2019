@@ -1,4 +1,4 @@
-# ReservasGrupo2019
+# ReservasGrupo2-2019
 ## Descripción
 Proyecto del grupo 2 de 1ºDAM sobre gestionar reservas de espacios en un centro, desde dos usuarios con funcionalidades diferenciadas: administrador y usuario. 
 
