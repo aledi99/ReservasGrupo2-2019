@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="pagEstaticas/head :: headFragment (titulo='EditForm')">
+<head th:replace="pagEstaticas/head :: headFragment (titulo='Editar perfil')">
 </head>
 <body class="pepe">
 	<nav th:replace="user/navegadorUsuario :: navegadorUsuario"></nav>
@@ -55,7 +55,7 @@
 			<!-- Password input-->
 			<div class="form-group">
 				<label class="col-md-8 control-label" for="passwordinput"
-					th:text="#{contrasenya}">Contraseña</label>
+					th:text="#{contrasenya}">Nueva contraseña</label>
 				<div class="col-md-10">
 					<input id="passwordInput" name="passwordInput" type="password"
 						th:field="*{password}" placeholder="..."
