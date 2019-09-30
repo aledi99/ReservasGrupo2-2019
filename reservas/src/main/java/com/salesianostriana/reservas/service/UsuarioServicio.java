@@ -3,6 +3,8 @@ package com.salesianostriana.reservas.service;
 import java.security.Principal;
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.salesianostriana.reservas.model.Usuario;
@@ -54,13 +56,17 @@ public class UsuarioServicio extends ServicioBase<Usuario, Long, UsuarioReposito
 	 * Realizado por Álvaro Márquez. Busca los usuarios gestionados no administradores
 	 * @return
 	 */
-	public List<Usuario> buscarPorGestionadoTrueAndAdminFalse() {
-		return repositorio.findAllByGestionadoTrueAndAdminFalse();
+	public Page<Usuario> buscarPorGestionadoTrueAndAdminFalse(Pageable pageable) {
+		return repositorio.findAllByGestionadoTrueAndAdminFalse(pageable);
 	}
 	/**
 	 * Realizado por Álvaro Márquez. Busca los usuarios no gestionados.
 	 * @return
 	 */
+	public Page<Usuario> buscarPorGestionadoFalse(Pageable pageable) {
+		return repositorio.findAllByGestionadoFalse(pageable);
+	}
+	
 	public List<Usuario> buscarPorGestionadoFalse() {
 		return repositorio.findAllByGestionadoFalse();
 	}

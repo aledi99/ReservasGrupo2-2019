@@ -61,6 +61,40 @@
 					</tr>
 				</tbody>
 			</table>
+			<div class="row">
+				<div th:if="${usuarios.totalPages != 1}"
+					class="form-group col-md-11 pagination-centered">
+					<ul class="pagination">
+						<li th:class="${usuarios.number == 1} ? disabled"><a
+							class="pageLink"
+							th:href="@{/admin/solicitudes/(pageSize=${selectedPageSize}, page=1, nombre=${param.nombre})}">&laquo;</a>
+						</li>
+
+						<li th:class="${usuarios.number == 1} ? disabled"><a
+							class="pageLink"
+							th:href="@{/admin/solicitudes/(pageSize=${selectedPageSize}, page=${usuarios.number}, nombre=${param.nombre})}">&larr;</a>
+						</li>
+
+						<li
+							th:class="${usuarios.number == (page - 1)} ? 'active pointer-disabled'"
+							th:each="page : ${#numbers.sequence(pager.startPage, pager.endPage)}">
+							<a class="pageLink"
+							th:href="@{/admin/solicitudes/(pageSize=${selectedPageSize}, page=${page}, nombre=${param.nombre})}"
+							th:text="${page}"></a>
+						</li>
+
+						<li th:if="${usuarios.number + 1 != usuarios.totalPages}">
+							<a class="pageLink"
+							th:href="@{/admin/solicitudes/(pageSize=${selectedPageSize}, page=${usuarios.number + 2}, nombre=${param.nombre})}">&rarr;</a>
+						</li>
+
+						<li th:if="${usuarios.number + 1 != usuarios.totalPages}">
+							<a class="pageLink"
+							th:href="@{/admin/solicitudes/(pageSize=${selectedPageSize}, page=${usuarios.totalPages}, nombre=${param.nombre})}">&raquo;</a>
+						</li>
+					</ul>
+				</div>
+			</div>
 		</div>
 
 		<div th:if="${usuarios.isEmpty()}">
