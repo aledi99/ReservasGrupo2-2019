@@ -3,7 +3,11 @@ package com.salesianostriana.reservas.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+/**
+ * Esta clase gestiona la petición del menú de inicio del administrador
+ * @author Álvaro Márquez
+ *
+ */
 @Controller
 @RequestMapping("/admin")
 public class ComunAdminController {

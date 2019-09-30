@@ -7,7 +7,11 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+/**
+ * Clase que modela un aula
+ * @author J Manuel Terrero
+ *
+ */
 @Data @NoArgsConstructor
 @Entity
 @Table(name="Aula")

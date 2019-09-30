@@ -10,7 +10,11 @@ import org.springframework.format.annotation.DateTimeFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+/**
+ * Clase que modela un Festivo
+ * @author Álvaro Márquez
+ *
+ */
 @Data @NoArgsConstructor @AllArgsConstructor
 @Entity
 public class Festivo {

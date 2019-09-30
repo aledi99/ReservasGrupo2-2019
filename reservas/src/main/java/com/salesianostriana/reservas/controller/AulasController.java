@@ -9,7 +9,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.salesianostriana.reservas.service.AulaServicio;
 import com.salesianostriana.reservas.service.UsuarioServicio;
-
+/**
+ * 
+ * @author J Manuel Terrero
+ *
+ */
 @Controller
 public class AulasController {
 

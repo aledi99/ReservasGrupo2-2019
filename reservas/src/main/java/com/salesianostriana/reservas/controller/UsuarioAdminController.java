@@ -9,7 +9,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.salesianostriana.reservas.model.Usuario;
 import com.salesianostriana.reservas.service.UsuarioServicio;
-
+/**
+ * Esta clase gestiona las peticiones del administrador sobre la gestión del usuario
+ * @author Álvaro Márquez
+ *
+ */
 @Controller
 @RequestMapping("/admin")
 public class UsuarioAdminController {
@@ -28,7 +32,7 @@ public class UsuarioAdminController {
 	 */
 
 	private UsuarioServicio usuarioservicio;
-
+	
 	public UsuarioAdminController(UsuarioServicio usuarioservicio) {
 		this.usuarioservicio = usuarioservicio;
 	}
@@ -38,7 +42,11 @@ public class UsuarioAdminController {
 	public void listaSolicitudes(Model model) {
 		model.addAttribute("usuarios", usuarioservicio.buscarPorGestionadoFalse());
 	}
-	
+	/**
+	 * Muestra la plantilla donde se muestra las solicitudes de usuarios (no gestionados)
+	 * @param model
+	 * @return
+	 */
 	@GetMapping("/solicitudes")
 	public String solicitudes(Model model) {
 		
@@ -46,7 +54,12 @@ public class UsuarioAdminController {
 		return "admin/solicitudes";
 
 	}
-	
+	/**
+	 * Elimina la solicitud de un usuario
+	 * @param id ID del usuario a eliminar
+	 * @param model
+	 * @return Redirige a la página principal de solicitudes
+	 */
 	@GetMapping("/eliminarSolicitud/{id}")
 	public String eliminarSolicitud(@PathVariable("id") long id, Model model) {
 		usuarioservicio.deleteById(id);
@@ -54,7 +67,12 @@ public class UsuarioAdminController {
 		model.addAttribute("usuarios");
 		return "redirect:/admin/solicitudes";
 	}
-	
+	/**
+	 * Valida una solicitud
+	 * @param id ID del usuario a eliminar
+	 * @param model
+	 * @return Redirige a la página principal de solicitudes
+	 */
 	@PostMapping("/validar/{id}")
 	public String validarUsuario(@PathVariable("id") long id, Model model) {
 		Usuario usuario = usuarioservicio.findById(id);
@@ -64,7 +82,11 @@ public class UsuarioAdminController {
 		model.addAttribute("usuarios");
 		return "redirect:/admin/solicitudes";
 	}
-
+	/**
+	 * Muestra la plantilla de usuarios
+	 * @param model
+	 * @return
+	 */
 	@GetMapping("/usuarios")
 	public String usuarios(Model model) {
 		model.addAttribute("usuarios", usuarioservicio.buscarPorGestionadoTrueAndAdminFalse());

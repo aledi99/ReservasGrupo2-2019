@@ -3,7 +3,11 @@ package com.salesianostriana.reservas.model;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
+/**
+ * Clase que contiene las horas
+ * @author Alejandro Díaz
+ *
+ */
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter

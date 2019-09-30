@@ -12,7 +12,11 @@ import com.salesianostriana.reservas.formbean.FormbeanFecha;
 import com.salesianostriana.reservas.model.Festivo;
 import com.salesianostriana.reservas.service.FestivoServicio;
 import com.salesianostriana.reservas.service.ReservaServicio;
-
+/**
+ * Esta clase gestiona las peticiones sobre la gestión de fechas del administrador
+ * @author Álvaro Márquez
+ *
+ */
 @Controller
 @RequestMapping("/admin")
 public class FestivosAdminController {

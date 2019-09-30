@@ -9,7 +9,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.salesianostriana.reservas.model.Aula;
 import com.salesianostriana.reservas.service.AulaServicio;
-
+/**
+ * Esta clase gestiona las peticiones del administrador sobre la gestión de aulas
+ * @author Álvaro Márquez
+ *
+ */
 @Controller
 @RequestMapping("/admin")
 public class AulasAdminController {
