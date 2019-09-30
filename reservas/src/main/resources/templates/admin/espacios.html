@@ -52,12 +52,12 @@
 				<div th:if="${espacios.totalPages != 1}"
 					class="form-group col-md-11 pagination-centered">
 					<ul class="pagination">
-						<li th:class="${espacios.number == 1} ? disabled"><a
+						<li th:if="${espacios.number != 0}"><a
 							class="pageLink"
 							th:href="@{/admin/espacios/(pageSize=${selectedPageSize}, page=1, nombre=${param.nombre})}">&laquo;</a>
 						</li>
 
-						<li th:class="${espacios.number == 1} ? disabled"><a
+						<li th:if="${espacios.number != 0}"><a
 							class="pageLink"
 							th:href="@{/admin/espacios/(pageSize=${selectedPageSize}, page=${espacios.number}, nombre=${param.nombre})}">&larr;</a>
 						</li>

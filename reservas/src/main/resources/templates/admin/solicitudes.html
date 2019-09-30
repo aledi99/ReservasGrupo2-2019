@@ -65,12 +65,12 @@
 				<div th:if="${usuarios.totalPages != 1}"
 					class="form-group col-md-11 pagination-centered">
 					<ul class="pagination">
-						<li th:class="${usuarios.number == 1} ? disabled"><a
+						<li th:if="${usuarios.number != 0}"><a
 							class="pageLink"
 							th:href="@{/admin/solicitudes/(pageSize=${selectedPageSize}, page=1, nombre=${param.nombre})}">&laquo;</a>
 						</li>
 
-						<li th:class="${usuarios.number == 1} ? disabled"><a
+						<li th:if="${usuarios.number != 0}"><a
 							class="pageLink"
 							th:href="@{/admin/solicitudes/(pageSize=${selectedPageSize}, page=${usuarios.number}, nombre=${param.nombre})}">&larr;</a>
 						</li>
