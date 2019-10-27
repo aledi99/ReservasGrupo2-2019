@@ -21,4 +21,9 @@ public class Aula {
 	private long id;
 	private String nombre;
 	
+	public Aula(String nombre) {
+		super();
+		this.nombre = nombre;
+	}
+	
 }
