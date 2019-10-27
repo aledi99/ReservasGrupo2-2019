@@ -12,8 +12,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
+
 
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
@@ -295,6 +294,26 @@ public class ReservaServicioTest {
 
 	}
 	
+	@Test
+	public void testComprobarReservaImposibleHoraNull() {
+		assertDoesNotThrow(()->rs.comprobarReservaImposible(usuario1, date, null));
+		assertThat(rs.comprobarReservaImposible(usuario1, date, null)).isFalse();
+
+	}
+	
+	@Test
+	public void testComprobarReservaImposibleUsuarioNull() {
+		assertDoesNotThrow(()->rs.comprobarReservaImposible(null, date, Horas.PRIMERA));
+		assertThat(rs.comprobarReservaImposible(null, date, Horas.PRIMERA)).isFalse();
+
+	}
+	
+	@Test
+	public void testComprobarReservaImposibleFechaNull() {
+		assertDoesNotThrow(()->rs.comprobarReservaImposible(usuario1, null, Horas.PRIMERA));
+		assertThat(rs.comprobarReservaImposible(usuario1, null, Horas.PRIMERA)).isFalse();
+
+	}
 	
 	@Test
 	public void testBuscarReservasFuturas() {
