@@ -15,15 +15,15 @@ import com.salesianostriana.reservas.repository.AulaRepository;
 import com.salesianostriana.reservas.repository.ReservaRepository;
 
 
-//@DataJpaTest
+@DataJpaTest
 class ReservaRespositoryTest {
 	@Autowired
 	private ReservaRepository rr;
 
-//	@Test
-//	public void comprobarRepositorioIsNotNull() {
-//		assertThat(rr).isNotNull();
-//	}
+	@Test
+	public void comprobarRepositorioIsNotNull() {
+		assertThat(rr).isNotNull();
+	}
 	
 	/*@Sql("data2.sql")
 	@Test
