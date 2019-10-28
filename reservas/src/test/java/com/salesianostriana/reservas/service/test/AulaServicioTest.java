@@ -20,7 +20,7 @@ import com.salesianostriana.reservas.service.AulaServicio;
 
 @SpringBootTest
 public class AulaServicioTest {
-/*
+
 	@InjectMocks
 	private AulaServicio as;
 	
@@ -36,11 +36,11 @@ public class AulaServicioTest {
 
 	@Test
 	public void testEliminarAula() {
-		Aula aulaMock=new Aula();
+		Aula aulaMock = new Aula();
 		
-		List<Aula> mockList=Arrays.asList(aulaMock);
+		List<Aula> mockList = Arrays.asList(aulaMock);
 		
-		//when(ar.findAula(aulaMock)).thenReturn(mockList);
+		// when(ar.findAula(aulaMock)).thenReturn(mockList);
 		as.eliminarAula(aulaMock);
 		
 		verify(ar, times(1)).deleteAll(mockList);
@@ -56,5 +56,5 @@ public class AulaServicioTest {
 		assertDoesNotThrow(() -> as.eliminarAula(new Aula()));
 		
 	}
-	*/
+	
 }
