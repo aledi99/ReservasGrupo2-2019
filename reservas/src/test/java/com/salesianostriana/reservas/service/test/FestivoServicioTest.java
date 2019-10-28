@@ -1,4 +1,4 @@
-package com.salesianostriana.reservas.festivos.test;
+package com.salesianostriana.reservas.service.test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertFalse;
