@@ -1,0 +1,1 @@
+﻿insert into AULA (id, nombre) values (NEXTVAL('hibernate_sequence'), 'prueba');
