@@ -15,6 +15,7 @@ import java.util.List;
 
 
 import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -42,7 +43,7 @@ public class ReservaServicioTest {
 	@Mock
 	private ReservaRepository rr;
 	
-	@Before
+	@BeforeEach
 	public void initMocks() {
 		MockitoAnnotations.initMocks(this);
 	}

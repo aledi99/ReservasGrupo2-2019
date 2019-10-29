@@ -10,8 +10,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
@@ -20,6 +20,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import com.salesianostriana.reservas.model.Festivo;
 import com.salesianostriana.reservas.repository.FestivoRepository;
 import com.salesianostriana.reservas.service.FestivoServicio;
+
 
 @SpringBootTest
 public class FestivoServicioTest {
@@ -30,7 +31,7 @@ public class FestivoServicioTest {
 	@Mock
 	private FestivoRepository fr;
 	
-	@Before
+	@BeforeEach
 	public void initMocks() {
 		MockitoAnnotations.initMocks(this);
 	}
@@ -42,10 +43,10 @@ public class FestivoServicioTest {
 		sabYDom.add(DayOfWeek.SATURDAY);
 		sabYDom.add(DayOfWeek.SUNDAY);
 		
-		assertFalse(lista.isEmpty());
+		assertThat(lista.isEmpty()).isFalse();
 		
 		for (LocalDate d : lista) {
-			assertThat(sabYDom.contains(d.getDayOfWeek()));
+			assertThat(sabYDom.contains(d.getDayOfWeek())).isTrue();
 		}
 	}
 	
@@ -55,10 +56,10 @@ public class FestivoServicioTest {
 		List<DayOfWeek> sab = new ArrayList<>();
 		sab.add(DayOfWeek.SATURDAY);
 
-		assertFalse(lista.isEmpty());
+		assertThat(lista.isEmpty()).isFalse();
 		
 		for (LocalDate d : lista) {
-			assertThat(sab.contains(d.getDayOfWeek()));
+			assertThat(sab.contains(d.getDayOfWeek())).isTrue();
 		}
 	}
 	
@@ -68,10 +69,10 @@ public class FestivoServicioTest {
 		List<DayOfWeek> dom = new ArrayList<>();
 		dom.add(DayOfWeek.SUNDAY);
 
-		assertFalse(lista.isEmpty());
+		assertThat(lista.isEmpty()).isFalse();
 		
 		for (LocalDate d : lista) {
-			assertThat(dom.contains(d.getDayOfWeek()));
+			assertThat(dom.contains(d.getDayOfWeek())).isTrue();
 		}
 	}
 	
@@ -82,9 +83,9 @@ public class FestivoServicioTest {
 		festivos.add(f);
 		when(fr.findAll()).thenReturn(festivos);
 		
-		assertThat(fs.comprobarFestivo(LocalDate.now()));
+		assertThat(fs.comprobarFestivo(LocalDate.now())).isTrue();
 		
-		assertFalse(fs.comprobarFestivo(LocalDate.of(1900, 1, 1)));
+		assertThat(fs.comprobarFestivo(LocalDate.of(1900, 1, 1))).isFalse();
 	}
 	
 	@Test

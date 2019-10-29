@@ -14,21 +14,27 @@ import com.salesianostriana.reservas.model.Reserva;
 import com.salesianostriana.reservas.repository.AulaRepository;
 import com.salesianostriana.reservas.repository.ReservaRepository;
 
-
 @DataJpaTest
 class ReservaRespositoryTest {
 	@Autowired
 	private ReservaRepository rr;
+	
+	@Autowired
+	private AulaRepository ar;
 
 	@Test
 	public void comprobarRepositorioIsNotNull() {
-		assertThat(rr).isNotNull();
+		Reserva r=new Reserva();
+		assertThat(r).isNotNull();
 	}
 	
-	/*@Sql("data2.sql")
+	
 	@Test
+	@Sql("../sql/data2.sql")
 	public void buscarPorFechaHoraYAula() {
+		
+		
 		Reserva reserva=rr.findByFechaAndHoraAndAula(LocalDate.of(2019,10, 27), Horas.PRIMERA, ar.findById(5L).orElse(null));
 		assertThat(reserva!=null).isTrue();
-	}*/
+	}
 }

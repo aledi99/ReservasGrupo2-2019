@@ -71,6 +71,11 @@
 		    <artifactId>jquery</artifactId>
 		    <version>3.4.1</version>
 		</dependency>
+		<!-- <dependency>
+		    <groupId>org.flywaydb</groupId>
+		    <artifactId>flyway-core</artifactId>
+		    <version>5.0.3</version>
+		</dependency> -->
 		<!-- NUEVA DEPENDENCIA SPRING SECURITY -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -117,6 +122,11 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+<!-- 				<configuration> -->
+<!-- 					<profiles> -->
+<!-- 						<profile>dev</profile> -->
+<!-- 					</profiles> -->
+<!-- 				</configuration> -->
 			</plugin>
 			
 		</plugins>

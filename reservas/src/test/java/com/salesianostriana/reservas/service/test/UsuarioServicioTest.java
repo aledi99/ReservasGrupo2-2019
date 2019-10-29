@@ -1,29 +1,20 @@
 package com.salesianostriana.reservas.service.test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.when;
 
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
-import org.assertj.core.util.Arrays;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.mockito.Spy;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.security.core.userdetails.User;
 
-import com.salesianostriana.reservas.ReservasApplication;
-import com.salesianostriana.reservas.model.Aula;
-import com.salesianostriana.reservas.model.Horas;
 import com.salesianostriana.reservas.model.Usuario;
 import com.salesianostriana.reservas.repository.UsuarioRepository;
 import com.salesianostriana.reservas.service.UsuarioServicio;
@@ -43,7 +34,7 @@ public class UsuarioServicioTest {
 	@Mock
 	private UsuarioRepository ur;
 
-	@Before
+	@BeforeEach
 	public void initMocks() {
 		MockitoAnnotations.initMocks(this);
 	}
