@@ -102,7 +102,7 @@ public class FestivoServicioTest {
 		
 		assertThat(resultados.contains(listar));
 		
-		assertFalse(resultados.contains(noListar));
+		assertThat(resultados.contains(noListar)).isFalse();
 		
 	}
 	
